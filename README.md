@@ -7,7 +7,6 @@ This is my web development portfolio, showcasing my skills, projects, and inform
 - [My Web Development Portfolio](#my-web-development-portfolio)
   - [Table of Contents](#table-of-contents)
   - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
     - [Installation](#installation)
   - [Usage](#usage)
   - [Contributing](#contributing)
@@ -17,13 +16,6 @@ This is my web development portfolio, showcasing my skills, projects, and inform
 ## Getting Started
 
 To get a local copy up and running follow these simple steps.
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/en/)
-- [Vite](https://vitejs.dev/)
-- [Bootstrap](https://getbootstrap.com/)
-- [Sass](https://sass-lang.com/)
 
 ### Installation
 
@@ -38,7 +30,7 @@ To get a local copy up and running follow these simple steps.
 
    ```sh
    npm run dev
-   
+
    ```
 
 ## Usage
