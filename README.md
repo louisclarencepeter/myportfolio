@@ -55,9 +55,3 @@ Distributed under the MIT License.
 
 louisclarencepeters@gmail.com
 
-Project Link: [
-www.louispeter.com
-](https://www.louispeter.com)
-
-[product-screenshot]: images/screenshot.png
-
