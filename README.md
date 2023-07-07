@@ -54,4 +54,3 @@ Distributed under the MIT License.
 ## Contact
 
 louisclarencepeters@gmail.com
-
