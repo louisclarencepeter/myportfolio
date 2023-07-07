@@ -34,26 +34,11 @@ To get a local copy up and running follow these simple steps.
 
    ```
 
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
-3. Start the development server
+2. Start the development server
+
    ```sh
    npm run dev
-   ```
-4. Build the project
-
-   ```sh
-
-   npm run build
-   ```
-
-5. Preview the built project
-
-   ```sh
-
-   npm run serve
+   
    ```
 
 ## Usage
