@@ -1,10 +1,11 @@
+import Home from './Home'; // Assuming it's in the same directory
+
 function App() {
-
-  return (
-    <>
-
-    </>
-  )
+    return (
+        <div className="App">
+            <Home />
+        </div>
+    );
 }
 
-export default App
+export default App;
