@@ -80,7 +80,7 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-image: url(./images/web-page-background-images-hd.jpg);
+    background-image: url(../assets/images/background.jpg);
     padding: 2rem 1rem;
 }
 
