@@ -1,4 +1,5 @@
-import Home from './components/Home'; // Assuming it's in the same directory
+import Home from './components/Home';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 function App() {
     return (
