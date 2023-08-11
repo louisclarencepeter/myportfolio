@@ -1,6 +1,6 @@
 import React from 'react';
 import myLogo from '../assets/images/me.jpg';
-import '../styles/home.css';
+import '../styles/home.scss';
 
 const Home = () => {
     return (
