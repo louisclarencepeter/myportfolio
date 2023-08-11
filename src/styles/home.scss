@@ -3,158 +3,161 @@
 *,
 :after,
 :before {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 @font-face {
-    font-family: 'Space Mono';
-    src: url(./fonts/SpaceMono-Regular.ttf) format('truetype');
+  font-family: "Space Mono";
+  src: url(./fonts/SpaceMono-Regular.ttf) format("truetype");
 }
 
 :root {
-    font-size: calc(1rem + 0.5vw); 
-    font-family: 'Space Mono', monospace;
-    color: #fffffe;
+  font-size: calc(1rem + 0.5vw);
+  font-family: "Space Mono", monospace;
+  color: #fffffe;
 }
 
 html {
-    display: block;
+  display: block;
 }
 
 body {
-    margin: 0 auto;
-    padding: 0;
-    font-family: 'Space Mono', monospace;
-    background-color: #0f0e17;
-    display: block;
+  margin: 0 auto;
+  padding: 0;
+  font-family: "Space Mono", monospace;
+  background-color: #0f0e17;
+  display: block;
 }
 
 /* Header */
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-    font-size: 1rem;
-    font-weight: 400;
-    margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
 
-    img {
-        width: 2rem;
-        height: 2rem;
-    }
+  img {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 
 ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 a {
-    text-decoration: none;
-    color: #fffffe;
-    font-size: 0.8rem;
+  text-decoration: none;
+  color: #fffffe;
+  font-size: 0.8rem;
 
-    &:hover {
-        color: #ff8906;
-        cursor: pointer;
-    }
+  &:hover {
+    color: #ff8906;
+    cursor: pointer;
+  }
 }
 
 li {
-    list-style: none;
-    padding: 0.5rem;
+  list-style: none;
+  padding: 0.5rem;
 
-    &:hover {
-        transform: scale(1.2);
-    }
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
 /* Main Content Page */
 
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-image: url(../assets/images/background.jpg);
-    padding: 2rem 1rem;
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url(../assets/images/background.jpg);
+  padding: 2rem 1rem;
 
-/* About Me Section */
+  /* About Me Section */
 
-article {
+  section {
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding: 1rem;
 
-    h1, h2, p {
-        font-weight: 400;
-        margin: 0;
+    h1,
+    h2,
+    p {
+      font-weight: 400;
+      margin: 0;
+      text-align: center;
     }
 
     h1 {
-        font-size: 3rem;
+      font-size: 3rem;
     }
 
     h2 {
-        font-size: 2rem;
+      font-size: 2rem;
     }
 
     p {
-        font-size: 1.5rem;
+      font-size: 1.5rem;
     }
+  }
 }
 
 /* Info Icons */
 
 .icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 2rem;
 
-    i {
-        font-size: 4rem;
-        padding: 0 1rem;
-    }
+  i {
+    font-size: 4rem;
+    padding: 0 1rem;
+  }
 
-    p {
-        font-size: 1rem;
-        text-align: center;
-    }
+  p {
+    font-size: 1rem;
+    text-align: center;
+  }
 }
 
 /* Footer */
 
 footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  height: 4rem;
+
+  div:nth-child(1) {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 0 1rem;
-    height: 4rem;
+    gap: 1.5rem;
+  }
 
-    div:nth-child(1) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1.5rem;
-    }
+  p {
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin: 0;
+  }
 
-    p {
-        font-size: 0.8rem;
-        font-weight: 400;
-        margin: 0;
-    }
-
-    i {
-        font-size: 1rem;
-        padding: 0.5rem;
-    }
+  i {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
 }
 
 /* Media Queries */
