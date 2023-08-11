@@ -1,4 +1,5 @@
 import React from 'react';
+import myLogo from '../assets/images/me.jpg';
 import '../styles/home.css';
 
 const Home = () => {
@@ -9,7 +10,7 @@ const Home = () => {
             <header>
                 <div>
                     <a href="./aboutme.html" aria-label="About Louis Peter">
-                        <img src="./images/IMG_8327.JPG" alt="Louis Peter Logo" />
+                        <img src={myLogo} alt="Louis Peter Logo" />
                     </a>
                 </div>
                 <nav>
