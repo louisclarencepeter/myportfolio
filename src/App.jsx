@@ -1,4 +1,4 @@
-import Home from './Home'; // Assuming it's in the same directory
+import Home from './components/Home'; // Assuming it's in the same directory
 
 function App() {
     return (
