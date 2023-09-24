@@ -47,8 +47,9 @@ This project is a single-page application built using Vite, React, Bootstrap, an
 
 ## File Structure
 
-# components
+### components
 
+````
 src/
 |-- components/
 | |-- Main/
@@ -66,6 +67,7 @@ src/
 | | |-- Footer.css
 |-- App.js
 
+````
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions are **greatly appreciated**.
