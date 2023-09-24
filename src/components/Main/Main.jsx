@@ -1,9 +1,8 @@
 import React from 'react';
-import Hero from './Hero';
-import About from './About';
-import Projects from './Projects';
-import Contact from './Contact';
-import './Main.css';
+import Hero from './Hero.jsx';
+import About from './About.jsx';
+import Projects from './Projects.jsx';
+import Contact from './Contact.jsx';
 
 function Main() {
   return (
