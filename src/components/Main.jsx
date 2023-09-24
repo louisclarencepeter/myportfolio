@@ -1,3 +1,8 @@
+/**
+ * Main component.
+ * @component
+ */
+
 import React from 'react'
 
 function Main() {

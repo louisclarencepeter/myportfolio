@@ -44,6 +44,28 @@ To get a local copy up and running follow these simple steps.
 
 This project is a single-page application built using Vite, React, Bootstrap, and Sass. It is a portfolio website showcasing my skills, projects, and information about me.
 
+## File Structure
+
+#components
+
+src/
+|-- components/
+|   |-- Main/
+|   |   |-- Main.js
+|   |   |-- Hero.js
+|   |   |-- About.js
+|   |   |-- Projects.js
+|   |   |-- Contact.js
+|   |   |-- Main.css
+|   |-- Header/
+|   |   |-- Header.js
+|   |   |-- Header.css
+|   |-- Footer/
+|   |   |-- Footer.js
+|   |   |-- Footer.css
+|-- App.js
+
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions are **greatly appreciated**.
