@@ -9,6 +9,7 @@ This is my web development portfolio, showcasing my skills, projects, and inform
   - [Getting Started](#getting-started)
     - [Installation](#installation)
   - [Usage](#usage)
+  - [File Structure](#file-structure)
   - [Contributing](#contributing)
   - [License](#license)
   - [Contact](#contact)
@@ -33,7 +34,7 @@ To get a local copy up and running follow these simple steps.
 
    ```
 
-3. Start the development server
+2. Start the development server
 
    ```sh
    npm run dev
@@ -46,25 +47,24 @@ This project is a single-page application built using Vite, React, Bootstrap, an
 
 ## File Structure
 
-#components
+# components
 
 src/
 |-- components/
-|   |-- Main/
-|   |   |-- Main.js
-|   |   |-- Hero.js
-|   |   |-- About.js
-|   |   |-- Projects.js
-|   |   |-- Contact.js
-|   |   |-- Main.css
-|   |-- Header/
-|   |   |-- Header.js
-|   |   |-- Header.css
-|   |-- Footer/
-|   |   |-- Footer.js
-|   |   |-- Footer.css
+| |-- Main/
+| | |-- Main.js
+| | |-- Hero.js
+| | |-- About.js
+| | |-- Projects.js
+| | |-- Contact.js
+| | |-- Main.css
+| |-- Header/
+| | |-- Header.js
+| | |-- Header.css
+| |-- Footer/
+| | |-- Footer.js
+| | |-- Footer.css
 |-- App.js
-
 
 ## Contributing
 
