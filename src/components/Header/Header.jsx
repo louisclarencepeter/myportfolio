@@ -1,13 +1,9 @@
-import React, { useState } from 'react';
-import logo from '../../assets/images/me.jpg';
-import './Header.scss';
+import React from 'react'
 
 function Header() {
-
-    return (
-        <>
-        </>
-    );
+  return (
+    <div>Header</div>
+  )
 }
 
-export default Header;
+export default Header
