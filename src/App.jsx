@@ -1,4 +1,3 @@
-import Header from './components/Header/Navbar.jsx';
 import Main from './components/Main/Main.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import './styles/App.scss';
