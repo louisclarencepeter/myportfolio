@@ -1,6 +1,19 @@
+.navbar {
+  width: 100%;
+}
 
 .navbar {
   width: 100%;
+  position: fixed; /* Make the navbar fixed */
+  top: 0; /* Stick to the top */
+  background-color: #0f0e17;
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
+/* Add styles for sticky navbar */
+.navbar.sticky {
+  position: fixed;
+  top: 0;
 }
 
 .nav-container {
@@ -88,15 +101,14 @@ a {
 }
 
 .navbar .menu-items {
-  padding-top: 120px;
+  padding-top: 15px;
   width: 100%;
   transform: translate(-150%);
   display: flex;
   flex-direction: column;
-  margin-left: -40px;
-  padding-left: 50px;
   transition: transform 0.5s ease-in-out;
   text-align: center;
+  background-color: #0f0e17;
 }
 
 .navbar .menu-items li {
