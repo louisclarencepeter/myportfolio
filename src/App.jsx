@@ -1,8 +1,8 @@
-import Main from './components/Main/Main.jsx';
-import Footer from './components/Footer/Footer.jsx';
-import './styles/App.scss';
 import '@fortawesome/fontawesome-free/css/all.css';
-import Navbar from './components/Header/Navbar.jsx';
+import Main from './components/main/Main.jsx';
+import Footer from './components/footer/Footer.jsx';
+import Navbar from './components/header/Navbar.jsx';
+import './styles/App.scss';
 
 function App() {
     return (

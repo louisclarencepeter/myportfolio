@@ -1,0 +1,114 @@
+.hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 1rem;
+}
+
+/* About Me*/
+
+article {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 1rem;
+  color: aliceblue;
+}
+
+article p {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 1rem;
+  color: aliceblue;
+}
+
+.caption {
+  opacity: 0;
+  filter: blur(4px);
+  animation: fade-in 0.8s 1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+@keyframes fade-in {
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.line {
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-50%);
+}
+
+/* Animation */
+.anim-typewriter {
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+    blinkTextCursor 500ms steps(44) infinite normal;
+}
+
+/* Info Icons */
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 2rem;
+  opacity: 0;
+  filter: blur(4px);
+  animation: scale 2s infinite;
+  animation: fade-in 0.8s 5s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.icon:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.icons i {
+  font-size: 3rem;
+  padding: 0 1rem;
+}
+
+.icons p {
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
+  text-align: center;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 9em;
+  }
+}
+
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: #ff8906;
+  }
+
+  to {
+    border-right-color: transparent;
+  }
+}
