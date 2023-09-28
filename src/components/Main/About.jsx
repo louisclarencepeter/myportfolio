@@ -1,4 +1,8 @@
 import React from 'react'
+import './About.scss'
+import logo from '../../assets/images/me.jpg';
+import dci from '../../assets/images/dci.svg';
+import skills from '../../assets/images/skills.jpg';
 
 function About() {
   return (
@@ -8,7 +12,7 @@ function About() {
     {/* My Picture and Small Info */}
     <section>
       <div className="info bounce-top one">
-        <img src="./images/IMG_8327.JPG" alt="my picture" />
+        <img src={logo} alt="my picture" />
         <h2>Louis Peter</h2>
         <p>
           Living in Frankfrurt am Main with passion of Technolgy and Web
@@ -29,7 +33,7 @@ function About() {
     <section>
       <div className="info bounce-top two">
         <img
-          src="./images/DCI_COLORS_June24_logo_wordmark_blue.svg"
+          src={dci}
           alt="my school"
         />
         <h2>Education</h2>
@@ -41,7 +45,7 @@ function About() {
     {/* My Progress */}
     <section>
       <div className="info bounce-top three">
-        <img src="./images/image01.jpg" alt="my Progress" />
+        <img src={skills} alt="my Progress" />
         <h2>My Skills</h2>
         <p>HTML</p>
         <p>CSS</p>
