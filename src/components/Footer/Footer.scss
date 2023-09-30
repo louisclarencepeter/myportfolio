@@ -15,8 +15,21 @@ footer div:nth-child(1) {
     gap: 1.5rem;
 }
 
+.f-p{
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin: 0;
+}
+
 footer p {
     font-size: 0.8rem;
     font-weight: 400;
     margin: 0;
+}
+
+.f-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
