@@ -1,10 +1,22 @@
 // Footer.js
 import React from 'react';
+import './Footer.scss';
 
 function Footer() {
   return (
     <footer>
       {/* Footer content */}
+      <div>
+        <p>© 2023 Louis Peter</p> <a href="./impressum.html">Impressum</a>
+      </div>
+      <div>
+        <a href="https://github.com/louisclarencepeter" target="_blank">
+          <i className="fa-brands fa-github" />
+        </a>
+        <a href="https://www.linkedin.com/in/louisclarencepeter/" target="_blank">
+          <i className="fa-brands fa-linkedin" />
+        </a>
+      </div>
     </footer>
   );
 }
