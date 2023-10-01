@@ -38,16 +38,6 @@ function Projects() {
           <div>
             <h2>Group Projects </h2>
             <section className="projects">
-              <h2>Yoga and Meditation</h2>
-              <a href="https://yoga-and-meditation.netlify.app/" target="_blank">
-                <img
-                  src={yoga}
-                  alt="Link to Yoga and Meditation Project"
-                />
-              </a>
-              <p>Status: Ongoing</p>
-            </section>
-            <section className="projects">
               <h2>Marvelous Zanzibar</h2>
               <a href="https://marvelous-zanzibar.com/" target="_blank">
                 <img
@@ -57,6 +47,17 @@ function Projects() {
               </a>
               <p>Status: Ongoing</p>
             </section>
+            <section className="projects">
+              <h2>Yoga and Meditation</h2>
+              <a href="https://yoga-and-meditation.netlify.app/" target="_blank">
+                <img
+                  src={yoga}
+                  alt="Link to Yoga and Meditation Project"
+                />
+              </a>
+              <p>Status: Ongoing</p>
+            </section>
+
           </div>
         </main>
       </>
