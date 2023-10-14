@@ -1,6 +1,6 @@
 # My Web Development Portfolio
 
-This is my web development portfolio, showcasing my skills, projects, and information about me. It is built as a single-page application using HTML, CSS, JavaScript, Bootstrap, and Sass within a Vite React app.
+My web development portfolio showcases my skills, projects, and information about me. It is built as a single-page application using HTML, CSS, JavaScript, and Sass within a Vite React app.
 
 ## Table of Contents
 
@@ -70,7 +70,7 @@ src/
 ````
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions are **greatly appreciated**.
+Contributions make the open-source community such an amazing place to learn, inspire, and create. I would greatly appreciate any contributions you can make.
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
