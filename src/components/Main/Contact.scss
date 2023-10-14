@@ -1,0 +1,50 @@
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem 0;
+  height: 90vh;
+
+  .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+
+    p {
+      color: #fefeff;
+      font-size: 1rem;
+      padding: 0.625rem;
+      text-align: center;
+    }
+
+    label {
+      color: #fefeff;
+      font-size: 1rem;
+      padding: 0.625rem;
+    }
+
+    textarea {
+      border: none;
+      border-radius: 0.625rem;
+      padding: 0.625rem;
+      outline: none;
+    }
+
+    input {
+      border: none;
+      border-radius: 0.625rem;
+      padding: 0.625rem;
+      outline: none;
+    }
+
+    input:hover {
+      background-color: #ff8906;
+      color: #fefeff;
+      cursor: pointer;
+    }
+  }
+}
