@@ -2,6 +2,7 @@
 
 My web development portfolio showcases my skills, projects, and information about me. It is built as a single-page application using HTML, CSS, JavaScript, and Sass within a Vite React app.
 
+![Portfolio Screenshot](./appimg/Screenshot%202023-11-08%20154051.png)
 ![Portfolio Screenshot](./appimg/Screenshot%202023-11-08%20154108.png)
 ![Portfolio Screenshot](./appimg/Screenshot%202023-11-08%20154138.png)
 ![Portfolio Screenshot](./appimg/Screenshot%202023-11-08%20154148.png)
