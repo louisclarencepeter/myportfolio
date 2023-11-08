@@ -9,6 +9,7 @@ import skills from '../../assets/images/skills.jpg';
 const About = () => {
   return (
     <>
+    <div id="aboutme">
       <main className='main'>
         <section className='about'>
           <div className='info bounce-top one'>
@@ -48,6 +49,7 @@ const About = () => {
           </div>
         </section>
       </main>
+      </div>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import Hero from './Hero.jsx';
+import Home from './Home.jsx';
 import About from './About.jsx';
 import Projects from './Projects.jsx';
 import Contact from './Contact.jsx';
@@ -8,10 +8,10 @@ import './Main.scss';
 function Main() {
   return (
     <div className="main-container">
-      <Hero />
-      <About />
-      <Projects />
-      <Contact />
+      <Home id="home" />
+      <About id="about" />
+      <Projects id="myprojects" />
+      <Contact id="contact" />
     </div>
   );
 }

@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Navbar.scss';
 import logo from '../../assets/images/me.jpg';
 
 const Navbar = () => {
+  const [isChecked, setIsChecked] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       const navbar = document.querySelector('.navbar');
-      if (navbar && window.pageYOffset >= navbar.offsetTop) {
+      if (window.pageYOffset >= navbar.offsetTop) {
         navbar.classList.add('sticky');
       } else {
         navbar.classList.remove('sticky');
@@ -20,11 +22,16 @@ const Navbar = () => {
     };
   }, []);
 
+  const handleMenuItemClick = () => {
+    // Uncheck the checkbox to close the menu
+    setIsChecked(false);
+  };
+
   return (
     <nav className="navbar">
       <div className="container nav-container">
-        <input className="checkbox" type="checkbox" />
-        <div className="hamburger-lines">
+        <input className="checkbox" type="checkbox" checked={isChecked} onChange={(e) => setIsChecked(e.target.checked)} />
+        <div className="hamburger-lines" onClick={() => setIsChecked(!isChecked)}>
           {[1, 2, 3].map((line) => (
             <span key={line} className={`line line${line}`} />
           ))}
@@ -32,16 +39,16 @@ const Navbar = () => {
         <div className="logo">
           <img src={logo} alt="logo" />
         </div>
-        <div className="menu-items">
+        <ul className="menu-items">
           {['Home', 'About Me', 'My Projects', 'Contact'].map((item, index) => (
-            <li key={index}>
-              <a href="#">{item}</a>
+            <li key={index} onClick={handleMenuItemClick}>
+              <a href={`#${item.replace(/\s+/g, '').toLowerCase()}`}>{item}</a>
             </li>
           ))}
-        </div>
+        </ul>
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

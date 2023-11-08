@@ -8,10 +8,7 @@ import marv from '../../assets/images/marvelous.png';
 function Projects() {
   return (
     <div>
-      <>
-        {/* Main Content */}
-        <main>
-          {/* My Projects */}
+        <main id='myprojects'>
           <div>
             <h2>My Projects</h2>
             <section className="projects">
@@ -60,7 +57,6 @@ function Projects() {
 
           </div>
         </main>
-      </>
 
     </div>
   )
