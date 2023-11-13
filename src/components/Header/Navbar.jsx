@@ -47,11 +47,11 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <input 
-          className="checkbox" 
-          type="checkbox" 
-          checked={isChecked} 
-          onChange={(e) => setIsChecked(e.target.checked)} 
+        <input
+          className="checkbox"
+          type="checkbox"
+          checked={isChecked}
+          onChange={(e) => setIsChecked(e.target.checked)}
         />
 
         <div className="hamburger-lines" onClick={() => setIsChecked(!isChecked)}>
