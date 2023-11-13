@@ -149,3 +149,48 @@ a {
   height: 2rem;
   border-radius: 10%;
 }
+
+.classicalmenu {
+  display: none;
+}
+
+@media screen and (min-width: 1025px) {
+  .hamburger-lines {
+    display: none !important;
+  }
+
+  .checkbox {
+    display: none !important;
+  }
+
+  .classicalmenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+
+    .classicalmenu-logo {
+      padding-top: 0.5rem;
+      padding-left: 0.5rem;
+      z-index: 3;
+
+      img {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 10%;
+      }
+    }
+
+    li {
+      display: inline-block;
+      margin-right: 1rem;
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+  }
+
+  .logo {
+    display: none;
+  }
+}
