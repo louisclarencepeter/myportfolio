@@ -38,7 +38,9 @@ const Navbar = () => {
 
         <div className="classicalmenu" >
           <div className="classicalmenu-logo">
-            <img src={logo} alt="logo" />
+          <a href="#aboutme">
+              <img src={logo} alt="logo" />
+            </a>
           </div>
           <ul>
             {menuItems.map((item, index) => (
@@ -59,7 +61,9 @@ const Navbar = () => {
         </div>
 
         <div className="logo">
-          <img src={logo} alt="logo" />
+        <a href="#aboutme">
+              <img src={logo} alt="logo" />
+            </a>
         </div>
 
         <ul className="menu-items">
