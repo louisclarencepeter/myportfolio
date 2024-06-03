@@ -21,10 +21,8 @@
 .navbar .menu-items {
   display: flex;
   padding-right: 3rem;
-   /* ... other styles ... */
-   backdrop-filter: blur(0.625rem); /* Adjusted blur value */
-   -webkit-backdrop-filter: blur(0.625rem); /* Prefix for Safari */
-   /* Consider removing or adjusting the filter in the animation if issues persist */
+   backdrop-filter: blur(0.625rem);
+   -webkit-backdrop-filter: blur(0.625rem);
 }
 
 .navbar .menu-items li {
