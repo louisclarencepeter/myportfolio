@@ -13,9 +13,6 @@ function Footer() {
         <a href="https://github.com/louisclarencepeter" target="_blank">
           <i className="fa-brands fa-github" />
         </a>
-        <a href="https://www.linkedin.com/in/louisclarencepeter/" target="_blank">
-          <i className="fa-brands fa-linkedin" />
-        </a>
       </div>
     </footer>
   );
