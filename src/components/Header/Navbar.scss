@@ -1,9 +1,9 @@
 .navbar {
   width: 100%;
-  position: fixed; /* Make the navbar fixed */
-  top: 0; /* Stick to the top */
+  position: fixed;
+  top: 0; 
   background-color: #0f0e17;
-  z-index: 1000; /* Ensure it's above other elements */
+  z-index: 1000; 
 }
 
 .navbar.sticky {
@@ -21,8 +21,8 @@
 .navbar .menu-items {
   display: flex;
   padding-right: 3rem;
-   backdrop-filter: blur(0.625rem);
-   -webkit-backdrop-filter: blur(0.625rem);
+  -webkit-backdrop-filter: blur(0.625rem);
+  backdrop-filter: blur(0.625rem);
 }
 
 .navbar .menu-items li {

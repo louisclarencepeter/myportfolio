@@ -1,5 +1,4 @@
 /* Footer */
-
 footer {
     display: flex;
     justify-content: space-between;
@@ -15,16 +14,10 @@ footer div:nth-child(1) {
     gap: 1.5rem;
 }
 
-
-.f-p{
-    font-size: 0.8rem;
-    font-weight: 500;
-    margin: 0;
-}
-
+.f-p,
 footer p {
     font-size: 0.8rem;
-    font-weight: 400;
+    font-weight: 500;
     margin: 0;
 }
 

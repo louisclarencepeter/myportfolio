@@ -42,10 +42,11 @@ const About = () => {
             <p>HTML</p>
             <p>CSS</p>
             <p>JavaScript</p>
-            <p>Bootstrap</p>
             <p>Git</p>
-            <p>React</p>
+            <p>React.js</p>
+            <p>Express.js</p>
             <p>Node.js</p>
+            <p>MongoDB</p>
           </div>
         </section>
       </main>
