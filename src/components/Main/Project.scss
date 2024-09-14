@@ -1,23 +1,30 @@
 main {
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     background-image: url(./images/web-page-background-images-hd.jpg);
     gap: 1rem;
     padding: 1rem;
     margin-top: 3rem;
-}
-
-h2 {
+  
+    /* Media query for tablets and larger screens */
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+  }
+  
+  h2 {
     text-align: center;
     color: #fffffe;
-}
-
-p{
+  }
+  
+  p {
     color: #fffffe;
-}
-
-.projects {
+  }
+  
+  .projects {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,54 +33,63 @@ p{
     opacity: 0;
     filter: blur(4px);
     animation: fade-in 0.8s 0.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
-}
-
-@keyframes fade-in {
-    100% {
-        opacity: 1;
-        filter: blur(0);
+    width: 100%;
+    max-width: 400px;
+  
+    /* Media query for tablets and larger screens */
+    @media (min-width: 768px) {
+      width: 45%;
+      margin: 1rem;
     }
-}
-
-.projects img {
+  }
+  
+  @keyframes fade-in {
+    100% {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+  
+  .projects img {
     border-radius: 0.625rem;
-    height: 10rem;
-    width: 15rem;
+    width: 100%;
+    height: auto;
     padding: 0.625rem;
-}
-
-.projects h2 {
+  }
+  
+  .projects h2 {
     color: #fffffe;
     font-size: 1rem;
     padding: 0.625rem;
-}
-
-.projects img:hover {
+  }
+  
+  .projects img:hover {
     cursor: pointer;
     -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
-
-@-webkit-keyframes scale-up-center {
+  }
+  
+  @-webkit-keyframes scale-up-center {
     0% {
-        -webkit-transform: scale(0.5);
-        transform: scale(0.5);
+      -webkit-transform: scale(0.95);
+      transform: scale(0.95);
     }
-
+  
     100% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
+      -webkit-transform: scale(1);
+      transform: scale(1);
     }
-}
-
-@keyframes scale-up-center {
+  }
+  
+  @keyframes scale-up-center {
     0% {
-        -webkit-transform: scale(0.5);
-        transform: scale(0.5);
+      -webkit-transform: scale(0.95);
+      transform: scale(0.95);
     }
-
+  
     100% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
+      -webkit-transform: scale(1);
+      transform: scale(1);
     }
-}
+  }
+  
