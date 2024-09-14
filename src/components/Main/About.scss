@@ -1,5 +1,3 @@
-// About.scss
-
 $background-image-url: url(./images/web-page-background-images-hd.jpg);
 $box-shadow-color: rgba(0, 0, 0, 0.2);
 $hover-shadow-color: rgba(0, 0, 0, 0.35);
@@ -12,19 +10,18 @@ $main-color: #fffffe;
   flex-direction: column;
   background-image: $background-image-url;
   gap: 1rem;
-  padding: 4rem 0;
+  padding: 2rem 1rem; // Adjusted padding for better spacing on mobile
 
   section {
-    width: 15rem;
-    margin: 1rem;
-    
+    width: 100%;
+    margin: 1rem 0; // Adjusted margin for mobile stacking
   }
 
   .info {
     text-align: center;
     box-shadow: 0.125rem 0.125rem 0.125rem 0.125rem $box-shadow-color;
     backdrop-filter: blur(0.625rem);
-    padding: 0.625rem;
+    padding: 1rem; // Increased padding for better spacing
     opacity: 0;
     filter: blur(4px);
     animation: fade-in 0.8s 0.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
@@ -62,6 +59,57 @@ $main-color: #fffffe;
         color: #ff8906;
         cursor: pointer;
       }
+    }
+  }
+}
+
+/* Media query for tablets and larger screens */
+@media (min-width: 768px) {
+  .main {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  section {
+    width: 30%;
+    margin: 1rem;
+  }
+
+  .info {
+    padding: 1.5rem;
+
+    img {
+      height: 7rem;
+      width: 7rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+/* Media query for desktops */
+@media (min-width: 1024px) {
+  .info {
+    padding: 2rem;
+
+    img {
+      height: 10rem;
+      width: 10rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.25rem;
     }
   }
 }

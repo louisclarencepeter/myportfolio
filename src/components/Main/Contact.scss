@@ -5,6 +5,12 @@
   flex-direction: column;
   padding: 3rem 0;
 
+  .titles {
+    color: #fefeff;
+    font-size: 2rem;
+    text-align: center;
+  }
+
   .form {
     display: flex;
     justify-content: center;
@@ -12,6 +18,8 @@
     flex-direction: column;
     gap: 0.5rem;
     padding: 1rem;
+    width: 100%;
+    max-width: 500px;
 
     p {
       color: #fefeff;
@@ -24,16 +32,25 @@
       color: #fefeff;
       font-size: 1rem;
       padding: 0.625rem;
+      align-self: flex-start;
     }
 
+    input,
     textarea {
+      width: 100%;
+      max-width: 100%;
       border: none;
       border-radius: 0.625rem;
       padding: 0.625rem;
       outline: none;
     }
 
-    input {
+    .send {
+      width: auto;
+      padding: 0.625rem 1.25rem;
+    }
+
+    input[type="submit"] {
       border: none;
       border-radius: 0.625rem;
       padding: 0.625rem;
@@ -47,7 +64,8 @@
     }
   }
 
-  .socials{
+  .socials {
+    margin-top: 2rem;
 
     ul {
       display: flex;
@@ -62,11 +80,75 @@
         color: #fefeff;
         font-size: 1.875rem;
         padding: 0.625rem;
-  
+
         &:hover {
           color: #ff8906;
           cursor: pointer;
         }
+      }
+    }
+  }
+}
+
+/* Media query for tablets and larger screens */
+@media (min-width: 768px) {
+  .contact {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 4rem;
+
+    .form {
+      flex: 1;
+      max-width: 600px;
+
+      label,
+      input,
+      textarea {
+        font-size: 1rem;
+      }
+    }
+
+    .socials {
+      flex: 0.3;
+      margin-top: 0;
+
+      ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      i {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+/* Media query for desktops */
+@media (min-width: 1024px) {
+  .contact {
+    padding: 5rem;
+
+    .titles {
+      font-size: 2.5rem;
+    }
+
+    .form {
+      label,
+      input,
+      textarea {
+        font-size: 1.125rem;
+      }
+
+      .send {
+        font-size: 1.125rem;
+      }
+    }
+
+    .socials {
+      i {
+        font-size: 2.5rem;
       }
     }
   }

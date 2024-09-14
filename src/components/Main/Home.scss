@@ -4,10 +4,10 @@
   align-items: center;
   flex-direction: column;
   padding: 2rem 1rem;
-  height: 73vh;
+  min-height: 73vh; // Changed height to min-height for better responsiveness
 }
 
-/* About Me*/
+/* About Me */
 
 article {
   display: flex;
@@ -17,20 +17,20 @@ article {
   text-align: center;
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem; // Adjusted font size for mobile
     font-weight: 400;
     margin: 0;
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.2rem; // Adjusted font size for mobile
     font-weight: 400;
     margin: 1rem;
     color: aliceblue;
   }
 
   p {
-    font-size: 1.2rem;
+    font-size: 1rem; // Adjusted font size for mobile
     font-weight: 400;
     margin: 1rem;
     color: aliceblue;
@@ -70,27 +70,112 @@ article {
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  flex-wrap: wrap; // Allows icons to wrap on smaller screens
   padding: 2rem;
   opacity: 0;
   filter: blur(4px);
-  animation: scale 2s infinite;
   animation: fade-in 0.8s 5s forwards cubic-bezier(0.11, 0, 0.5, 0);
-  i {
-    font-size: 3rem;
-    padding: 0 1rem;
-  }
 
-  p {
-    font-size: 1rem;
-    font-weight: 400;
-    margin: 0;
-    text-align: center;
+  .icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+
+    i {
+      font-size: 2.5rem; // Adjusted font size for mobile
+      padding: 0 0.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 400;
+      margin: 0.5rem 0 0 0;
+      text-align: center;
+    }
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+    }
   }
 }
 
-.icon:hover {
-  cursor: pointer;
-  transform: scale(1.2);
+/* Media query for tablets and larger screens */
+@media (min-width: 768px) {
+  .hero-container {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 4rem 2rem;
+    min-height: 80vh;
+  }
+
+  article {
+    flex: 1;
+    h1 {
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+  }
+
+  .icons {
+    flex: 1;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+
+    .icon {
+      margin: 0 1rem;
+
+      i {
+        font-size: 3.5rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+/* Media query for desktops */
+@media (min-width: 1024px) {
+  .hero-container {
+    padding: 5rem 3rem;
+  }
+
+  article {
+    h1 {
+      font-size: 4rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.8rem;
+    }
+  }
+
+  .icons {
+    .icon {
+      i {
+        font-size: 4rem;
+      }
+
+      p {
+        font-size: 1.5rem;
+      }
+    }
+  }
 }
 
 @keyframes typewriter {
