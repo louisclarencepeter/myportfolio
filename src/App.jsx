@@ -5,6 +5,7 @@ import CookieBanner from './components/CookieBanner/CookieBanner.jsx';
 import Main from './components/Main/Main.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import Navbar from './components/Header/Navbar.jsx';
+import Chatbot from './components/Chatbot/Chatbot.jsx';
 import { LanguageProvider } from './i18n.jsx';
 import './styles/App.scss';
 
@@ -114,6 +115,7 @@ function App() {
                 <Navbar />
                 <Main />
                 <Footer />
+                <Chatbot />
                 <CookieBanner />
             </div>
         </LanguageProvider>

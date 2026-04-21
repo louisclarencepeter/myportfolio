@@ -6,6 +6,9 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
+[dev]
+  targetPort = 3007
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

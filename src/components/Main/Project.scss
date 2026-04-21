@@ -32,18 +32,19 @@
 .project-card a {
   display: block;
   overflow: hidden;
+  background: var(--interactive-bg);
 }
 
 .project-card img {
   width: 100%;
   aspect-ratio: 16 / 11;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 520ms var(--ease-out), filter 520ms var(--ease-out);
 }
 
 .project-card:hover img {
   filter: saturate(1.08) contrast(1.03);
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .project-copy {

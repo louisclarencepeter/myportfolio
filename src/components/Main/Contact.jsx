@@ -60,42 +60,52 @@ function Contact() {
 
   return (
     <section className="contact" id="contact">
-      <div className="contact-intro">
+      <div className="section-heading">
         <p className="section-kicker">{t('contact.kicker')}</p>
-        <h2 className="titles">{t('contact.title')}</h2>
-        <p className="contact-text">{t('contact.text')}</p>
-
-        <div className="socials">
-          <ul>
-            <li>
-              <a href={GITHUB_URL} target="_blank" rel="noreferrer" aria-label="GitHub">
-                <Icon name="github" />
-              </a>
-            </li>
-            <li>
-              <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" aria-label="LinkedIn">
-                <Icon name="linkedin" />
-              </a>
-            </li>
-          </ul>
-        </div>
+        <h2>{t('contact.title')}</h2>
+        <p className="section-text">{t('contact.text')}</p>
       </div>
 
-      <form className="form" onSubmit={handleSubmit} noValidate>
-        <p>{t('contact.formIntro')}</p>
-        <label htmlFor="name">{t('contact.name')}</label>
-        <input type="text" id="name" name="name" required autoComplete="name" disabled={submitting} />
-        <label htmlFor="email">{t('contact.email')}</label>
-        <input type="email" id="email" name="email" required autoComplete="email" disabled={submitting} />
-        <label htmlFor="message">{t('contact.message')}</label>
-        <textarea id="message" name="message" required rows={6} disabled={submitting} />
-        <input type="submit" value={submitting ? t('contact.sending') : t('contact.send')} className="send" disabled={submitting} />
-        {status && (
-          <p className={`form-status form-status--${status.type}`} role="status">
-            {status.text}
-          </p>
-        )}
-      </form>
+      <div className="contact-layout">
+        <div className="contact-intro">
+          <h3>{t('contact.directTitle')}</h3>
+          <p className="contact-text">{t('contact.directText')}</p>
+          <a className="email-link" href={`mailto:${CONTACT_EMAIL}`}>
+            {CONTACT_EMAIL}
+          </a>
+
+          <div className="socials">
+            <ul>
+              <li>
+                <a href={GITHUB_URL} target="_blank" rel="noreferrer" aria-label="GitHub">
+                  <Icon name="github" />
+                </a>
+              </li>
+              <li>
+                <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                  <Icon name="linkedin" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <form className="form" onSubmit={handleSubmit} noValidate>
+          <p>{t('contact.formIntro')}</p>
+          <label htmlFor="name">{t('contact.name')}</label>
+          <input type="text" id="name" name="name" required autoComplete="name" disabled={submitting} />
+          <label htmlFor="email">{t('contact.email')}</label>
+          <input type="email" id="email" name="email" required autoComplete="email" disabled={submitting} />
+          <label htmlFor="message">{t('contact.message')}</label>
+          <textarea id="message" name="message" required rows={6} disabled={submitting} />
+          <input type="submit" value={submitting ? t('contact.sending') : t('contact.send')} className="send" disabled={submitting} />
+          {status && (
+            <p className={`form-status form-status--${status.type}`} role="status">
+              {status.text}
+            </p>
+          )}
+        </form>
+      </div>
     </section>
   )
 }

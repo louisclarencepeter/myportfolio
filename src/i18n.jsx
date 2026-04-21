@@ -72,6 +72,8 @@ const translations = {
       title: "Let's build something thoughtful",
       text:
         "If you want to collaborate, talk about full stack web development, or just say hello, send me a message and I'll get back to you by email.",
+      directTitle: 'Prefer a direct message?',
+      directText: 'You can reach me by email or connect with me on GitHub and LinkedIn.',
       formIntro: 'Please fill in the form below to send me a message',
       name: 'Name:',
       email: 'Email:',
@@ -89,6 +91,26 @@ const translations = {
       tagline: 'Full stack portfolio',
       impressum: 'Impressum',
       contact: 'Contact',
+    },
+    chat: {
+      label: 'Chat with Lou',
+      kicker: 'Meet Lou',
+      title: 'Ask about my work',
+      button: 'Ask Lou',
+      open: 'Open Lou',
+      close: 'Close Lou',
+      greeting:
+        "Hi, I'm Lou. I can answer quick questions about Louis, his projects, and how to get in touch. What would you like to know?",
+      starterProjects: 'Show me the projects',
+      starterStack: 'What does Louis build with?',
+      starterContact: 'How can I contact him?',
+      startersLabel: 'Suggested questions',
+      inputLabel: 'Message',
+      placeholder: 'Ask about skills, projects, contact...',
+      send: 'Send message',
+      thinking: 'Thinking...',
+      error:
+        "I couldn't answer right now. You can still reach Louis through the contact form or by email.",
     },
     cookies: {
       label: 'Cookie banner',
@@ -163,6 +185,8 @@ const translations = {
       title: 'Lass uns gemeinsam etwas Sinnvolles bauen',
       text:
         'Wenn du ein Projekt starten möchtest, Unterstützung bei einer Website brauchst oder einfach eine Idee besprechen willst, schreib mir gern.',
+      directTitle: 'Lieber direkt schreiben?',
+      directText: 'Du erreichst mich per E-Mail oder findest mich auf GitHub und LinkedIn.',
       formIntro: 'Schreib mir kurz, worum es geht',
       name: 'Name:',
       email: 'E-Mail:',
@@ -180,6 +204,26 @@ const translations = {
       tagline: 'Full-Stack-Portfolio',
       impressum: 'Impressum',
       contact: 'Kontakt',
+    },
+    chat: {
+      label: 'Chat mit Lou',
+      kicker: 'Lou kennenlernen',
+      title: 'Frag etwas über meine Arbeit',
+      button: 'Lou fragen',
+      open: 'Lou öffnen',
+      close: 'Lou schließen',
+      greeting:
+        'Hi, ich bin Lou. Ich beantworte kurze Fragen zu Louis, seinen Projekten und zur Kontaktaufnahme. Was möchtest du wissen?',
+      starterProjects: 'Zeig mir die Projekte',
+      starterStack: 'Womit entwickelt Louis?',
+      starterContact: 'Wie kann ich ihn kontaktieren?',
+      startersLabel: 'Vorgeschlagene Fragen',
+      inputLabel: 'Nachricht',
+      placeholder: 'Frag nach Skills, Projekten, Kontakt...',
+      send: 'Nachricht senden',
+      thinking: 'Ich denke nach...',
+      error:
+        'Ich kann gerade nicht antworten. Du kannst Louis weiterhin über das Kontaktformular oder per E-Mail erreichen.',
     },
     cookies: {
       label: 'Cookie-Hinweis',
@@ -254,6 +298,8 @@ const translations = {
       title: 'Tufanye kazi pamoja kwenye wazo lako',
       text:
         'Kama unahitaji tovuti, una wazo la mradi, au unataka tu kuzungumza kuhusu kazi ya wavuti, nitumie ujumbe nami nitakujibu kwa barua pepe.',
+      directTitle: 'Unapendelea kuandika moja kwa moja?',
+      directText: 'Unaweza kunifikia kwa barua pepe au kuungana nami kupitia GitHub na LinkedIn.',
       formIntro: 'Niandikie ujumbe mfupi kuhusu unachohitaji',
       name: 'Jina:',
       email: 'Barua pepe:',
@@ -271,6 +317,26 @@ const translations = {
       tagline: 'Portfolio ya full stack',
       impressum: 'Impressum',
       contact: 'Mawasiliano',
+    },
+    chat: {
+      label: 'Ongea na Lou',
+      kicker: 'Kutana na Lou',
+      title: 'Uliza kuhusu kazi zangu',
+      button: 'Uliza Lou',
+      open: 'Fungua Lou',
+      close: 'Funga Lou',
+      greeting:
+        'Habari, mimi ni Lou. Ninaweza kujibu maswali mafupi kuhusu Louis, miradi yake na namna ya kuwasiliana naye. Ungependa kujua nini?',
+      starterProjects: 'Nionyeshe miradi',
+      starterStack: 'Louis anatumia teknolojia gani?',
+      starterContact: 'Ninawezaje kuwasiliana naye?',
+      startersLabel: 'Maswali ya kuanzia',
+      inputLabel: 'Ujumbe',
+      placeholder: 'Uliza kuhusu ujuzi, miradi, mawasiliano...',
+      send: 'Tuma ujumbe',
+      thinking: 'Nafikiria...',
+      error:
+        'Siwezi kujibu kwa sasa. Bado unaweza kuwasiliana na Louis kupitia fomu ya mawasiliano au barua pepe.',
     },
     cookies: {
       label: 'Taarifa ya cookies',

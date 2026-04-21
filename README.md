@@ -9,6 +9,7 @@ A responsive portfolio for [louispeter.com](https://louispeter.com/) built with 
 - Language switcher for English, German, and Kiswahili
 - Automatic language default: Tanzania gets Kiswahili, Germany gets German, everyone else gets English
 - Contact form handled by a Netlify Function so the Resend API key stays server-side
+- Portfolio AI assistant handled by a Netlify Function so AI access stays server-side
 - Static `impressum.html` page
 - SEO metadata, sitemap, robots file, and favicon in `public/`
 
@@ -61,6 +62,26 @@ VITE_CONTACT_ENDPOINT=
 
 If unset, the frontend uses `/api/contact`.
 
+## AI Assistant
+
+The portfolio assistant "Lou" posts to `/api/chat`, which is served by `netlify/functions/chat.js` and uses the Anthropic Claude API.
+
+Set `ANTHROPIC_API_KEY` in the Netlify site environment variables (get a key from https://console.anthropic.com). The function defaults to `claude-opus-4-7`. Per-IP rate limiting (8/min, 40/hour) is enforced in the function.
+
+Optional server-side overrides:
+
+```sh
+AI_CHAT_MODEL=
+```
+
+Optional frontend override:
+
+```sh
+VITE_CHAT_ENDPOINT=
+```
+
+If unset, the frontend uses `/api/chat`.
+
 ## Netlify
 
 `netlify.toml` defines the production setup:
@@ -82,6 +103,7 @@ netlify dev
 myportfolio/
 ├── netlify/
 │   └── functions/
+│       ├── chat.js
 │       └── contact.js
 ├── public/
 │   ├── 404.html
@@ -93,6 +115,7 @@ myportfolio/
 │   │   ├── fonts/
 │   │   └── images/
 │   ├── components/
+│   │   ├── Chatbot/
 │   │   ├── CookieBanner/
 │   │   ├── Footer/
 │   │   ├── Header/
