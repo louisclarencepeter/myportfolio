@@ -96,6 +96,7 @@ body {
   background: var(--body-bg);
   color: var(--text);
   min-height: 100vh;
+  overflow-x: clip;
   transition: background-color var(--motion-medium) ease, color var(--motion-medium) ease;
 }
 
@@ -155,12 +156,14 @@ img {
   font-size: clamp(2rem, 4vw, 3.3rem);
   line-height: 1.08;
   margin-bottom: 1rem;
+  overflow-wrap: break-word;
 }
 
 .section-text {
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.8;
+  overflow-wrap: break-word;
 }
 
 .section-fallback {

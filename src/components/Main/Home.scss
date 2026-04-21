@@ -54,6 +54,7 @@
   font-size: clamp(3rem, 8vw, 5.3rem);
   line-height: 0.95;
   max-width: 9ch;
+  overflow-wrap: break-word;
 }
 
 .hero-copy .caption {
@@ -70,6 +71,7 @@
   line-height: 1.2;
   margin-top: 0.2rem;
   max-width: 18ch;
+  overflow-wrap: break-word;
 }
 
 .hero-summary {
@@ -77,6 +79,7 @@
   font-size: 0.98rem;
   line-height: 1.75;
   max-width: 46ch;
+  overflow-wrap: break-word;
 }
 
 .hero-actions {
@@ -274,7 +277,7 @@
   }
 
   .hero-copy .line {
-    max-width: 12ch;
+    max-width: 100%;
   }
 
   .hero-actions {
@@ -298,10 +301,11 @@
 
   .icons .icon {
     flex-basis: 100%;
+    justify-content: center;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
   .hero-container {
     grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.82fr);
     display: grid;

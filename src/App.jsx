@@ -67,8 +67,46 @@ const useScrollReveal = () => {
     }, []);
 };
 
+const useHashScroll = () => {
+    useEffect(() => {
+        let retryTimer;
+
+        const scrollToHash = () => {
+            window.clearTimeout(retryTimer);
+            let attempts = 0;
+
+            const tryScroll = () => {
+                const id = window.location.hash.slice(1);
+                if (!id) return;
+
+                const target = document.getElementById(decodeURIComponent(id));
+                if (target) {
+                    target.scrollIntoView({ block: 'start' });
+                    return;
+                }
+
+                if (attempts < 12) {
+                    attempts += 1;
+                    retryTimer = window.setTimeout(tryScroll, 100);
+                }
+            };
+
+            tryScroll();
+        };
+
+        scrollToHash();
+        window.addEventListener('hashchange', scrollToHash);
+
+        return () => {
+            window.clearTimeout(retryTimer);
+            window.removeEventListener('hashchange', scrollToHash);
+        };
+    }, []);
+};
+
 function App() {
     useScrollReveal();
+    useHashScroll();
 
     return (
         <LanguageProvider>

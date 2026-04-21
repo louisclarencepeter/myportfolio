@@ -110,6 +110,14 @@
   box-shadow: var(--shadow);
 }
 
+.mobile-language-item .language-switcher {
+  width: 100%;
+}
+
+.mobile-language-item .language-switcher button {
+  flex: 1;
+}
+
 .navbar .menu-items li {
   list-style: none;
 }
@@ -319,7 +327,45 @@
   color: var(--text);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 380px) {
+  .navbar {
+    padding: 0 0.65rem;
+  }
+
+  .nav-container {
+    min-height: 68px;
+    padding: 0 0.8rem;
+  }
+
+  .logo {
+    left: 14px;
+  }
+
+  .logo img {
+    width: 2.45rem;
+    height: 2.45rem;
+  }
+
+  .logo a::after {
+    font-size: 0.9rem;
+  }
+
+  .mobile-nav-tools {
+    top: 18px;
+    right: 3.8rem;
+  }
+
+  .theme-toggle {
+    width: 3.25rem;
+    height: 2rem;
+  }
+
+  .nav-container .hamburger-lines {
+    right: 19px;
+  }
+}
+
+@media screen and (min-width: 900px) {
   .hamburger-lines {
     display: none !important;
   }

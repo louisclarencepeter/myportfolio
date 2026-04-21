@@ -10,6 +10,7 @@
 
 .project-card {
   overflow: hidden;
+  min-width: 0;
   border: 1px solid var(--line);
   border-radius: 1.8rem;
   background:
@@ -52,15 +53,18 @@
 .project-copy h3 {
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
+  overflow-wrap: break-word;
 }
 
 .project-copy p {
   color: var(--muted);
   line-height: 1.8;
+  overflow-wrap: break-word;
 }
 
 .project-tag {
   display: inline-flex;
+  max-width: calc(100% - 2rem);
   margin: 1rem 1rem 0;
   border: 1px solid var(--line-strong);
   border-radius: 999px;
@@ -70,6 +74,7 @@
   letter-spacing: 0.08em;
   padding: 0.45rem 0.7rem;
   text-transform: uppercase;
+  overflow-wrap: break-word;
   transition:
     border-color var(--motion-fast) ease,
     background var(--motion-fast) ease,

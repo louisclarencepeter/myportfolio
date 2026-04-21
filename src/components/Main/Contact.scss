@@ -36,12 +36,14 @@
 .titles {
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.1;
+  overflow-wrap: break-word;
 }
 
 .contact-text {
   color: var(--muted);
   line-height: 1.9;
   margin-top: 1rem;
+  overflow-wrap: break-word;
 }
 
 .contact .form {
@@ -163,7 +165,7 @@
   transform: translateY(-2px);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
   .contact {
     grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
     align-items: stretch;
