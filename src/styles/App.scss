@@ -3,12 +3,115 @@
   margin: 0;
 }
 
+:root {
+  --bg: #0d1117;
+  --bg-soft: #131a22;
+  --panel: rgba(16, 22, 31, 0.78);
+  --panel-strong: #111a23;
+  --line: rgba(255, 255, 255, 0.1);
+  --text: #f4efe8;
+  --muted: #b3bcc8;
+  --accent: #f97352;
+  --accent-soft: #f4b393;
+  --glow: rgba(249, 115, 82, 0.16);
+  --shadow: 0 30px 80px rgba(0, 0, 0, 0.34);
+}
+
 @font-face {
   font-family: "Space Mono";
   src: url(../assets/fonts/SpaceMono-Regular.ttf) format("truetype");
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Space Mono", sans-serif;
-  background-color: #0f0e17;
+  background:
+    radial-gradient(circle at top left, rgba(249, 115, 82, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(96, 165, 250, 0.12), transparent 24%),
+    linear-gradient(180deg, #0b1015 0%, #10151d 52%, #0d1117 100%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent 90%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.App {
+  position: relative;
+}
+
+.section-heading {
+  margin: 0 auto 2.5rem;
+  max-width: 760px;
+  text-align: center;
+}
+
+.section-kicker {
+  color: var(--accent-soft);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 1.08;
+  margin-bottom: 1rem;
+}
+
+.section-text {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.section-fallback {
+  min-height: 40vh;
+}
+
+@media (max-width: 767px) {
+  .section-heading {
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

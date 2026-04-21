@@ -1,24 +1,35 @@
 /* Footer */
 footer {
+    width: min(1160px, 100%);
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem;
-    height: 4rem;
+    gap: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    padding: 1.5rem 0 0;
+    min-height: 4rem;
+    flex-wrap: wrap;
 }
 
-footer div:nth-child(1) {
+.footer-copy {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .f-p,
-footer p {
+footer p,
+.footer-copy span {
     font-size: 0.8rem;
     font-weight: 500;
     margin: 0;
+}
+
+.f-p {
+    color: var(--text);
 }
 
 .f-icons {
@@ -26,4 +37,8 @@ footer p {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+}
+
+.f-icons a {
+    color: var(--text);
 }

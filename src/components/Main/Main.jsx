@@ -1,17 +1,26 @@
-import React from "react";
+import { lazy, Suspense } from "react";
 import Home from "./Home.jsx";
-import About from "./About.jsx";
-import Projects from "./Project.jsx";
-import Contact from "./Contact.jsx";
 import "./Main.scss";
+
+const About = lazy(() => import("./About.jsx"));
+const Projects = lazy(() => import("./Project.jsx"));
+const Contact = lazy(() => import("./Contact.jsx"));
+
+const SectionFallback = () => <div className="section-fallback" aria-hidden="true" />;
 
 function Main() {
   return (
     <div className="main-container">
       <Home id="home" />
-      <About id="about" />
-      <Projects id="myprojects" />
-      <Contact id="contact" />
+      <Suspense fallback={<SectionFallback />}>
+        <About id="about" />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <Projects id="myprojects" />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <Contact id="contact" />
+      </Suspense>
     </div>
   );
 }

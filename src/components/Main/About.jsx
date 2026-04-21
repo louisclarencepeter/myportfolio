@@ -1,63 +1,75 @@
-// About.js
-
-import React from "react";
 import "./About.scss";
-import logo from "../../assets/images/me.jpg";
+import logo from "../../assets/images/me.webp";
 import dci from "../../assets/images/dci.svg";
-import skills from "../../assets/images/skills.jpg";
+import skills from "../../assets/images/skills.webp";
+import Icon from "../Icon.jsx";
 
 const About = () => {
   return (
-    <>
-      <div id="aboutme">
-        <main className="main">
-          <section className="about">
-            <div className="info bounce-top one">
-              <img src={logo} alt="my picture" />
-              <h2>Louis Peter</h2>
-              <p>
-                Living in Frankfurt am Main with a passion for Technology and
-                Web Development
-              </p>
-              <a href="https://github.com/louisclarencepeter" target="_blank">
-                <i className="fa-brands fa-github" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/louisclarencepeter/"
-                target="_blank"
-              >
-                <i className="fa-brands fa-linkedin" />
-              </a>
-            </div>
-          </section>
-
-          <section className="about">
-            <div className="info bounce-top two">
-              <img src={dci} alt="my school" />
-              <h2>Education</h2>
-              <p>2022 - Present</p>
-              <p>Full Stack Web Development</p>
-              <p>Digital Career Institute</p>
-            </div>
-          </section>
-
-          <section className="about">
-            <div className="info bounce-top three">
-              <img src={skills} alt="my Progress" />
-              <h2>My Skills</h2>
-              <p>HTML</p>
-              <p>CSS</p>
-              <p>JavaScript</p>
-              <p>Git</p>
-              <p>React.js</p>
-              <p>Express.js</p>
-              <p>Node.js</p>
-              <p>MongoDB</p>
-            </div>
-          </section>
-        </main>
+    <section className="about-section" id="aboutme">
+      <div className="section-heading">
+        <p className="section-kicker">About</p>
+        <h2>Full stack developer focused on polished digital experiences</h2>
+        <p className="section-text">
+          I work across the full stack, combining frontend design sense with
+          backend problem-solving to build responsive and reliable web
+          experiences.
+        </p>
       </div>
-    </>
+
+      <div className="about-grid">
+        <article className="info intro-card">
+          <img src={logo} alt="Portrait of Louis Peter" />
+          <h3>Louis Peter</h3>
+          <p>
+            Living in Frankfurt am Main with a passion for full stack
+            development, thoughtful design, and building useful digital
+            products.
+          </p>
+          <div className="social-links">
+            <a
+              href="https://github.com/louisclarencepeter"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+            >
+              <Icon name="github" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/louisclarencepeter/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+            >
+              <Icon name="linkedin" />
+            </a>
+          </div>
+        </article>
+
+        <article className="info">
+          <img src={dci} alt="Digital Career Institute logo" />
+          <h3>Education</h3>
+          <p>2022 - 2023</p>
+          <p>Full Stack Web Development</p>
+          <p>Digital Career Institute</p>
+        </article>
+
+        <article className="info">
+          <img src={skills} alt="Skills overview" />
+          <h3>Core Stack</h3>
+          <div className="skill-list">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Git</span>
+            <span>React</span>
+            <span>Express</span>
+            <span>Node.js</span>
+            <span>MongoDB</span>
+          </div>
+        </article>
+      </div>
+    </section>
   );
 };
 

@@ -1,8 +1,12 @@
-import '@fortawesome/fontawesome-free/css/all.css';
-import Main from './components/main/Main.jsx';
-import Footer from './components/footer/Footer.jsx';
-import Navbar from './components/header/Navbar.jsx';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import CookieBanner from './components/CookieBanner/CookieBanner.jsx';
+import Main from './components/Main/Main.jsx';
+import Footer from './components/Footer/Footer.jsx';
+import Navbar from './components/Header/Navbar.jsx';
 import './styles/App.scss';
+
+config.autoAddCss = false;
 
 function App() {
     return (
@@ -10,6 +14,7 @@ function App() {
             <Navbar />
             <Main />
             <Footer />
+            <CookieBanner />
         </div>
     );
 }
