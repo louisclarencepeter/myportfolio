@@ -11,6 +11,7 @@ footer {
     padding: 1.5rem 0 0;
     min-height: 4rem;
     flex-wrap: wrap;
+    animation: fade-up 620ms var(--ease-out) 520ms both;
 }
 
 .footer-copy {
@@ -30,6 +31,11 @@ footer p,
 
 .f-p {
     color: var(--text);
+    transition: color var(--motion-fast) ease;
+}
+
+.f-p:hover {
+    color: var(--accent-soft);
 }
 
 .f-icons {
@@ -41,4 +47,11 @@ footer p,
 
 .f-icons a {
     color: var(--text);
+    display: inline-flex;
+    transition: color var(--motion-fast) ease, transform var(--motion-fast) ease;
+}
+
+.f-icons a:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
 }

@@ -10,10 +10,21 @@
   border: 1px solid var(--line);
   border-radius: 1.8rem;
   background:
-    linear-gradient(160deg, rgba(249, 115, 82, 0.08), transparent 35%),
-    rgba(17, 26, 35, 0.82);
+    linear-gradient(160deg, var(--card-warm), transparent 35%),
+    var(--card-bg);
   box-shadow: var(--shadow);
   padding: 1.5rem;
+  transition:
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-fast) ease,
+    transform var(--motion-fast) ease;
+}
+
+.contact-intro:hover,
+.contact .form:hover {
+  border-color: color-mix(in srgb, var(--accent) 24%, transparent);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
 }
 
 .contact-intro {
@@ -53,17 +64,22 @@
 .contact .form input,
 .contact .form textarea {
   width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--line);
   border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--input-bg);
   color: var(--text);
   outline: none;
   padding: 0.9rem 1rem;
+  transition:
+    border-color var(--motion-fast) ease,
+    background var(--motion-fast) ease,
+    box-shadow var(--motion-fast) ease,
+    transform var(--motion-fast) ease;
 }
 
 .contact .form input::placeholder,
 .contact .form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--placeholder);
 }
 
 .contact .form textarea {
@@ -73,8 +89,10 @@
 
 .contact .form input:focus,
 .contact .form textarea:focus {
-  border-color: rgba(249, 115, 82, 0.4);
-  box-shadow: 0 0 0 4px rgba(249, 115, 82, 0.08);
+  background: var(--input-bg-focus);
+  border-color: color-mix(in srgb, var(--accent) 46%, transparent);
+  box-shadow: 0 0 0 4px var(--glow);
+  transform: translateY(-1px);
 }
 
 .contact .send {
@@ -82,16 +100,20 @@
   border: none;
   border-radius: 999px;
   background: var(--accent);
-  color: #0d1117;
+  color: var(--button-text);
   font-size: 0.95rem;
   padding: 0.95rem 1.3rem;
-  transition: 0.25s ease;
+  transition:
+    transform var(--motion-fast) ease,
+    box-shadow var(--motion-fast) ease,
+    filter var(--motion-fast) ease;
 }
 
 .contact .send:hover {
   cursor: pointer;
   transform: translateY(-2px);
   filter: brightness(1.04);
+  box-shadow: 0 16px 34px var(--glow);
 }
 
 .contact .form-status {
@@ -126,14 +148,18 @@
   height: 2.9rem;
   border: 1px solid var(--line);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--interactive-bg);
   color: var(--text);
-  transition: 0.25s ease;
+  transition:
+    transform var(--motion-fast) ease,
+    border-color var(--motion-fast) ease,
+    background var(--motion-fast) ease,
+    color var(--motion-fast) ease;
 }
 
 .socials a:hover {
   color: var(--accent);
-  border-color: rgba(249, 115, 82, 0.25);
+  border-color: color-mix(in srgb, var(--accent) 28%, transparent);
   transform: translateY(-2px);
 }
 

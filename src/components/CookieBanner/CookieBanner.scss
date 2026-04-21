@@ -7,7 +7,7 @@
 .cookie-banner__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(6, 10, 15, 0.62);
+  background: color-mix(in srgb, var(--bg) 68%, transparent);
   backdrop-filter: blur(4px);
 }
 
@@ -18,12 +18,12 @@
   transform: translate(-50%, -50%);
   z-index: 1201;
   width: min(28rem, calc(100vw - 2rem));
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--line);
   border-radius: 1.5rem;
   background:
-    linear-gradient(160deg, rgba(249, 115, 82, 0.14), transparent 40%),
-    rgba(15, 20, 28, 0.96);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.34);
+    linear-gradient(160deg, var(--card-warm-strong), transparent 40%),
+    var(--menu-bg);
+  box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
   padding: 1.1rem;
 }
@@ -65,15 +65,15 @@
 }
 
 .cookie-banner__secondary {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  background: var(--interactive-bg);
   color: var(--text);
 }
 
 .cookie-banner__primary {
   border: none;
   background: var(--accent);
-  color: #0d1117;
+  color: var(--button-text);
 }
 
 .cookie-banner__actions button:hover {

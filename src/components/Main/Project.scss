@@ -13,24 +13,36 @@
   border: 1px solid var(--line);
   border-radius: 1.8rem;
   background:
-    linear-gradient(160deg, rgba(96, 165, 250, 0.08), transparent 35%),
-    rgba(17, 26, 35, 0.82);
+    linear-gradient(160deg, var(--card-cool), transparent 35%),
+    var(--card-bg);
   box-shadow: var(--shadow);
+  transition:
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-fast) ease,
+    transform var(--motion-fast) ease;
+}
+
+.project-card:hover {
+  border-color: color-mix(in srgb, #2280b0 28%, transparent);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-5px);
 }
 
 .project-card a {
   display: block;
+  overflow: hidden;
 }
 
 .project-card img {
   width: 100%;
   aspect-ratio: 16 / 11;
   object-fit: cover;
-  transition: transform 0.35s ease;
+  transition: transform 520ms var(--ease-out), filter 520ms var(--ease-out);
 }
 
 .project-card:hover img {
-  transform: scale(1.04);
+  filter: saturate(1.08) contrast(1.03);
+  transform: scale(1.05);
 }
 
 .project-copy {
@@ -50,19 +62,24 @@
 .project-tag {
   display: inline-flex;
   margin: 1rem 1rem 0;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid var(--line-strong);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--interactive-bg);
   color: var(--accent-soft);
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   padding: 0.45rem 0.7rem;
   text-transform: uppercase;
+  transition:
+    border-color var(--motion-fast) ease,
+    background var(--motion-fast) ease,
+    color var(--motion-fast) ease;
 }
 
-.project-status {
-  color: var(--text) !important;
-  margin-top: 0.9rem;
+.project-card:hover .project-tag {
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+  background: var(--interactive-bg-hover);
+  color: var(--text);
 }
 
 @media (min-width: 768px) {

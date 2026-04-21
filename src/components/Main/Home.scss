@@ -15,6 +15,34 @@
   gap: 0.85rem;
 }
 
+.hero-copy > * {
+  animation: fade-up 720ms var(--ease-out) both;
+}
+
+.hero-copy > *:nth-child(1) {
+  animation-delay: 80ms;
+}
+
+.hero-copy > *:nth-child(2) {
+  animation-delay: 150ms;
+}
+
+.hero-copy > *:nth-child(3) {
+  animation-delay: 220ms;
+}
+
+.hero-copy > *:nth-child(4) {
+  animation-delay: 290ms;
+}
+
+.hero-copy > *:nth-child(5) {
+  animation-delay: 360ms;
+}
+
+.hero-copy > *:nth-child(6) {
+  animation-delay: 430ms;
+}
+
 .eyebrow {
   color: var(--accent-soft);
   font-size: 0.78rem;
@@ -67,12 +95,17 @@
   padding: 0.95rem 1.35rem;
   border-radius: 999px;
   font-size: 0.95rem;
-  transition: 0.25s ease;
+  transition:
+    transform var(--motion-fast) ease,
+    border-color var(--motion-fast) ease,
+    background var(--motion-fast) ease,
+    box-shadow var(--motion-fast) ease,
+    filter var(--motion-fast) ease;
 }
 
 .primary-action {
   background: var(--accent);
-  color: #0d1117;
+  color: var(--button-text);
   box-shadow: 0 16px 36px var(--glow);
 }
 
@@ -83,19 +116,20 @@
 
 .secondary-action {
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--interactive-bg);
   color: var(--text);
 }
 
 .secondary-action:hover {
-  border-color: rgba(249, 115, 82, 0.24);
-  background: rgba(249, 115, 82, 0.08);
+  border-color: color-mix(in srgb, var(--accent) 28%, transparent);
+  background: var(--interactive-bg-hover);
 }
 
 .hero-visual {
   display: grid;
   gap: 1.25rem;
   width: 100%;
+  animation: scale-in 820ms var(--ease-out) 260ms both;
 }
 
 .portrait-card {
@@ -104,9 +138,35 @@
   border: 1px solid var(--line);
   border-radius: 2rem;
   background:
-    linear-gradient(160deg, rgba(249, 115, 82, 0.18), transparent 35%),
-    rgba(16, 22, 31, 0.82);
+    linear-gradient(160deg, var(--card-warm-strong), transparent 35%),
+    var(--panel);
   box-shadow: var(--shadow);
+  transition:
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-fast) ease,
+    transform var(--motion-fast) ease;
+}
+
+.portrait-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 20%, var(--shine), transparent 42%);
+  opacity: 0;
+  transform: translateX(-35%);
+  transition: opacity var(--motion-fast) ease, transform 700ms var(--ease-out);
+}
+
+.portrait-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 28%, transparent);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+.portrait-card:hover::after {
+  opacity: 1;
+  transform: translateX(35%);
 }
 
 .portrait-card img {
@@ -142,39 +202,64 @@
 .icons {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
 
   .icon {
     display: flex;
-    flex: 1 1 calc(50% - 0.5rem);
+    flex: 0 0 auto;
     align-items: center;
     gap: 0.7rem;
     min-height: 5rem;
-    min-width: 0;
+    min-width: max-content;
     border: 1px solid var(--line);
     border-radius: 1.4rem;
-    background: rgba(17, 26, 35, 0.76);
-    padding: 0.9rem 1rem;
+    background: var(--card-bg-soft);
+    padding: 0.9rem 1.25rem;
     box-shadow: var(--shadow);
-    transition: 0.25s ease;
+    animation: fade-up 620ms var(--ease-out) both;
+    transition:
+      transform var(--motion-fast) ease,
+      border-color var(--motion-fast) ease,
+      background var(--motion-fast) ease,
+      box-shadow var(--motion-fast) ease;
+
+    &:nth-child(1) {
+      animation-delay: 520ms;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 590ms;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 660ms;
+    }
 
     i {
       color: var(--accent);
       font-size: 1.6rem;
       flex-shrink: 0;
+      transition: transform var(--motion-fast) ease, color var(--motion-fast) ease;
     }
 
     p {
       color: var(--text);
       font-size: 0.9rem;
       line-height: 1.2;
-      overflow-wrap: anywhere;
+      white-space: nowrap;
     }
 
     &:hover {
       transform: translateY(-3px);
-      border-color: rgba(249, 115, 82, 0.22);
-      background: rgba(249, 115, 82, 0.08);
+      border-color: color-mix(in srgb, var(--accent) 26%, transparent);
+      background: var(--interactive-bg-hover);
+      box-shadow: var(--shadow);
+    }
+
+    &:hover i {
+      color: var(--accent-soft);
+      transform: scale(1.08) rotate(-2deg);
     }
   }
 }
@@ -231,8 +316,7 @@
   }
 
   .icons {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    display: grid;
+    justify-content: center;
 
     .icon {
       min-height: 4.8rem;

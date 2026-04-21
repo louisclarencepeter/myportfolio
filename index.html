@@ -20,6 +20,41 @@
   <link rel="canonical" href="https://louispeter.com/">
   <link rel="icon" type="image/png" href="/favicon.png" />
   <title>Louis Peter — Full Stack Portfolio</title>
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('portfolio-theme');
+        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        var theme = savedTheme || (prefersLight ? 'light' : 'dark');
+        var savedLanguage = localStorage.getItem('portfolio-language');
+        var timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        var visitorLocales = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language])
+          .filter(Boolean)
+          .map(function (locale) { return locale.toLowerCase(); });
+        var detectedLanguage = 'en';
+
+        if (timeZone === 'Africa/Dar_es_Salaam') {
+          detectedLanguage = 'sw';
+        } else if (timeZone === 'Europe/Berlin') {
+          detectedLanguage = 'de';
+        } else if (visitorLocales.some(function (locale) { return locale === 'sw-tz' || locale.endsWith('-tz'); })) {
+          detectedLanguage = 'sw';
+        } else if (visitorLocales.some(function (locale) { return locale === 'de-de' || locale.endsWith('-de'); })) {
+          detectedLanguage = 'de';
+        }
+
+        var language = ['en', 'de', 'sw'].indexOf(savedLanguage) >= 0
+          ? savedLanguage
+          : detectedLanguage;
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+        document.documentElement.lang = language;
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'light' ? '#f7f0e8' : '#0e131b');
+      } catch (error) {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    }());
+  </script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",

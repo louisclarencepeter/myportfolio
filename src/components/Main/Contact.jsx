@@ -2,16 +2,18 @@ import { useState } from 'react'
 import './Contact.scss'
 import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from '../../config/contact'
 import Icon from '../Icon.jsx'
+import { useTranslation } from '../../i18n.jsx'
 
 const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT || '/api/contact'
 
 function Contact() {
   const [status, setStatus] = useState(null)
   const [submitting, setSubmitting] = useState(false)
+  const { t } = useTranslation()
 
   const openMailto = ({ name, email, message }) => {
-    const subject = encodeURIComponent(`Portfolio contact from ${name}`)
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)
+    const subject = encodeURIComponent(t('contact.subject', { name }))
+    const body = encodeURIComponent(t('contact.mailBody', { name, email, message }))
     window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
   }
 
@@ -24,13 +26,13 @@ function Contact() {
     const message = String(formData.get('message') || '').trim()
 
     if (!name || !email || !message) {
-      setStatus({ type: 'error', text: 'Please fill in all fields.' })
+      setStatus({ type: 'error', text: t('contact.fillAll') })
       return
     }
 
     if (!CONTACT_ENDPOINT) {
       openMailto({ name, email, message })
-      setStatus({ type: 'success', text: 'Opening your email client…' })
+      setStatus({ type: 'success', text: t('contact.openingEmail') })
       return
     }
 
@@ -43,12 +45,12 @@ function Contact() {
         body: JSON.stringify({ name, email, message }),
       })
       if (!response.ok) throw new Error(`Request failed: ${response.status}`)
-      setStatus({ type: 'success', text: 'Thanks! Your message has been sent.' })
+      setStatus({ type: 'success', text: t('contact.success') })
       form.reset()
     } catch {
       setStatus({
         type: 'error',
-        text: 'Something went wrong. Opening your email client instead…',
+        text: t('contact.fallback'),
       })
       openMailto({ name, email, message })
     } finally {
@@ -59,13 +61,9 @@ function Contact() {
   return (
     <section className="contact" id="contact">
       <div className="contact-intro">
-        <p className="section-kicker">Contact</p>
-        <h2 className="titles">Let&apos;s build something thoughtful</h2>
-        <p className="contact-text">
-          If you want to collaborate, talk about full stack web development,
-          or just say hello, send me a message and I&apos;ll get back to you by
-          email.
-        </p>
+        <p className="section-kicker">{t('contact.kicker')}</p>
+        <h2 className="titles">{t('contact.title')}</h2>
+        <p className="contact-text">{t('contact.text')}</p>
 
         <div className="socials">
           <ul>
@@ -84,14 +82,14 @@ function Contact() {
       </div>
 
       <form className="form" onSubmit={handleSubmit} noValidate>
-        <p>Please fill in the form below to send me a message</p>
-        <label htmlFor="name">Name:</label>
+        <p>{t('contact.formIntro')}</p>
+        <label htmlFor="name">{t('contact.name')}</label>
         <input type="text" id="name" name="name" required autoComplete="name" disabled={submitting} />
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email">{t('contact.email')}</label>
         <input type="email" id="email" name="email" required autoComplete="email" disabled={submitting} />
-        <label htmlFor="message">Message:</label>
+        <label htmlFor="message">{t('contact.message')}</label>
         <textarea id="message" name="message" required rows={6} disabled={submitting} />
-        <input type="submit" value={submitting ? 'Sending…' : 'Send'} className="send" disabled={submitting} />
+        <input type="submit" value={submitting ? t('contact.sending') : t('contact.send')} className="send" disabled={submitting} />
         {status && (
           <p className={`form-status form-status--${status.type}`} role="status">
             {status.text}

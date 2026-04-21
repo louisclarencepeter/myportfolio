@@ -1,34 +1,33 @@
 # Louis Peter — Full Stack Portfolio
 
-A single-page portfolio built with React, Vite, and Sass showcasing my projects, skills, and contact info.
+A responsive portfolio for [louispeter.com](https://louispeter.com/) built with React, Vite, Sass, and Netlify Functions. It showcases selected client and product work, includes a Resend-powered contact form, supports dark/light themes, and serves English, German, and Kiswahili UI copy.
 
-![Portfolio Screenshot](./appimg/Screenshot%202023-11-08%20154051.png)
-![Portfolio Screenshot](./appimg/Screenshot%202023-11-08%20154108.png)
-![Portfolio Screenshot](./appimg/Screenshot%202023-11-08%20154138.png)
-![Portfolio Screenshot](./appimg/Screenshot%202023-11-08%20154148.png)
+## Features
 
-## Table of Contents
+- Responsive single-page portfolio with animated sections and project cards
+- Dark and light themes with system preference detection on first load
+- Language switcher for English, German, and Kiswahili
+- Automatic language default: Tanzania gets Kiswahili, Germany gets German, everyone else gets English
+- Contact form handled by a Netlify Function so the Resend API key stays server-side
+- Static `impressum.html` page
+- SEO metadata, sitemap, robots file, and favicon in `public/`
 
-- [Getting Started](#getting-started)
-- [Scripts](#scripts)
-- [Project Structure](#project-structure)
-- [Tech Stack](#tech-stack)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+## Projects
+
+- [Trockenbau Primavista](https://trockenbau-primavista.ch/)
+- [Flowdesk Tool](https://flowdesktool.com/)
+- [Destination Paradise](https://www.yournexttriptoparadise.com/)
 
 ## Getting Started
 
-Clone the repo, install dependencies, and start the dev server:
+Install dependencies and start the Vite dev server:
 
 ```sh
-git clone https://github.com/louisclarencepeter/myportfolio.git
-cd myportfolio
 npm install
 npm run dev
 ```
 
-The dev server runs on `http://localhost:3007` by default.
+The dev server uses Vite and will print the local URL in the terminal. If the default port is busy, Vite will choose the next available port.
 
 ## Scripts
 
@@ -38,11 +37,13 @@ The dev server runs on `http://localhost:3007` by default.
 | `npm run build` | Create a production build in `dist/` |
 | `npm run preview` | Preview the production build locally |
 | `npm run lint` | Lint `src/` with ESLint |
+| `npm run start` | Start Vite on `0.0.0.0` |
 
 ## Contact Form
 
-The contact form posts to the Netlify Function at `/api/contact` by default.
-Configure these server-only environment variables in Netlify:
+The contact form posts to `/api/contact`, which is served by `netlify/functions/contact.js`.
+
+Configure these environment variables in Netlify:
 
 ```sh
 RESEND_API_KEY=
@@ -50,68 +51,80 @@ RESEND_FROM_EMAIL="Portfolio Contact <contact@yourdomain.com>"
 CONTACT_TO_EMAIL="louisclarencepeters@gmail.com"
 ```
 
-Do not prefix the Resend key with `VITE_`, because Vite exposes `VITE_*`
-variables to the browser bundle.
+Do not prefix the Resend key with `VITE_`. Vite exposes `VITE_*` variables to the browser bundle, and API keys must stay server-side.
+
+Optional frontend override:
+
+```sh
+VITE_CONTACT_ENDPOINT=
+```
+
+If unset, the frontend uses `/api/contact`.
+
+## Netlify
+
+`netlify.toml` defines the production setup:
+
+- Build command: `npm run build`
+- Publish directory: `dist`
+- Functions directory: `netlify/functions`
+- SPA redirect fallback to `/index.html`
+
+For local function testing, use Netlify CLI:
+
+```sh
+netlify dev
+```
 
 ## Project Structure
 
-```
+```text
 myportfolio/
 ├── netlify/
 │   └── functions/
 │       └── contact.js
-├── netlify.toml
 ├── public/
-│   └── favicon.jpg
+│   ├── 404.html
+│   ├── favicon.png
+│   ├── robots.txt
+│   └── sitemap.xml
 ├── src/
 │   ├── assets/
 │   │   ├── fonts/
 │   │   └── images/
 │   ├── components/
 │   │   ├── CookieBanner/
-│   │   │   ├── CookieBanner.jsx
-│   │   │   └── CookieBanner.scss
 │   │   ├── Footer/
-│   │   │   ├── Footer.jsx
-│   │   │   └── Footer.scss
 │   │   ├── Header/
-│   │   │   ├── Navbar.jsx
-│   │   │   └── Navbar.scss
 │   │   └── Main/
-│   │       ├── About.jsx
-│   │       ├── Contact.jsx
-│   │       ├── Home.jsx
-│   │       ├── Main.jsx
-│   │       ├── Project.jsx
-│   │       └── *.scss
 │   ├── config/
 │   │   └── contact.js
 │   ├── styles/
 │   │   └── App.scss
 │   ├── App.jsx
+│   ├── i18n.jsx
 │   └── main.jsx
 ├── impressum.html
 ├── index.html
+├── netlify.toml
 └── vite.config.js
 ```
 
 ## Tech Stack
 
-- **React 18** — UI library
-- **Vite** — build tool and dev server
-- **Sass** — component-scoped styles
-- **Font Awesome** — icon set
-- **ESLint** — linting
+- React 19
+- Vite 8
+- Sass
+- Font Awesome brand icons
+- Netlify Functions
+- Resend
+- ESLint
 
-## Contributing
+## Notes
 
-Contributions are welcome.
-
-1. Fork the project
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m "Add amazing feature"`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a pull request
+- `dist/` is generated by `npm run build` and is intentionally ignored.
+- The language and theme choices are stored in `localStorage`.
+- The Impressum page remains German because it contains legal text.
 
 ## License
 

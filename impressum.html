@@ -4,17 +4,95 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Impressum von Louis Peter" />
+  <meta name="author" content="Louis Peter" />
+  <meta name="theme-color" content="#0e131b" />
+  <meta property="og:title" content="Impressum | Louis Peter" />
+  <meta property="og:description" content="Rechtliche Angaben und Kontaktinformationen fuer das Portfolio von Louis Peter." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://louispeter.com/impressum.html" />
+  <meta property="og:image" content="https://louispeter.com/favicon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Impressum | Louis Peter" />
+  <meta name="twitter:description" content="Rechtliche Angaben und Kontaktinformationen fuer das Portfolio von Louis Peter." />
+  <meta name="twitter:image" content="https://louispeter.com/favicon.png" />
+  <link rel="canonical" href="https://louispeter.com/impressum.html" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
   <title>Impressum | Louis Peter</title>
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('portfolio-theme');
+        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        var theme = savedTheme || (prefersLight ? 'light' : 'dark');
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'light' ? '#f7f0e8' : '#0e131b');
+      } catch (error) {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    }());
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Impressum | Louis Peter",
+      "url": "https://louispeter.com/impressum.html",
+      "description": "Rechtliche Angaben und Kontaktinformationen fuer das Portfolio von Louis Peter.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Louis Peter",
+        "url": "https://louispeter.com/"
+      }
+    }
+  </script>
   <style>
     :root {
       --bg: #0d1117;
       --panel: rgba(16, 22, 31, 0.9);
       --line: rgba(255, 255, 255, 0.1);
+      --line-strong: rgba(255, 255, 255, 0.16);
       --text: #f4efe8;
       --muted: #b3bcc8;
       --accent: #f97352;
       --accent-soft: #f4b393;
       --shadow: 0 30px 80px rgba(0, 0, 0, 0.34);
+      --body-bg:
+        radial-gradient(circle at top left, rgba(249, 115, 82, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(96, 165, 250, 0.12), transparent 24%),
+        linear-gradient(180deg, #0b1015 0%, #10151d 52%, #0d1117 100%);
+      --nav-bg: rgba(14, 19, 27, 0.82);
+      --menu-bg: rgba(15, 20, 28, 0.96);
+      --card-warm: rgba(249, 115, 82, 0.08);
+      --card-warm-strong: rgba(249, 115, 82, 0.14);
+      --interactive-bg: rgba(255, 255, 255, 0.04);
+      --interactive-bg-hover: rgba(249, 115, 82, 0.08);
+      --overlay-bg: rgba(6, 10, 15, 0.62);
+      --button-text: #0d1117;
+    }
+
+    :root[data-theme="light"] {
+      --bg: #f7f0e8;
+      --panel: rgba(255, 250, 245, 0.9);
+      --line: rgba(42, 45, 51, 0.13);
+      --line-strong: rgba(42, 45, 51, 0.18);
+      --text: #171b22;
+      --muted: #59616d;
+      --accent: #c94f35;
+      --accent-soft: #8d3d2b;
+      --shadow: 0 24px 70px rgba(82, 61, 44, 0.18);
+      --body-bg:
+        radial-gradient(circle at top left, rgba(201, 79, 53, 0.13), transparent 28%),
+        radial-gradient(circle at top right, rgba(34, 128, 176, 0.13), transparent 24%),
+        linear-gradient(180deg, #fbf6ef 0%, #f2eadf 52%, #f7f0e8 100%);
+      --nav-bg: rgba(255, 250, 245, 0.82);
+      --menu-bg: rgba(255, 250, 245, 0.98);
+      --card-warm: rgba(201, 79, 53, 0.09);
+      --card-warm-strong: rgba(201, 79, 53, 0.15);
+      --interactive-bg: rgba(42, 45, 51, 0.04);
+      --interactive-bg-hover: rgba(201, 79, 53, 0.09);
+      --overlay-bg: rgba(247, 240, 232, 0.68);
+      --button-text: #fffaf5;
     }
 
     * {
@@ -24,10 +102,7 @@
 
     body {
       min-height: 100vh;
-      background:
-        radial-gradient(circle at top left, rgba(249, 115, 82, 0.16), transparent 28%),
-        radial-gradient(circle at top right, rgba(96, 165, 250, 0.12), transparent 24%),
-        linear-gradient(180deg, #0b1015 0%, #10151d 52%, #0d1117 100%);
+      background: var(--body-bg);
       color: var(--text);
       font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
       line-height: 1.7;
@@ -67,7 +142,7 @@
       gap: 1rem;
       border: 1px solid var(--line);
       border-radius: 999px;
-      background: rgba(14, 19, 27, 0.82);
+      background: var(--nav-bg);
       box-shadow: var(--shadow);
       backdrop-filter: blur(18px);
       padding: 0.9rem 1rem;
@@ -84,12 +159,13 @@
       height: 2.75rem;
       object-fit: cover;
       border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      border: 1px solid var(--line-strong);
     }
 
     .nav__links {
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       gap: 0.5rem;
       justify-content: flex-end;
     }
@@ -104,15 +180,74 @@
 
     .nav__links a:hover {
       color: var(--text);
-      border-color: rgba(249, 115, 82, 0.24);
-      background: rgba(249, 115, 82, 0.08);
+      border-color: color-mix(in srgb, var(--accent) 28%, transparent);
+      background: var(--interactive-bg-hover);
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.6rem;
+      height: 2.1rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--interactive-bg);
+      cursor: pointer;
+      padding: 0.2rem;
+    }
+
+    .theme-toggle__track {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .theme-toggle__icon {
+      position: absolute;
+      top: 50%;
+      color: var(--muted);
+      width: 0.88rem;
+      height: 0.88rem;
+      fill: currentColor;
+      transform: translateY(-50%);
+    }
+
+    .theme-toggle__icon--moon {
+      left: 0.35rem;
+    }
+
+    .theme-toggle__icon--sun {
+      right: 0.35rem;
+    }
+
+    :root[data-theme="dark"] .theme-toggle__icon--moon,
+    :root[data-theme="light"] .theme-toggle__icon--sun {
+      color: var(--button-text);
+    }
+
+    .theme-toggle__thumb {
+      position: absolute;
+      top: 50%;
+      left: 0.1rem;
+      width: 1.45rem;
+      height: 1.45rem;
+      border-radius: 50%;
+      background: var(--accent);
+      transform: translateY(-50%);
+      transition: transform 0.2s ease;
+    }
+
+    :root[data-theme="light"] .theme-toggle__thumb {
+      transform: translate(1.45rem, -50%);
     }
 
     .card {
       border: 1px solid var(--line);
       border-radius: 2rem;
       background:
-        linear-gradient(160deg, rgba(249, 115, 82, 0.08), transparent 36%),
+        linear-gradient(160deg, var(--card-warm), transparent 36%),
         var(--panel);
       box-shadow: var(--shadow);
       padding: 1.5rem;
@@ -168,7 +303,7 @@
     .cookie-banner__backdrop {
       position: absolute;
       inset: 0;
-      background: rgba(6, 10, 15, 0.62);
+      background: var(--overlay-bg);
       backdrop-filter: blur(4px);
     }
 
@@ -182,8 +317,8 @@
       border: 1px solid var(--line);
       border-radius: 1.5rem;
       background:
-        linear-gradient(160deg, rgba(249, 115, 82, 0.14), transparent 40%),
-        rgba(15, 20, 28, 0.96);
+        linear-gradient(160deg, var(--card-warm-strong), transparent 40%),
+        var(--menu-bg);
       box-shadow: var(--shadow);
       backdrop-filter: blur(18px);
       padding: 1.1rem;
@@ -215,15 +350,15 @@
     }
 
     .cookie-banner__secondary {
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      background: var(--interactive-bg);
       color: var(--text);
     }
 
     .cookie-banner__primary {
       border: none;
       background: var(--accent);
-      color: #0d1117;
+      color: var(--button-text);
     }
 
     @media (max-width: 720px) {
@@ -272,6 +407,17 @@
       </a>
 
       <nav class="nav__links" aria-label="Seiten">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch theme" aria-pressed="false">
+          <span class="theme-toggle__track" aria-hidden="true">
+            <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" focusable="false">
+              <path d="M20.1 14.4A7.5 7.5 0 0 1 9.6 3.9 8.8 8.8 0 1 0 20.1 14.4Z"></path>
+            </svg>
+            <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" focusable="false">
+              <path d="M12 7.2a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6Zm0-5.2 1.1 2.9h-2.2L12 2Zm0 17.1 1.1 2.9h-2.2l1.1-2.9ZM4.9 4.9l2.8 1.3-1.5 1.5-1.3-2.8Zm12.9 11.4 1.3 2.8-2.8-1.3 1.5-1.5ZM2 12l2.9-1.1v2.2L2 12Zm17.1 0 2.9-1.1v2.2L19.1 12ZM4.9 19.1l1.3-2.8 1.5 1.5-2.8 1.3ZM17.8 7.7l-1.5-1.5 2.8-1.3-1.3 2.8Z"></path>
+            </svg>
+            <span class="theme-toggle__thumb"></span>
+          </span>
+        </button>
         <a href="/">Back Home</a>
         <a href="mailto:louisclarencepeters@gmail.com">Email</a>
         <a href="https://github.com/louisclarencepeter" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -378,11 +524,35 @@
   </div>
 
   <script>
+    const themeStorageKey = "portfolio-theme";
+    const themeToggle = document.getElementById("theme-toggle");
     const consentKey = "lp-cookie-consent";
     const banner = document.getElementById("cookie-banner");
     const bannerLayer = document.getElementById("cookie-layer");
     const savedConsent = window.localStorage.getItem(consentKey);
     const year = document.getElementById("year");
+
+    const applyTheme = (theme) => {
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.style.colorScheme = theme;
+      document
+        .querySelector('meta[name="theme-color"]')
+        ?.setAttribute("content", theme === "light" ? "#f7f0e8" : "#0e131b");
+
+      if (themeToggle) {
+        themeToggle.setAttribute("aria-pressed", String(theme === "light"));
+        themeToggle.setAttribute("aria-label", `Switch to ${theme === "dark" ? "light" : "dark"} theme`);
+      }
+    };
+
+    if (themeToggle) {
+      applyTheme(document.documentElement.dataset.theme || "dark");
+      themeToggle.addEventListener("click", () => {
+        const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        window.localStorage.setItem(themeStorageKey, theme);
+        applyTheme(theme);
+      });
+    }
 
     if (year) {
       year.textContent = new Date().getFullYear();

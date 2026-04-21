@@ -1,1 +1,0 @@
-var e=`louisclarencepeters@gmail.com`,t=`https://github.com/louisclarencepeter`,n=`https://www.linkedin.com/in/louisclarencepeter/`;export{t as n,n as r,e as t};

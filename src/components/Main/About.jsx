@@ -3,29 +3,24 @@ import logo from "../../assets/images/me.webp";
 import dci from "../../assets/images/dci.svg";
 import skills from "../../assets/images/skills.webp";
 import Icon from "../Icon.jsx";
+import { useTranslation } from "../../i18n.jsx";
 
 const About = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="about-section" id="aboutme">
       <div className="section-heading">
-        <p className="section-kicker">About</p>
-        <h2>Full stack developer focused on polished digital experiences</h2>
-        <p className="section-text">
-          I work across the full stack, combining frontend design sense with
-          backend problem-solving to build responsive and reliable web
-          experiences.
-        </p>
+        <p className="section-kicker">{t("about.kicker")}</p>
+        <h2>{t("about.title")}</h2>
+        <p className="section-text">{t("about.text")}</p>
       </div>
 
       <div className="about-grid">
         <article className="info intro-card">
-          <img src={logo} alt="Portrait of Louis Peter" />
+          <img src={logo} alt={t("about.portraitAlt")} />
           <h3>Louis Peter</h3>
-          <p>
-            Living in Frankfurt am Main with a passion for full stack
-            development, thoughtful design, and building useful digital
-            products.
-          </p>
+          <p>{t("about.bio")}</p>
           <div className="social-links">
             <a
               href="https://github.com/louisclarencepeter"
@@ -47,16 +42,16 @@ const About = () => {
         </article>
 
         <article className="info">
-          <img src={dci} alt="Digital Career Institute logo" />
-          <h3>Education</h3>
+          <img src={dci} alt={t("about.dciAlt")} />
+          <h3>{t("about.education")}</h3>
           <p>2022 - 2023</p>
-          <p>Full Stack Web Development</p>
-          <p>Digital Career Institute</p>
+          <p>{t("about.program")}</p>
+          <p>{t("about.school")}</p>
         </article>
 
         <article className="info">
-          <img src={skills} alt="Skills overview" />
-          <h3>Core Stack</h3>
+          <img src={skills} alt={t("about.skillsAlt")} />
+          <h3>{t("about.coreStack")}</h3>
           <div className="skill-list">
             <span>HTML</span>
             <span>CSS</span>

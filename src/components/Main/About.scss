@@ -13,10 +13,20 @@
   border: 1px solid var(--line);
   border-radius: 1.8rem;
   background:
-    linear-gradient(160deg, rgba(249, 115, 82, 0.08), transparent 36%),
-    rgba(17, 26, 35, 0.82);
+    linear-gradient(160deg, var(--card-warm), transparent 36%),
+    var(--card-bg);
   box-shadow: var(--shadow);
   padding: 1.5rem;
+  transition:
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-fast) ease,
+    transform var(--motion-fast) ease;
+}
+
+.about-grid .info:hover {
+  border-color: color-mix(in srgb, var(--accent) 26%, transparent);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
 }
 
 .about-grid img {
@@ -24,8 +34,14 @@
   height: 4.75rem;
   object-fit: cover;
   border-radius: 1.3rem;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid var(--line-strong);
   margin-bottom: 1.25rem;
+  transition: transform var(--motion-fast) ease, border-color var(--motion-fast) ease;
+}
+
+.about-grid .info:hover img {
+  border-color: color-mix(in srgb, var(--accent) 34%, transparent);
+  transform: translateY(-2px) scale(1.03);
 }
 
 .intro-card img {
@@ -57,13 +73,17 @@
   height: 2.8rem;
   border: 1px solid var(--line);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--interactive-bg);
   color: var(--text);
-  transition: 0.25s ease;
+  transition:
+    transform var(--motion-fast) ease,
+    border-color var(--motion-fast) ease,
+    background var(--motion-fast) ease,
+    color var(--motion-fast) ease;
 }
 
 .social-links a:hover {
-  border-color: rgba(249, 115, 82, 0.24);
+  border-color: color-mix(in srgb, var(--accent) 28%, transparent);
   color: var(--accent);
   transform: translateY(-2px);
 }
@@ -77,12 +97,24 @@
 .skill-list span {
   display: inline-flex;
   align-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--interactive-bg);
   color: var(--text);
   font-size: 0.9rem;
   padding: 0.55rem 0.9rem;
+  transition:
+    border-color var(--motion-fast) ease,
+    background var(--motion-fast) ease,
+    color var(--motion-fast) ease,
+    transform var(--motion-fast) ease;
+}
+
+.skill-list span:hover {
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+  background: var(--interactive-bg-hover);
+  color: var(--accent-soft);
+  transform: translateY(-2px);
 }
 
 @media (min-width: 768px) {
