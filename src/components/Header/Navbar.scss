@@ -322,10 +322,15 @@
   transition: 0.25s ease;
 }
 
-.menu-items a:hover {
+.menu-items a:hover,
+.menu-items a.is-active {
   border-color: color-mix(in srgb, var(--accent) 28%, transparent);
   background: var(--interactive-bg-hover);
   color: var(--text);
+}
+
+.menu-items a.is-active {
+  font-weight: 600;
 }
 
 @media screen and (max-width: 380px) {
@@ -412,11 +417,16 @@
       transition: 0.25s ease;
     }
 
-    a:hover {
+    a:hover,
+    a.is-active {
       color: var(--text);
       border-color: color-mix(in srgb, var(--accent) 28%, transparent);
       background: var(--interactive-bg-hover);
       transform: translateY(-1px);
+    }
+
+    a.is-active {
+      font-weight: 600;
     }
 
     .nav-tools {

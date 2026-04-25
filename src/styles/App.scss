@@ -38,7 +38,7 @@
   --placeholder: rgba(255, 255, 255, 0.4);
   --button-text: #0d1117;
   --shine: rgba(255, 255, 255, 0.1);
-  --anchor-offset: 6.25rem;
+  --anchor-offset: 6rem;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --motion-fast: 220ms;
   --motion-medium: 620ms;
@@ -131,11 +131,12 @@ img {
   scroll-margin-top: var(--anchor-offset);
 }
 
-.hero-container,
-.about-section,
-.projects-section,
-.contact {
-  scroll-margin-top: var(--anchor-offset);
+.hero-container:focus,
+.about-section:focus,
+.services-section:focus,
+.projects-section:focus,
+.contact:focus {
+  outline: none;
 }
 
 .section-heading {

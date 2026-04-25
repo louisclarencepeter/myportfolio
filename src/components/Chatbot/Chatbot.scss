@@ -116,6 +116,12 @@
   }
 }
 
+@media (max-width: 767px) {
+  .chatbot-nudge {
+    display: none;
+  }
+}
+
 .chatbot-panel {
   width: min(24rem, calc(100vw - 2rem));
   max-height: min(38rem, calc(100vh - 7rem));

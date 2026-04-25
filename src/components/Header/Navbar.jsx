@@ -6,10 +6,11 @@ import { useTranslation } from '../../i18n.jsx';
 const THEME_STORAGE_KEY = 'portfolio-theme';
 
 const menuItems = [
-  { key: 'nav.home', href: '#home' },
-  { key: 'nav.about', href: '#aboutme' },
-  { key: 'nav.projects', href: '#myprojects' },
-  { key: 'nav.contact', href: '#contact' },
+  { key: 'nav.home', href: '#home', id: 'home' },
+  { key: 'nav.about', href: '#aboutme', id: 'aboutme' },
+  { key: 'nav.services', href: '#services', id: 'services' },
+  { key: 'nav.projects', href: '#myprojects', id: 'myprojects' },
+  { key: 'nav.contact', href: '#contact', id: 'contact' },
 ];
 
 const useStickyNavbar = () => {
@@ -24,9 +25,74 @@ const useStickyNavbar = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+};
+
+const useActiveSection = (ids) => {
+  const [activeId, setActiveId] = useState(ids[0]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return undefined;
+
+    const computeActive = () => {
+      const triggerY = window.scrollY + window.innerHeight * 0.3;
+      let current = ids[0];
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        if (el.offsetTop <= triggerY) current = id;
+      }
+      setActiveId((prev) => (prev === current ? prev : current));
+    };
+
+    let frame = 0;
+    const schedule = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        computeActive();
+      });
+    };
+
+    computeActive();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+    };
+  }, [ids]);
+
+  return activeId;
+};
+
+const scrollToSection = (id) => {
+  const target = document.getElementById(id);
+  if (!target) return;
+
+  const reduceMotion =
+    window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+
+  target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+
+  if (window.history?.pushState) {
+    window.history.pushState(null, '', `#${id}`);
+  }
+
+  const previousTabIndex = target.getAttribute('tabindex');
+  target.setAttribute('tabindex', '-1');
+  target.focus({ preventScroll: true });
+  target.addEventListener(
+    'blur',
+    () => {
+      if (previousTabIndex === null) target.removeAttribute('tabindex');
+      else target.setAttribute('tabindex', previousTabIndex);
+    },
+    { once: true },
+  );
 };
 
 const getSavedTheme = () => {
@@ -57,13 +123,26 @@ const applyTheme = (theme) => {
     ?.setAttribute('content', theme === 'light' ? '#f7f0e8' : '#0e131b');
 };
 
-const NavbarItem = ({ item, onNavigate, t }) => (
-  <li>
-    <a href={item.href} onClick={onNavigate}>
-      {t(item.key)}
-    </a>
-  </li>
-);
+const NavbarItem = ({ item, onNavigate, isActive, t }) => {
+  const handleClick = (event) => {
+    event.preventDefault();
+    onNavigate?.();
+    scrollToSection(item.id);
+  };
+
+  return (
+    <li>
+      <a
+        href={item.href}
+        onClick={handleClick}
+        className={isActive ? 'is-active' : ''}
+        aria-current={isActive ? 'true' : undefined}
+      >
+        {t(item.key)}
+      </a>
+    </li>
+  );
+};
 
 const ThemeToggle = ({ theme, onToggle, t, className = '' }) => (
   <button
@@ -112,6 +191,7 @@ const Navbar = () => {
   const [hasSavedTheme, setHasSavedTheme] = useState(() => Boolean(getSavedTheme()));
   const { t } = useTranslation();
   useStickyNavbar();
+  const activeId = useActiveSection(menuItems.map((item) => item.id));
 
   useEffect(() => {
     applyTheme(theme);
@@ -146,13 +226,27 @@ const Navbar = () => {
 
         <div className="classicalmenu">
           <div className="classicalmenu-logo">
-            <a href="#home" aria-label={t('nav.home')}>
+            <a
+              href="#home"
+              aria-label={t('nav.home')}
+              onClick={(event) => {
+                event.preventDefault();
+                closeMenu();
+                scrollToSection('home');
+              }}
+            >
               <img src={logo} alt="Louis Peter" />
             </a>
           </div>
           <ul>
             {menuItems.map((item) => (
-              <NavbarItem key={item.href} item={item} onNavigate={closeMenu} t={t} />
+              <NavbarItem
+                key={item.href}
+                item={item}
+                onNavigate={closeMenu}
+                isActive={activeId === item.id}
+                t={t}
+              />
             ))}
           </ul>
           <div className="nav-tools">
