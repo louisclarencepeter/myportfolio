@@ -1,6 +1,4 @@
 import './Footer.scss';
-import { GITHUB_URL } from '../../config/contact';
-import Icon from '../Icon.jsx';
 import { useTranslation } from '../../i18n.jsx';
 
 function Footer() {
@@ -14,11 +12,6 @@ function Footer() {
         <span>{t('footer.tagline')}</span>
         <a className='f-p' href="/impressum.html">{t('footer.impressum')}</a>
         <a className='f-p' href="#contact">{t('footer.contact')}</a>
-      </div>
-      <div className='f-icons'>
-        <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <Icon name="github" />
-        </a>
       </div>
     </footer>
   );

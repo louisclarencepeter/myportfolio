@@ -11,8 +11,109 @@
 }
 
 .chatbot-panel,
-.chatbot-toggle {
+.chatbot-toggle,
+.chatbot-nudge {
   pointer-events: auto;
+}
+
+.chatbot-nudge {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  max-width: min(18rem, calc(100vw - 2rem));
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--nav-bg-strong);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  overflow: hidden;
+  animation:
+    chatbot-nudge-in 360ms var(--ease-out) both,
+    chatbot-nudge-pulse 2.4s ease-in-out 800ms 2;
+}
+
+.chatbot-nudge::after {
+  content: '';
+  position: absolute;
+  right: 1.4rem;
+  bottom: -0.45rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  background: inherit;
+  border-right: inherit;
+  border-bottom: inherit;
+  transform: rotate(45deg);
+}
+
+.chatbot-nudge-bubble {
+  flex: 1 1 auto;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  text-align: left;
+  padding: 0.75rem 0.85rem;
+  transition: color var(--motion-fast) ease;
+}
+
+.chatbot-nudge-bubble:hover {
+  color: var(--accent);
+}
+
+.chatbot-nudge-close {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  border: none;
+  border-left: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color var(--motion-fast) ease, background var(--motion-fast) ease;
+}
+
+.chatbot-nudge-close:hover {
+  background: var(--interactive-bg-hover);
+  color: var(--accent);
+}
+
+.chatbot-nudge-close svg {
+  width: 0.85rem;
+  height: 0.85rem;
+  fill: currentColor;
+}
+
+@keyframes chatbot-nudge-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.6rem) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes chatbot-nudge-pulse {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-0.25rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chatbot-nudge {
+    animation: none;
+  }
 }
 
 .chatbot-panel {

@@ -3,7 +3,7 @@ footer {
     width: min(1160px, 100%);
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 1rem;
     border-top: 1px solid var(--line);
@@ -17,8 +17,10 @@ footer {
 .footer-copy {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
+    text-align: center;
 }
 
 .f-p,
@@ -38,30 +40,7 @@ footer p,
     color: var(--accent-soft);
 }
 
-.f-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-}
-
-.f-icons a {
-    color: var(--text);
-    display: inline-flex;
-    transition: color var(--motion-fast) ease, transform var(--motion-fast) ease;
-}
-
-.f-icons a:hover {
-    color: var(--accent);
-    transform: translateY(-2px);
-}
-
 @media (max-width: 640px) {
-    footer {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
     .footer-copy {
         gap: 0.75rem;
     }

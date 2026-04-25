@@ -28,15 +28,21 @@ const makeMessage = (role, content) => ({
   content,
 })
 
+const NUDGE_STORAGE_KEY = 'chatbot-nudge-dismissed'
+const NUDGE_DELAY_MS = 6000
+
 function Chatbot() {
   const { language, t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
   const [input, setInput] = useState('')
   const [isSending, setIsSending] = useState(false)
   const [messages, setMessages] = useState(() => [makeMessage('assistant', t('chat.greeting'))])
+  const [showNudge, setShowNudge] = useState(false)
   const messagesRef = useRef(null)
   const startersRef = useRef(null)
   const startersTrackRef = useRef(null)
+  const panelRef = useRef(null)
+  const toggleRef = useRef(null)
 
   const starters = [
     t('chat.starterProjects'),
@@ -55,6 +61,71 @@ function Chatbot() {
     if (!isOpen || !messagesRef.current) return
     messagesRef.current.scrollTop = messagesRef.current.scrollHeight
   }, [isOpen, messages, isSending])
+
+  useEffect(() => {
+    if (isOpen) {
+      setShowNudge(false)
+      return undefined
+    }
+    try {
+      if (window.sessionStorage.getItem(NUDGE_STORAGE_KEY) === '1') return undefined
+    } catch {
+      // sessionStorage may be blocked — still show the nudge
+    }
+    const timer = window.setTimeout(() => setShowNudge(true), NUDGE_DELAY_MS)
+    return () => window.clearTimeout(timer)
+  }, [isOpen])
+
+  const dismissNudge = () => {
+    setShowNudge(false)
+    try {
+      window.sessionStorage.setItem(NUDGE_STORAGE_KEY, '1')
+    } catch {
+      // ignore
+    }
+  }
+
+  useEffect(() => {
+    if (!isOpen) return
+    const panel = panelRef.current
+    if (!panel) return
+
+    const input = panel.querySelector('#chatbot-input')
+    input?.focus()
+
+    const getFocusable = () =>
+      Array.from(
+        panel.querySelectorAll('button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])'),
+      ).filter((element) => !element.disabled && !element.getAttribute('aria-hidden'))
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        setIsOpen(false)
+        toggleRef.current?.focus()
+        return
+      }
+      if (event.key !== 'Tab') return
+
+      const focusable = getFocusable()
+      if (focusable.length === 0) return
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      const active = document.activeElement
+
+      if (event.shiftKey && active === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+
+    panel.addEventListener('keydown', handleKeyDown)
+    return () => panel.removeEventListener('keydown', handleKeyDown)
+  }, [isOpen])
 
   useEffect(() => {
     if (!isOpen) return
@@ -125,7 +196,7 @@ function Chatbot() {
   return (
     <aside className={`chatbot ${isOpen ? 'chatbot--open' : ''}`} aria-label={t('chat.label')}>
       {isOpen && (
-        <div className="chatbot-panel" role="dialog" aria-modal="false" aria-labelledby="chatbot-title">
+        <div className="chatbot-panel" role="dialog" aria-modal="true" aria-labelledby="chatbot-title" ref={panelRef}>
           <div className="chatbot-header">
             <div>
               <p>{t('chat.kicker')}</p>
@@ -179,7 +250,30 @@ function Chatbot() {
         </div>
       )}
 
-      <button type="button" className="chatbot-toggle" onClick={() => setIsOpen((current) => !current)} aria-expanded={isOpen} aria-label={isOpen ? t('chat.close') : t('chat.open')}>
+      {!isOpen && showNudge && (
+        <div className="chatbot-nudge" role="status">
+          <button
+            type="button"
+            className="chatbot-nudge-bubble"
+            onClick={() => {
+              dismissNudge()
+              setIsOpen(true)
+            }}
+          >
+            {t('chat.nudge')}
+          </button>
+          <button
+            type="button"
+            className="chatbot-nudge-close"
+            onClick={dismissNudge}
+            aria-label={t('chat.nudgeDismiss')}
+          >
+            <CloseIcon />
+          </button>
+        </div>
+      )}
+
+      <button ref={toggleRef} type="button" className="chatbot-toggle" onClick={() => setIsOpen((current) => !current)} aria-expanded={isOpen} aria-label={isOpen ? t('chat.close') : t('chat.open')}>
         <BotIcon />
         <span>{t('chat.button')}</span>
       </button>

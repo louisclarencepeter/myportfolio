@@ -1,4 +1,5 @@
 import Anthropic from '@anthropic-ai/sdk'
+import { getStore } from '@netlify/blobs'
 
 const MAX_MESSAGE_LENGTH = 900
 const MAX_MESSAGES = 8
@@ -9,7 +10,15 @@ const RATE_LIMIT_MAX = 8
 const RATE_LIMIT_HOUR_MS = 60 * 60_000
 const RATE_LIMIT_HOUR_MAX = 40
 
-const rateBuckets = new Map()
+const memoryBuckets = new Map()
+
+const getRateStore = () => {
+  try {
+    return getStore({ name: 'chat-rate-limits', consistency: 'strong' })
+  } catch {
+    return null
+  }
+}
 
 const getClientIp = (request) => {
   const header =
@@ -19,26 +28,61 @@ const getClientIp = (request) => {
   return header.split(',')[0].trim() || 'unknown'
 }
 
-const checkRateLimit = (ip) => {
-  const now = Date.now()
-  const entry = rateBuckets.get(ip) || []
-  const recent = entry.filter((timestamp) => now - timestamp < RATE_LIMIT_HOUR_MS)
+const evaluateBucket = (timestamps, now) => {
+  const recent = timestamps.filter((timestamp) => now - timestamp < RATE_LIMIT_HOUR_MS)
   const lastMinute = recent.filter((timestamp) => now - timestamp < RATE_LIMIT_WINDOW_MS)
 
   if (lastMinute.length >= RATE_LIMIT_MAX) {
-    return { ok: false, retryAfter: Math.ceil((RATE_LIMIT_WINDOW_MS - (now - lastMinute[0])) / 1000) }
+    return {
+      ok: false,
+      retryAfter: Math.ceil((RATE_LIMIT_WINDOW_MS - (now - lastMinute[0])) / 1000),
+      recent,
+    }
   }
   if (recent.length >= RATE_LIMIT_HOUR_MAX) {
-    return { ok: false, retryAfter: Math.ceil((RATE_LIMIT_HOUR_MS - (now - recent[0])) / 1000) }
+    return {
+      ok: false,
+      retryAfter: Math.ceil((RATE_LIMIT_HOUR_MS - (now - recent[0])) / 1000),
+      recent,
+    }
   }
 
-  recent.push(now)
-  rateBuckets.set(ip, recent)
+  return { ok: true, recent: [...recent, now] }
+}
 
-  if (rateBuckets.size > 5000) {
-    for (const [key, timestamps] of rateBuckets) {
-      if (timestamps.every((timestamp) => now - timestamp > RATE_LIMIT_HOUR_MS)) {
-        rateBuckets.delete(key)
+const checkRateLimit = async (ip) => {
+  const now = Date.now()
+  const store = getRateStore()
+
+  if (store) {
+    const key = `ip:${ip}`
+    const existing = await store.get(key, { type: 'json' }).catch(() => null)
+    const timestamps = Array.isArray(existing?.timestamps) ? existing.timestamps : []
+    const result = evaluateBucket(timestamps, now)
+
+    if (!result.ok) {
+      return { ok: false, retryAfter: result.retryAfter }
+    }
+
+    await store
+      .setJSON(key, { timestamps: result.recent }, { metadata: { updatedAt: now } })
+      .catch(() => {})
+    return { ok: true }
+  }
+
+  const timestamps = memoryBuckets.get(ip) || []
+  const result = evaluateBucket(timestamps, now)
+
+  if (!result.ok) {
+    return { ok: false, retryAfter: result.retryAfter }
+  }
+
+  memoryBuckets.set(ip, result.recent)
+
+  if (memoryBuckets.size > 5000) {
+    for (const [key, entries] of memoryBuckets) {
+      if (entries.every((timestamp) => now - timestamp > RATE_LIMIT_HOUR_MS)) {
+        memoryBuckets.delete(key)
       }
     }
   }
@@ -116,7 +160,7 @@ export default async (request) => {
     return json({ error: 'Method not allowed' }, 405)
   }
 
-  const limit = checkRateLimit(getClientIp(request))
+  const limit = await checkRateLimit(getClientIp(request))
   if (!limit.ok) {
     return Response.json(
       { error: 'Too many requests. Please try again later.' },

@@ -1,12 +1,13 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import CookieBanner from './components/CookieBanner/CookieBanner.jsx';
 import Main from './components/Main/Main.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import Navbar from './components/Header/Navbar.jsx';
-import Chatbot from './components/Chatbot/Chatbot.jsx';
 import { LanguageProvider } from './i18n.jsx';
+
+const Chatbot = lazy(() => import('./components/Chatbot/Chatbot.jsx'));
 import './styles/App.scss';
 
 config.autoAddCss = false;
@@ -14,6 +15,7 @@ config.autoAddCss = false;
 const revealSelectors = [
     '.section-heading',
     '.about-grid .info',
+    '.service-card',
     '.project-card',
     '.contact-intro',
     '.contact .form',
@@ -115,7 +117,9 @@ function App() {
                 <Navbar />
                 <Main />
                 <Footer />
-                <Chatbot />
+                <Suspense fallback={null}>
+                    <Chatbot />
+                </Suspense>
                 <CookieBanner />
             </div>
         </LanguageProvider>

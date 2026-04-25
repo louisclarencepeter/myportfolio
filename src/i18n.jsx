@@ -41,7 +41,7 @@ const translations = {
         'I work across the full stack, combining frontend design sense with backend problem-solving to build responsive and reliable web experiences.',
       portraitAlt: 'Portrait of Louis Peter',
       bio:
-        'Living in Frankfurt am Main with a passion for full stack development, thoughtful design, and building useful digital products.',
+        "I build websites the way I'd want one built for me: fast, clear, and carefully thought through. Based in Frankfurt, working across frontend and backend.",
       education: 'Education',
       program: 'Full Stack Web Development',
       school: 'Digital Career Institute',
@@ -54,18 +54,45 @@ const translations = {
       title: 'Selected projects I built from concept to launch',
       text:
         'These projects show how I approach layout, branding, responsiveness, and useful web experiences across different industries.',
+      problemLabel: 'Problem',
+      solutionLabel: 'Solution',
+      outcomeLabel: 'Outcome',
       primavistaTag: 'Business Website',
       primavistaAlt: 'Trockenbau Primavista website preview',
-      primavistaDescription:
-        'A business website for a drywall and interior construction service, built to present services clearly and help visitors get in touch.',
+      primavistaProblem:
+        'A local drywall company needed a way to show its work and turn inquiries into bookings.',
+      primavistaSolution:
+        'Clear service breakdown, project gallery, and a contact path surfaced on every page.',
+      primavistaOutcome:
+        'A confident, professional site that positions the business alongside larger competitors.',
       flowdeskTag: 'Web Tool',
       flowdeskAlt: 'Flowdesk Tool website preview',
-      flowdeskDescription:
-        'A focused web tool experience designed around clarity, fast access, and a practical workflow for users.',
+      flowdeskProblem:
+        'Users wanted a focused tool without the bloat of a full SaaS platform.',
+      flowdeskSolution:
+        'Minimal UI, fast sign-in, and a workflow designed around a single job done well.',
+      flowdeskOutcome:
+        "A web app that feels quick and purposeful, and stays out of the user's way.",
       paradiseTag: 'Travel Website',
       paradiseAlt: 'Destination Paradise website preview',
-      paradiseDescription:
-        'A travel-focused website shaped to showcase destinations, create interest, and guide visitors toward their next trip.',
+      paradiseProblem:
+        'A destination brand competing against generic travel listings.',
+      paradiseSolution:
+        'Photography-led layouts, a distinct voice, and clear entry points into trip planning.',
+      paradiseOutcome:
+        'A memorable experience that turns browsing into booking intent.',
+    },
+    services: {
+      kicker: 'Services',
+      title: 'What I can help with',
+      text:
+        "Whether you're launching a new site, modernising an older one, or building an internal tool, I can take it from first sketch to live.",
+      landingTitle: 'Landing pages that convert',
+      landingText: 'One clear goal, sharp copy, and a layout that earns the click.',
+      businessTitle: 'Business websites',
+      businessText: 'Multi-page sites with a CMS, forms, and SEO set up from the start.',
+      appsTitle: 'Full-stack web apps',
+      appsText: 'React on the front, Node and a database on the back, connected cleanly.',
     },
     contact: {
       kicker: 'Contact',
@@ -100,7 +127,7 @@ const translations = {
       open: 'Open Lou',
       close: 'Close Lou',
       greeting:
-        "Hi, I'm Lou. I can answer quick questions about Louis, his projects, and how to get in touch. What would you like to know?",
+        "Hi, I'm Lou. Ask me what Louis built, what he uses, or how to hire him.",
       starterProjects: 'Show me the projects',
       starterStack: 'What does Louis build with?',
       starterContact: 'How can I contact him?',
@@ -111,6 +138,8 @@ const translations = {
       thinking: 'Thinking...',
       error:
         "I couldn't answer right now. You can still reach Louis through the contact form or by email.",
+      nudge: 'Need help? Ask me anything about Louis.',
+      nudgeDismiss: 'Dismiss',
     },
     cookies: {
       label: 'Cookie banner',
@@ -154,7 +183,7 @@ const translations = {
         'Ich verbinde Frontend-Design mit Backend-Logik und baue Websites, die verständlich, schnell und verlässlich funktionieren.',
       portraitAlt: 'Porträt von Louis Peter',
       bio:
-        'Ich lebe in Frankfurt am Main und entwickle gern durchdachte Interfaces, stabile Funktionen und digitale Produkte, die Menschen wirklich nutzen können.',
+        'Ich baue Websites so, wie ich sie selbst gern hätte: schnell, klar und sorgfältig durchdacht. Ansässig in Frankfurt, arbeite ich durchgehend an Frontend und Backend.',
       education: 'Ausbildung',
       program: 'Full Stack Web Development',
       school: 'Digital Career Institute',
@@ -167,18 +196,45 @@ const translations = {
       title: 'Ausgewählte Projekte von der Idee bis zum Launch',
       text:
         'Hier siehst du, wie ich Layout, Markenauftritt, mobile Darstellung und klare Nutzerführung in unterschiedlichen Bereichen umsetze.',
+      problemLabel: 'Problem',
+      solutionLabel: 'Lösung',
+      outcomeLabel: 'Ergebnis',
       primavistaTag: 'Business-Website',
       primavistaAlt: 'Vorschau der Trockenbau Primavista Website',
-      primavistaDescription:
-        'Eine Website für einen Trockenbau- und Innenausbau-Betrieb, die Leistungen übersichtlich erklärt und Anfragen leicht macht.',
+      primavistaProblem:
+        'Ein lokaler Trockenbaubetrieb brauchte eine Website, die seine Arbeit zeigt und Anfragen in Aufträge verwandelt.',
+      primavistaSolution:
+        'Klare Leistungsübersicht, Projektgalerie und ein gut sichtbarer Kontaktweg auf jeder Seite.',
+      primavistaOutcome:
+        'Ein souveräner, professioneller Auftritt, der den Betrieb auf Augenhöhe mit größeren Anbietern platziert.',
       flowdeskTag: 'Web-Tool',
       flowdeskAlt: 'Vorschau der Flowdesk Tool Website',
-      flowdeskDescription:
-        'Ein schlankes Web-Tool mit klarer Struktur, schnellem Einstieg und einem Ablauf, der im Alltag praktisch bleibt.',
+      flowdeskProblem:
+        'Nutzer wollten ein fokussiertes Tool ohne den Ballast einer großen SaaS-Plattform.',
+      flowdeskSolution:
+        'Minimalistisches UI, schneller Login und ein Ablauf, der auf einen konkreten Zweck optimiert ist.',
+      flowdeskOutcome:
+        'Eine Web-App, die sich schnell und zielgerichtet anfühlt und dem Nutzer nicht im Weg steht.',
       paradiseTag: 'Reise-Website',
       paradiseAlt: 'Vorschau der Destination Paradise Website',
-      paradiseDescription:
-        'Eine Reise-Website, die Ziele stimmungsvoll präsentiert, Vertrauen schafft und Besucher zur nächsten Anfrage führt.',
+      paradiseProblem:
+        'Eine Reisemarke, die sich gegen austauschbare Reiseangebote behaupten muss.',
+      paradiseSolution:
+        'Bildstarke Layouts, eine eigene Stimme und klare Einstiegspunkte in die Reiseplanung.',
+      paradiseOutcome:
+        'Ein Auftritt, der in Erinnerung bleibt und Interesse in konkrete Anfragen verwandelt.',
+    },
+    services: {
+      kicker: 'Leistungen',
+      title: 'Womit ich dir helfen kann',
+      text:
+        'Ob neuer Webauftritt, Modernisierung einer alten Seite oder ein internes Tool – ich begleite den Prozess vom ersten Entwurf bis zum Launch.',
+      landingTitle: 'Landingpages, die konvertieren',
+      landingText: 'Ein klares Ziel, überzeugender Text und ein Layout, das den Klick verdient.',
+      businessTitle: 'Business-Websites',
+      businessText: 'Mehrseitige Websites mit CMS, Formularen und SEO – von Anfang an sauber aufgesetzt.',
+      appsTitle: 'Full-Stack-Web-Apps',
+      appsText: 'React im Frontend, Node und Datenbank im Backend – sauber verbunden.',
     },
     contact: {
       kicker: 'Kontakt',
@@ -213,7 +269,7 @@ const translations = {
       open: 'Lou öffnen',
       close: 'Lou schließen',
       greeting:
-        'Hi, ich bin Lou. Ich beantworte kurze Fragen zu Louis, seinen Projekten und zur Kontaktaufnahme. Was möchtest du wissen?',
+        'Hi, ich bin Lou. Frag mich, was Louis gebaut hat, womit er arbeitet oder wie du ihn beauftragst.',
       starterProjects: 'Zeig mir die Projekte',
       starterStack: 'Womit entwickelt Louis?',
       starterContact: 'Wie kann ich ihn kontaktieren?',
@@ -224,6 +280,8 @@ const translations = {
       thinking: 'Ich denke nach...',
       error:
         'Ich kann gerade nicht antworten. Du kannst Louis weiterhin über das Kontaktformular oder per E-Mail erreichen.',
+      nudge: 'Brauchst du Hilfe? Frag mich zu Louis.',
+      nudgeDismiss: 'Schließen',
     },
     cookies: {
       label: 'Cookie-Hinweis',
@@ -267,7 +325,7 @@ const translations = {
         'Ninachanganya ubunifu wa frontend na mantiki ya backend ili kujenga tovuti zinazoeleweka haraka, zinaonekana vizuri na zinafanya kazi kwa uhakika.',
       portraitAlt: 'Picha ya Louis Peter',
       bio:
-        'Ninaishi Frankfurt am Main. Napenda kutengeneza interfaces safi, mifumo imara na bidhaa za kidijitali ambazo watu wanaweza kuzitumia kwa urahisi.',
+        'Ninajenga tovuti jinsi ningependa kujengewa mwenyewe: haraka, wazi, na iliyofikiriwa kwa makini. Ninaishi Frankfurt na nafanya kazi ya frontend na backend.',
       education: 'Elimu',
       program: 'Full Stack Web Development',
       school: 'Digital Career Institute',
@@ -280,18 +338,45 @@ const translations = {
       title: 'Baadhi ya miradi niliyoijenga kutoka wazo hadi uzinduzi',
       text:
         'Miradi hii inaonyesha jinsi ninavyopanga muonekano, utambulisho wa chapa, matumizi kwenye vifaa tofauti na safari rahisi kwa mtumiaji.',
+      problemLabel: 'Tatizo',
+      solutionLabel: 'Suluhisho',
+      outcomeLabel: 'Matokeo',
       primavistaTag: 'Tovuti ya kampuni',
       primavistaAlt: 'Muonekano wa tovuti ya Trockenbau Primavista',
-      primavistaDescription:
-        'Tovuti ya kampuni ya huduma za gypsum na ukarabati wa ndani, iliyopangwa kueleza huduma kwa uwazi na kurahisisha mawasiliano.',
+      primavistaProblem:
+        'Kampuni ya ujenzi wa gypsum ilihitaji tovuti inayoonyesha kazi yao na kubadilisha maulizo kuwa wateja.',
+      primavistaSolution:
+        'Maelezo wazi ya huduma, galeri ya kazi, na njia ya mawasiliano kwenye kila ukurasa.',
+      primavistaOutcome:
+        'Uwepo wa kitaalamu unaoiweka kampuni sambamba na washindani wakubwa.',
       flowdeskTag: 'Zana ya wavuti',
       flowdeskAlt: 'Muonekano wa tovuti ya Flowdesk Tool',
-      flowdeskDescription:
-        'Zana ya wavuti yenye muundo rahisi, mwanzo wa haraka na mtiririko wa kazi unaoeleweka kwa watumiaji.',
+      flowdeskProblem:
+        'Watumiaji walitaka zana iliyolenga bila mizigo ya jukwaa kubwa la SaaS.',
+      flowdeskSolution:
+        'Muonekano rahisi, kuingia haraka, na mtiririko uliolengwa kwa kazi moja maalum.',
+      flowdeskOutcome:
+        'Programu ya wavuti yenye kasi na lengo, isiyomsumbua mtumiaji.',
       paradiseTag: 'Tovuti ya safari',
       paradiseAlt: 'Muonekano wa tovuti ya Destination Paradise',
-      paradiseDescription:
-        'Tovuti ya safari inayowasilisha maeneo ya kuvutia, kujenga hamu ya kusafiri na kumwelekeza mgeni kuchukua hatua inayofuata.',
+      paradiseProblem:
+        'Chapa ya kitalii inayoshindana na matangazo ya kawaida ya safari.',
+      paradiseSolution:
+        'Muundo unaoongozwa na picha, sauti ya kipekee, na njia wazi za kupanga safari.',
+      paradiseOutcome:
+        'Uzoefu wa kukumbukwa unaobadilisha kuvinjari kuwa nia ya kuweka buku.',
+    },
+    services: {
+      kicker: 'Huduma',
+      title: 'Ninaweza kukusaidia vipi',
+      text:
+        'Iwe unaanzisha tovuti mpya, unaboresha ya zamani, au unahitaji zana ya ndani – ninashughulikia toka wazo la kwanza hadi uzinduzi.',
+      landingTitle: 'Landing pages zinazofanya kazi',
+      landingText: 'Lengo moja wazi, maneno makali, na muundo unaostahili kubonyezwa.',
+      businessTitle: 'Tovuti za biashara',
+      businessText: 'Tovuti za kurasa nyingi zenye CMS, fomu na SEO iliyowekwa vyema toka mwanzo.',
+      appsTitle: 'Programu kamili za wavuti',
+      appsText: 'React upande wa mbele, Node na hifadhidata nyuma – zikiunganishwa kwa usafi.',
     },
     contact: {
       kicker: 'Mawasiliano',
@@ -326,7 +411,7 @@ const translations = {
       open: 'Fungua Lou',
       close: 'Funga Lou',
       greeting:
-        'Habari, mimi ni Lou. Ninaweza kujibu maswali mafupi kuhusu Louis, miradi yake na namna ya kuwasiliana naye. Ungependa kujua nini?',
+        'Habari, mimi ni Lou. Niulize Louis amejenga nini, anatumia nini, au jinsi ya kumwajiri.',
       starterProjects: 'Nionyeshe miradi',
       starterStack: 'Louis anatumia teknolojia gani?',
       starterContact: 'Ninawezaje kuwasiliana naye?',
@@ -337,6 +422,8 @@ const translations = {
       thinking: 'Nafikiria...',
       error:
         'Siwezi kujibu kwa sasa. Bado unaweza kuwasiliana na Louis kupitia fomu ya mawasiliano au barua pepe.',
+      nudge: 'Unahitaji msaada? Niulize kuhusu Louis.',
+      nudgeDismiss: 'Funga',
     },
     cookies: {
       label: 'Taarifa ya cookies',

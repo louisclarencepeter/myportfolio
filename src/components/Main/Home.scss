@@ -206,20 +206,18 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.6rem;
 
   .icon {
     display: flex;
     flex: 0 0 auto;
     align-items: center;
-    gap: 0.7rem;
-    min-height: 5rem;
+    gap: 0.55rem;
     min-width: max-content;
     border: 1px solid var(--line);
-    border-radius: 1.4rem;
-    background: var(--card-bg-soft);
-    padding: 0.9rem 1.25rem;
-    box-shadow: var(--shadow);
+    border-radius: 999px;
+    background: var(--interactive-bg);
+    padding: 0.55rem 0.95rem;
     animation: fade-up 620ms var(--ease-out) both;
     transition:
       transform var(--motion-fast) ease,
@@ -241,23 +239,22 @@
 
     i {
       color: var(--accent);
-      font-size: 1.6rem;
+      font-size: 1.05rem;
       flex-shrink: 0;
       transition: transform var(--motion-fast) ease, color var(--motion-fast) ease;
     }
 
     p {
       color: var(--text);
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       line-height: 1.2;
       white-space: nowrap;
     }
 
     &:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       border-color: color-mix(in srgb, var(--accent) 26%, transparent);
       background: var(--interactive-bg-hover);
-      box-shadow: var(--shadow);
     }
 
     &:hover i {
@@ -321,11 +318,6 @@
 
   .icons {
     justify-content: center;
-
-    .icon {
-      min-height: 4.8rem;
-      padding: 0.85rem 0.95rem;
-    }
   }
 }
 
@@ -349,11 +341,11 @@
   .icons {
     .icon {
       i {
-        font-size: 1.7rem;
+        font-size: 1.1rem;
       }
 
       p {
-        font-size: 0.92rem;
+        font-size: 0.85rem;
       }
     }
   }

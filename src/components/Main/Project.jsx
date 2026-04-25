@@ -11,7 +11,9 @@ const projects = [
     tagKey: "projects.primavistaTag",
     image: primavistaImage,
     altKey: "projects.primavistaAlt",
-    descriptionKey: "projects.primavistaDescription",
+    problemKey: "projects.primavistaProblem",
+    solutionKey: "projects.primavistaSolution",
+    outcomeKey: "projects.primavistaOutcome",
   },
   {
     title: "Flowdesk Tool",
@@ -19,7 +21,9 @@ const projects = [
     tagKey: "projects.flowdeskTag",
     image: flowdeskImage,
     altKey: "projects.flowdeskAlt",
-    descriptionKey: "projects.flowdeskDescription",
+    problemKey: "projects.flowdeskProblem",
+    solutionKey: "projects.flowdeskSolution",
+    outcomeKey: "projects.flowdeskOutcome",
   },
   {
     title: "Destination Paradise",
@@ -27,7 +31,9 @@ const projects = [
     tagKey: "projects.paradiseTag",
     image: paradiseImage,
     altKey: "projects.paradiseAlt",
-    descriptionKey: "projects.paradiseDescription",
+    problemKey: "projects.paradiseProblem",
+    solutionKey: "projects.paradiseSolution",
+    outcomeKey: "projects.paradiseOutcome",
   },
 ];
 
@@ -51,7 +57,20 @@ function Projects() {
             </a>
             <div className="project-copy">
               <h3>{project.title}</h3>
-              <p>{t(project.descriptionKey)}</p>
+              <dl className="project-case">
+                <div>
+                  <dt>{t("projects.problemLabel")}</dt>
+                  <dd>{t(project.problemKey)}</dd>
+                </div>
+                <div>
+                  <dt>{t("projects.solutionLabel")}</dt>
+                  <dd>{t(project.solutionKey)}</dd>
+                </div>
+                <div>
+                  <dt>{t("projects.outcomeLabel")}</dt>
+                  <dd>{t(project.outcomeKey)}</dd>
+                </div>
+              </dl>
             </div>
           </article>
         ))}
