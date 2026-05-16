@@ -1,7 +1,7 @@
 import "./Project.scss";
 import primavistaImage from "../../assets/images/Galaxy-Tab-S7-www.trockenbau-primavista.ch.webp";
 import flowdeskImage from "../../assets/images/Macbook-Air-flowdesktool.com.webp";
-import paradiseImage from "../../assets/images/iPad-PRO-11-yournexttriptoparadise.com.png";
+import paradiseImage from "../../assets/images/iPad-PRO-11-yournexttriptoparadise.com.webp";
 import { useTranslation } from "../../i18n.jsx";
 
 const projects = [
@@ -53,7 +53,14 @@ function Projects() {
           <article className="project-card" key={project.href}>
             <span className="project-tag">{t(project.tagKey)}</span>
             <a href={project.href} target="_blank" rel="noreferrer">
-              <img src={project.image} alt={t(project.altKey)} />
+              <img
+                src={project.image}
+                alt={t(project.altKey)}
+                width="800"
+                height="550"
+                loading="lazy"
+                decoding="async"
+              />
             </a>
             <div className="project-copy">
               <h3>{project.title}</h3>

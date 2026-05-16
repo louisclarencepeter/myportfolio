@@ -53,9 +53,9 @@
   --line-strong: rgba(42, 45, 51, 0.18);
   --text: #171b22;
   --muted: #59616d;
-  --accent: #c94f35;
-  --accent-soft: #8d3d2b;
-  --glow: rgba(201, 79, 53, 0.18);
+  --accent: #b8442b;
+  --accent-soft: #7d3424;
+  --glow: rgba(184, 68, 43, 0.18);
   --shadow: 0 24px 70px rgba(82, 61, 44, 0.18);
   --shadow-hover: 0 30px 76px rgba(82, 61, 44, 0.24);
   --body-bg:
@@ -84,6 +84,7 @@
 @font-face {
   font-family: "Space Mono";
   src: url(../assets/fonts/SpaceMono-Regular.ttf) format("truetype");
+  font-display: swap;
 }
 
 html {
