@@ -1,7 +1,7 @@
 import "./Project.scss";
 import primavistaImage from "../../assets/images/Galaxy-Tab-S7-www.trockenbau-primavista.ch.webp";
 import flowdeskImage from "../../assets/images/Macbook-Air-flowdesktool.com.webp";
-import paradiseImage from "../../assets/images/iPad-PRO-11-www.yournexttriptoparadise.com.webp";
+import paradiseImage from "../../assets/images/iPad-PRO-11-yournexttriptoparadise.com.png";
 import { useTranslation } from "../../i18n.jsx";
 
 const projects = [
