@@ -1,13 +1,13 @@
 import "./Project.scss";
-import primavistaImage from "../../assets/images/Galaxy-Tab-S7-www.trockenbau-primavista.ch.webp";
+import primavistaImage from "../../assets/images/Macbook-PRO-16-2021-primavista.netlify.app.jpg";
 import flowdeskImage from "../../assets/images/Macbook-Air-flowdesktool.com.webp";
 import paradiseImage from "../../assets/images/iPad-PRO-11-yournexttriptoparadise.com.webp";
 import { useTranslation } from "../../i18n.jsx";
 
 const projects = [
   {
-    title: "Trockenbau Primavista",
-    href: "https://trockenbau-primavista.ch/",
+    title: "Prima Vista Bauprojekte",
+    href: "https://primavista.netlify.app/",
     tagKey: "projects.primavistaTag",
     image: primavistaImage,
     altKey: "projects.primavistaAlt",

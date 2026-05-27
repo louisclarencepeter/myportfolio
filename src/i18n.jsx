@@ -59,13 +59,13 @@ const translations = {
       solutionLabel: 'Solution',
       outcomeLabel: 'Outcome',
       primavistaTag: 'Business Website',
-      primavistaAlt: 'Trockenbau Primavista website preview',
+      primavistaAlt: 'Prima Vista Bauprojekte website preview',
       primavistaProblem:
-        'A local drywall company needed a way to show its work and turn inquiries into bookings.',
+        'A premium renovation and construction business needed a high-end digital presence to reflect their quality and handle client inquiries.',
       primavistaSolution:
-        'Clear service breakdown, project gallery, and a contact path surfaced on every page.',
+        'A sleek, modern showcase with deep service breakdowns, a premium project gallery, and highly optimized conversion funnels.',
       primavistaOutcome:
-        'A confident, professional site that positions the business alongside larger competitors.',
+        'A commanding digital experience that mirrors their craftsmanship and builds immediate trust with high-value clients.',
       flowdeskTag: 'Web Tool',
       flowdeskAlt: 'Flowdesk Tool website preview',
       flowdeskProblem:
@@ -202,13 +202,13 @@ const translations = {
       solutionLabel: 'Lösung',
       outcomeLabel: 'Ergebnis',
       primavistaTag: 'Business-Website',
-      primavistaAlt: 'Vorschau der Trockenbau Primavista Website',
+      primavistaAlt: 'Vorschau der Prima Vista Bauprojekte Website',
       primavistaProblem:
-        'Ein lokaler Trockenbaubetrieb brauchte eine Website, die seine Arbeit zeigt und Anfragen in Aufträge verwandelt.',
+        'Ein exklusives Sanierungs- und Bauunternehmen benötigte einen hochwertigen digitalen Auftritt, um seine Qualität widerzuspiegeln und Kundenanfragen zu bearbeiten.',
       primavistaSolution:
-        'Klare Leistungsübersicht, Projektgalerie und ein gut sichtbarer Kontaktweg auf jeder Seite.',
+        'Eine elegante, moderne Präsentation mit detaillierten Leistungsbeschreibungen, einer Premium-Projektgalerie und optimierten Kontaktwegen.',
       primavistaOutcome:
-        'Ein souveräner, professioneller Auftritt, der den Betrieb auf Augenhöhe mit größeren Anbietern platziert.',
+        'Ein überzeugendes digitales Erlebnis, das ihre Handwerkskunst widerspiegelt und sofortiges Vertrauen bei anspruchsvollen Kunden aufbaut.',
       flowdeskTag: 'Web-Tool',
       flowdeskAlt: 'Vorschau der Flowdesk Tool Website',
       flowdeskProblem:
@@ -345,13 +345,13 @@ const translations = {
       solutionLabel: 'Suluhisho',
       outcomeLabel: 'Matokeo',
       primavistaTag: 'Tovuti ya kampuni',
-      primavistaAlt: 'Muonekano wa tovuti ya Trockenbau Primavista',
+      primavistaAlt: 'Muonekano wa tovuti ya Prima Vista Bauprojekte',
       primavistaProblem:
-        'Kampuni ya ujenzi wa gypsum ilihitaji tovuti inayoonyesha kazi yao na kubadilisha maulizo kuwa wateja.',
+        'Kampuni ya ujenzi na ukarabati wa kiwango cha juu ilihitaji tovuti ya kisasa ili kuonyesha ubora wa kazi zao na kupokea maulizo ya wateja.',
       primavistaSolution:
-        'Maelezo wazi ya huduma, galeri ya kazi, na njia ya mawasiliano kwenye kila ukurasa.',
+        'Tovuti ya kisasa inayoonyesha huduma zao kwa kina, galeri ya miradi ya kifahari, na njia rahisi za wateja kuwasiliana.',
       primavistaOutcome:
-        'Uwepo wa kitaalamu unaoiweka kampuni sambamba na washindani wakubwa.',
+        'Uzoefu wa kidijitali wa kuvutia unaoonyesha ustadi wao na kujenga uaminifu wa haraka kwa wateja wa kiwango cha juu.',
       flowdeskTag: 'Zana ya wavuti',
       flowdeskAlt: 'Muonekano wa tovuti ya Flowdesk Tool',
       flowdeskProblem:

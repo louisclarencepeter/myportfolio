@@ -15,7 +15,7 @@ A responsive portfolio for [louispeter.com](https://louispeter.com/) built with 
 
 ## Projects
 
-- [Trockenbau Primavista](https://trockenbau-primavista.ch/)
+- [Prima Vista Bauprojekte](https://primavista.netlify.app/)
 - [Flowdesk Tool](https://flowdesktool.com/)
 - [Destination Paradise](https://www.yournexttriptoparadise.com/)
 

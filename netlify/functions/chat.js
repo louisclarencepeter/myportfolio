@@ -110,8 +110,8 @@ Education:
 Full Stack Web Development at Digital Career Institute, 2022 to 2023.
 
 Selected projects:
-1. Trockenbau Primavista - https://trockenbau-primavista.ch/
-A business website for a drywall and interior construction service. It presents services clearly and helps visitors get in touch.
+1. Prima Vista Bauprojekte - https://primavista.netlify.app/
+A premium business website for a renovation and construction service. It showcases services, builds trust, and drives project inquiries.
 2. Flowdesk Tool - https://flowdesktool.com/
 A focused web tool experience designed around clarity, fast access, and practical workflow.
 3. Destination Paradise - https://www.yournexttriptoparadise.com/
