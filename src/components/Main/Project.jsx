@@ -1,5 +1,5 @@
 import "./Project.scss";
-import primavistaImage from "../../assets/images/Apple-iMac-24_-primavista.netlify.app.jpg";
+import primavistaImage from "../../assets/images/Apple-iMac-24_-primavista.netlify.app.webp";
 import flowdeskImage from "../../assets/images/Macbook-Air-flowdesktool.com.webp";
 import paradiseImage from "../../assets/images/iPad-PRO-11-yournexttriptoparadise.com.webp";
 import { useTranslation } from "../../i18n.jsx";
