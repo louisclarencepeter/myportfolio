@@ -61,11 +61,11 @@ const translations = {
       primavistaTag: 'Business Website',
       primavistaAlt: 'Prima Vista Bauprojekte website preview',
       primavistaProblem:
-        'A premium renovation and construction business needed a high-end digital presence to reflect their quality and handle client inquiries.',
+        'A premium construction business needed a digital presence that matched their craftsmanship.',
       primavistaSolution:
-        'A sleek, modern showcase with deep service breakdowns, a premium project gallery, and highly optimized conversion funnels.',
+        'Clean layout, immersive portfolio gallery, and highly visible contact routes.',
       primavistaOutcome:
-        'A commanding digital experience that mirrors their craftsmanship and builds immediate trust with high-value clients.',
+        'A high-end website that builds immediate trust and captures quality inquiries.',
       flowdeskTag: 'Web Tool',
       flowdeskAlt: 'Flowdesk Tool website preview',
       flowdeskProblem:
@@ -204,11 +204,11 @@ const translations = {
       primavistaTag: 'Business-Website',
       primavistaAlt: 'Vorschau der Prima Vista Bauprojekte Website',
       primavistaProblem:
-        'Ein exklusives Sanierungs- und Bauunternehmen benötigte einen hochwertigen digitalen Auftritt, um seine Qualität widerzuspiegeln und Kundenanfragen zu bearbeiten.',
+        'Ein exklusives Bauunternehmen benötigte einen digitalen Auftritt, der seine Handwerkskunst widerspiegelt.',
       primavistaSolution:
-        'Eine elegante, moderne Präsentation mit detaillierten Leistungsbeschreibungen, einer Premium-Projektgalerie und optimierten Kontaktwegen.',
+        'Klares Layout, immersive Projektgalerie und gut sichtbare Kontaktwege.',
       primavistaOutcome:
-        'Ein überzeugendes digitales Erlebnis, das ihre Handwerkskunst widerspiegelt und sofortiges Vertrauen bei anspruchsvollen Kunden aufbaut.',
+        'Eine hochwertige Website, die sofortiges Vertrauen aufbaut und qualifizierte Anfragen generiert.',
       flowdeskTag: 'Web-Tool',
       flowdeskAlt: 'Vorschau der Flowdesk Tool Website',
       flowdeskProblem:
@@ -347,11 +347,11 @@ const translations = {
       primavistaTag: 'Tovuti ya kampuni',
       primavistaAlt: 'Muonekano wa tovuti ya Prima Vista Bauprojekte',
       primavistaProblem:
-        'Kampuni ya ujenzi na ukarabati wa kiwango cha juu ilihitaji tovuti ya kisasa ili kuonyesha ubora wa kazi zao na kupokea maulizo ya wateja.',
+        'Kampuni ya ujenzi ya kiwango cha juu ilihitaji tovuti inayoonyesha ustadi wa kazi zao.',
       primavistaSolution:
-        'Tovuti ya kisasa inayoonyesha huduma zao kwa kina, galeri ya miradi ya kifahari, na njia rahisi za wateja kuwasiliana.',
+        'Muundo safi, galeri ya kuvutia ya miradi, na njia wazi za mawasiliano.',
       primavistaOutcome:
-        'Uzoefu wa kidijitali wa kuvutia unaoonyesha ustadi wao na kujenga uaminifu wa haraka kwa wateja wa kiwango cha juu.',
+        'Tovuti ya hali ya juu inayojenga uaminifu wa haraka na kuvutia wateja.',
       flowdeskTag: 'Zana ya wavuti',
       flowdeskAlt: 'Muonekano wa tovuti ya Flowdesk Tool',
       flowdeskProblem:
