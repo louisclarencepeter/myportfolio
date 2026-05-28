@@ -130,9 +130,20 @@ const getEnv = (name) => globalThis.Netlify?.env?.get(name) || process.env[name]
 
 const cleanText = (value, maxLength = MAX_MESSAGE_LENGTH) =>
   String(value || '')
-    .replace(/\s+/g, ' ')
+    .replace(/[ \t]+/g, ' ')
+    .replace(/ ?\n ?/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
     .trim()
     .slice(0, maxLength)
+
+const stripFormatting = (value) =>
+  String(value || '')
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/\*(.+?)\*/g, '$1')
+    .replace(/__(.+?)__/g, '$1')
+    .replace(/_(.+?)_/g, '$1')
+    .replace(/`(.+?)`/g, '$1')
+    .replace(/^[ \t]*[*•👉➡️▶️→][ \t]+/gm, '- ')
 
 const cleanMessages = (messages) => {
   if (!Array.isArray(messages)) return []
@@ -204,6 +215,13 @@ export default async (request) => {
     'If a visitor asks about hiring Louis or starting a project, invite them to use the contact form or email louisclarencepeters@gmail.com.',
     'If a question is unrelated to Louis, his work, or web projects, briefly steer the conversation back to the portfolio.',
     '',
+    'Formatting rules:',
+    '- Write in plain text only. Never use Markdown — no asterisks, underscores, backticks, or hash marks for emphasis or headings.',
+    '- Do not use emoji bullets or decorative arrows (no 👉, ➡️, →, •).',
+    '- When you list items, put each item on its own line and start it with "- " (a hyphen and a space).',
+    '- Separate paragraphs with a single blank line.',
+    '- Write URLs on their own line so they are easy to scan and click.',
+    '',
     PORTFOLIO_CONTEXT,
   ].join('\n')
 
@@ -224,7 +242,7 @@ export default async (request) => {
     })
 
     const textBlock = response.content.find((block) => block.type === 'text')
-    const reply = cleanText(textBlock?.text, 1400)
+    const reply = cleanText(stripFormatting(textBlock?.text), 1400)
 
     if (!reply) {
       return json({ error: 'Assistant returned an empty response' }, 502)

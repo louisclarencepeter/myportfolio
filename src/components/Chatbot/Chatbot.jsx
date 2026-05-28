@@ -28,6 +28,51 @@ const makeMessage = (role, content) => ({
   content,
 })
 
+const URL_PATTERN = /(https?:\/\/[^\s)]+)/g
+
+// Render a message body as paragraphs of inline text + auto-linked URLs.
+// Keeps things accessible (real <a> tags, real <p> tags) and avoids any
+// dangerouslySetInnerHTML so user/LLM text can never inject markup.
+const MessageBody = ({ text }) => {
+  const paragraphs = String(text)
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean)
+
+  if (paragraphs.length === 0) return null
+
+  const renderInline = (chunk, keyPrefix) => {
+    const lines = chunk.split('\n')
+    return lines.map((line, lineIndex) => {
+      const segments = line.split(URL_PATTERN)
+      const nodes = segments.map((segment, segmentIndex) => {
+        if (URL_PATTERN.test(segment)) {
+          URL_PATTERN.lastIndex = 0
+          return (
+            <a key={`${keyPrefix}-l${lineIndex}-s${segmentIndex}`} href={segment} target="_blank" rel="noreferrer">
+              {segment}
+            </a>
+          )
+        }
+        URL_PATTERN.lastIndex = 0
+        return segment
+      })
+      return (
+        <span key={`${keyPrefix}-l${lineIndex}`} className="chatbot-message-line">
+          {nodes}
+          {lineIndex < lines.length - 1 && <br />}
+        </span>
+      )
+    })
+  }
+
+  return paragraphs.map((paragraph, index) => (
+    <p key={`p${index}`} className="chatbot-message-paragraph">
+      {renderInline(paragraph, `p${index}`)}
+    </p>
+  ))
+}
+
 const NUDGE_STORAGE_KEY = 'chatbot-nudge-dismissed'
 const NUDGE_DELAY_MS = 6000
 
@@ -210,7 +255,7 @@ function Chatbot() {
           <div className="chatbot-messages" ref={messagesRef}>
             {messages.map((message) => (
               <div className={`chatbot-message chatbot-message--${message.role}`} key={message.id}>
-                {message.content}
+                <MessageBody text={message.content} />
               </div>
             ))}
             {isSending && (

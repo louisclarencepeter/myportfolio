@@ -215,8 +215,31 @@
   padding: 0.72rem 0.85rem;
   font-size: 0.88rem;
   line-height: 1.55;
-  white-space: pre-wrap;
   overflow-wrap: anywhere;
+}
+
+.chatbot-message-paragraph {
+  margin: 0;
+}
+
+.chatbot-message-paragraph + .chatbot-message-paragraph {
+  margin-top: 0.55rem;
+}
+
+.chatbot-message-line {
+  display: inline;
+}
+
+.chatbot-message a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  word-break: break-all;
+}
+
+.chatbot-message--user a {
+  color: inherit;
 }
 
 .chatbot-message--assistant {
