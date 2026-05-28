@@ -1,13 +1,23 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import CookieBanner from './components/CookieBanner/CookieBanner.jsx';
 import Main from './components/Main/Main.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import Navbar from './components/Header/Navbar.jsx';
 import { LanguageProvider } from './i18n.jsx';
 
 const Chatbot = lazy(() => import('./components/Chatbot/Chatbot.jsx'));
+const CookieBanner = lazy(() => import('./components/CookieBanner/CookieBanner.jsx'));
+
+const runWhenIdle = (callback) => {
+    if (typeof window === 'undefined') return () => {};
+    if ('requestIdleCallback' in window) {
+        const handle = window.requestIdleCallback(callback, { timeout: 1500 });
+        return () => window.cancelIdleCallback(handle);
+    }
+    const handle = window.setTimeout(callback, 200);
+    return () => window.clearTimeout(handle);
+};
 import './styles/App.scss';
 
 config.autoAddCss = false;
@@ -27,45 +37,50 @@ const useScrollReveal = () => {
             return undefined;
         }
 
+        let observer;
+        let mutationObserver;
         const targets = new WeakSet();
         const selector = revealSelectors.join(',');
 
-        if (!('IntersectionObserver' in window)) {
-            document.querySelectorAll(selector).forEach((element) => {
-                element.classList.add('is-visible');
-            });
-            return undefined;
-        }
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
+        const cancelIdle = runWhenIdle(() => {
+            if (!('IntersectionObserver' in window)) {
+                document.querySelectorAll(selector).forEach((element) => {
+                    element.classList.add('is-visible');
                 });
-            },
-            { rootMargin: '0px 0px -10% 0px', threshold: 0.16 },
-        );
+                return;
+            }
 
-        const observeElements = () => {
-            document.querySelectorAll(selector).forEach((element, index) => {
-                if (targets.has(element)) return;
-                targets.add(element);
-                element.classList.add('reveal');
-                element.style.setProperty('--reveal-delay', `${Math.min(index * 70, 280)}ms`);
-                observer.observe(element);
-            });
-        };
+            observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (!entry.isIntersecting) return;
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    });
+                },
+                { rootMargin: '0px 0px -10% 0px', threshold: 0.16 },
+            );
 
-        observeElements();
+            const observeElements = () => {
+                document.querySelectorAll(selector).forEach((element, index) => {
+                    if (targets.has(element)) return;
+                    targets.add(element);
+                    element.classList.add('reveal');
+                    element.style.setProperty('--reveal-delay', `${Math.min(index * 70, 280)}ms`);
+                    observer.observe(element);
+                });
+            };
 
-        const mutationObserver = new MutationObserver(observeElements);
-        mutationObserver.observe(document.body, { childList: true, subtree: true });
+            observeElements();
+
+            mutationObserver = new MutationObserver(observeElements);
+            mutationObserver.observe(document.body, { childList: true, subtree: true });
+        });
 
         return () => {
-            observer.disconnect();
-            mutationObserver.disconnect();
+            cancelIdle();
+            observer?.disconnect();
+            mutationObserver?.disconnect();
         };
     }, []);
 };

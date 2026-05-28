@@ -28,7 +28,14 @@ const Home = () => {
 
       <div className="hero-visual">
         <div className="portrait-card">
-          <img src={portrait} alt={t("home.portraitAlt")} />
+          <img
+            src={portrait}
+            alt={t("home.portraitAlt")}
+            width="886"
+            height="886"
+            fetchPriority="high"
+            decoding="async"
+          />
           <div className="portrait-copy">
             <p>{t("home.stackLabel")}</p>
             <strong>{t("home.stackTools")}</strong>
