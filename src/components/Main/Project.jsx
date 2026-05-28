@@ -57,7 +57,7 @@ function Projects() {
                 src={project.image}
                 alt={t(project.altKey)}
                 width="800"
-                height="550"
+                height="400"
                 loading="lazy"
                 decoding="async"
               />
