@@ -1,6 +1,4 @@
 import { lazy, Suspense, useEffect } from 'react';
-import { config } from '@fortawesome/fontawesome-svg-core';
-import '@fortawesome/fontawesome-svg-core/styles.css';
 import Main from './components/Main/Main.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import Navbar from './components/Header/Navbar.jsx';
@@ -19,8 +17,6 @@ const runWhenIdle = (callback) => {
     return () => window.clearTimeout(handle);
 };
 import './styles/App.scss';
-
-config.autoAddCss = false;
 
 const revealSelectors = [
     '.section-heading',
