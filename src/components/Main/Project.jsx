@@ -49,7 +49,7 @@ function Projects() {
       </div>
 
       <div className="project-grid">
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <article className="project-card" key={project.href}>
             <span className="project-tag">{t(project.tagKey)}</span>
             <a href={project.href} target="_blank" rel="noreferrer">
@@ -58,7 +58,8 @@ function Projects() {
                 alt={t(project.altKey)}
                 width="800"
                 height="400"
-                loading="lazy"
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchPriority={index === 0 ? "high" : undefined}
                 decoding="async"
               />
             </a>

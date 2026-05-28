@@ -11,6 +11,28 @@
   top: 1rem;
 }
 
+.nav-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  border: none;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  cursor: default;
+  animation: nav-scrim-in 0.25s ease both;
+}
+
+@keyframes nav-scrim-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .nav-container {
   width: min(1160px, 100%);
   margin: 0 auto;
@@ -444,7 +466,8 @@
   }
 
   .mobile-nav-tools,
-  .mobile-language-item {
+  .mobile-language-item,
+  .nav-scrim {
     display: none;
   }
 }

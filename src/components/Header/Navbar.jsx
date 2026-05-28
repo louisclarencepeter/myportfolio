@@ -37,7 +37,7 @@ const useActiveSection = (ids) => {
     if (typeof window === 'undefined') return undefined;
 
     const computeActive = () => {
-      const triggerY = window.scrollY + window.innerHeight * 0.3;
+      const triggerY = window.scrollY + window.innerHeight * 0.45;
       let current = ids[0];
       for (const id of ids) {
         const el = document.getElementById(id);
@@ -222,6 +222,14 @@ const Navbar = () => {
 
   return (
     <nav className="navbar" aria-label={t('nav.primary')}>
+      {isOpen && (
+        <button
+          type="button"
+          className="nav-scrim"
+          aria-label={t('nav.toggleMenu')}
+          onClick={closeMenu}
+        />
+      )}
       <div className="container nav-container">
 
         <div className="classicalmenu">

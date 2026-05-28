@@ -75,6 +75,7 @@ const MessageBody = ({ text }) => {
 
 const NUDGE_STORAGE_KEY = 'chatbot-nudge-dismissed'
 const NUDGE_DELAY_MS = 6000
+const NUDGE_VISIBLE_MS = 9000
 
 function Chatbot() {
   const { language, t } = useTranslation()
@@ -129,6 +130,21 @@ function Chatbot() {
       // ignore
     }
   }
+
+  // Auto-dismiss the nudge after it has been visible briefly so it never lingers
+  // over interactive content (e.g. the contact form submit button).
+  useEffect(() => {
+    if (!showNudge) return undefined
+    const timer = window.setTimeout(() => {
+      setShowNudge(false)
+      try {
+        window.sessionStorage.setItem(NUDGE_STORAGE_KEY, '1')
+      } catch {
+        // ignore
+      }
+    }, NUDGE_VISIBLE_MS)
+    return () => window.clearTimeout(timer)
+  }, [showNudge])
 
   useEffect(() => {
     if (!isOpen) return
