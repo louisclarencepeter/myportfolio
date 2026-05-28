@@ -7,8 +7,7 @@
 .cookie-banner__backdrop {
   position: absolute;
   inset: 0;
-  background: color-mix(in srgb, var(--bg) 68%, transparent);
-  backdrop-filter: blur(4px);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
 }
 
 .cookie-banner {
@@ -24,7 +23,6 @@
     linear-gradient(160deg, var(--card-warm-strong), transparent 40%),
     var(--menu-bg);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
   padding: 1.1rem;
 }
 
