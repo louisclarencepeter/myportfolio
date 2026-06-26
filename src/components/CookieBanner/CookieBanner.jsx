@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./CookieBanner.scss";
 import { useTranslation } from "../../i18n.jsx";
+import { initGoogleAnalytics } from "../../utils/googleAnalytics.js";
 
 const COOKIE_CONSENT_KEY = "lp-cookie-consent";
 
@@ -10,6 +11,11 @@ function CookieBanner() {
 
   useEffect(() => {
     const savedPreference = window.localStorage.getItem(COOKIE_CONSENT_KEY);
+    if (savedPreference === "accepted") {
+      initGoogleAnalytics();
+      return undefined;
+    }
+
     if (savedPreference) return undefined;
 
     // Defer mounting the banner past first paint + interactive so its
@@ -36,6 +42,9 @@ function CookieBanner() {
 
   const handleChoice = (choice) => {
     window.localStorage.setItem(COOKIE_CONSENT_KEY, choice);
+    if (choice === "accepted") {
+      initGoogleAnalytics();
+    }
     setIsVisible(false);
   };
 

@@ -147,7 +147,7 @@ const translations = {
       eyebrow: 'Privacy',
       title: 'Cookies and local storage',
       text:
-        'This portfolio uses local storage to remember your cookie choice. External links may set cookies on third-party websites.',
+        'This portfolio uses local storage to remember your cookie choice. If you accept, Google Analytics helps me understand aggregate site usage.',
       onlyNecessary: 'Only Necessary',
       accept: 'Accept',
     },
@@ -290,7 +290,7 @@ const translations = {
       eyebrow: 'Datenschutz',
       title: 'Cookies und lokaler Speicher',
       text:
-        'Dieses Portfolio speichert deine Cookie-Auswahl lokal im Browser. Externe Links können auf anderen Websites eigene Cookies verwenden.',
+        'Dieses Portfolio speichert deine Cookie-Auswahl lokal im Browser. Wenn du zustimmst, hilft Google Analytics mir, die Nutzung der Website zusammengefasst zu verstehen.',
       onlyNecessary: 'Nur notwendige',
       accept: 'Akzeptieren',
     },
@@ -433,7 +433,7 @@ const translations = {
       eyebrow: 'Faragha',
       title: 'Cookies na hifadhi ya kivinjari',
       text:
-        'Portfolio hii huhifadhi chaguo lako la cookies kwenye kivinjari chako. Viungo vya nje vinaweza kutumia cookies kwenye tovuti zao.',
+        'Portfolio hii huhifadhi chaguo lako la cookies kwenye kivinjari chako. Ukikubali, Google Analytics hunisaidia kuelewa matumizi ya tovuti kwa muhtasari.',
       onlyNecessary: 'Muhimu tu',
       accept: 'Kubali',
     },

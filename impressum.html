@@ -489,10 +489,10 @@
 
       <h2>Google Analytics und Google AdSense</h2>
       <p>
-        Der von Ihnen bereitgestellte Text enthaelt Hinweise zu Google Analytics
-        und Google AdSense. Bitte pruefen Sie diesen Abschnitt rechtlich, bevor
-        Sie die Seite veroeffentlichen, falls diese Dienste auf der aktuellen
-        Website nicht mehr eingesetzt werden.
+        Wenn Sie im Cookie-Hinweis zustimmen, wird Google Analytics 4 geladen,
+        um die Nutzung dieser Website statistisch auszuwerten. Ohne Zustimmung
+        werden keine Analyse-Cookies durch diese Website gesetzt. Google AdSense
+        wird auf dieser Website nicht eingesetzt.
       </p>
 
       <p>
@@ -515,8 +515,8 @@
       <p class="eyebrow">Privacy</p>
       <h2>Cookies and local storage</h2>
       <p>
-        This page uses local storage to remember your cookie choice. External
-        links may set cookies on third-party websites.
+        This page uses local storage to remember your cookie choice. If you
+        accept, Google Analytics helps me understand aggregate site usage.
       </p>
       <div class="cookie-banner__actions">
         <button type="button" class="cookie-banner__secondary" data-choice="essential">Only Necessary</button>
@@ -529,10 +529,30 @@
     const themeStorageKey = "portfolio-theme";
     const themeToggle = document.getElementById("theme-toggle");
     const consentKey = "lp-cookie-consent";
+    const googleAnalyticsId = "G-FXLPQ95G5B";
     const banner = document.getElementById("cookie-banner");
     const bannerLayer = document.getElementById("cookie-layer");
     const savedConsent = window.localStorage.getItem(consentKey);
     const year = document.getElementById("year");
+
+    const loadGoogleAnalytics = () => {
+      if (document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${googleAnalyticsId}"]`)) {
+        return;
+      }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function gtag() {
+        window.dataLayer.push(arguments);
+      };
+
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`;
+      document.head.appendChild(script);
+
+      window.gtag("js", new Date());
+      window.gtag("config", googleAnalyticsId);
+    };
 
     const applyTheme = (theme) => {
       document.documentElement.dataset.theme = theme;
@@ -564,10 +584,17 @@
       bannerLayer.style.display = "none";
     }
 
+    if (savedConsent === "accepted") {
+      loadGoogleAnalytics();
+    }
+
     if (bannerLayer) {
       banner.querySelectorAll("[data-choice]").forEach((button) => {
         button.addEventListener("click", () => {
           window.localStorage.setItem(consentKey, button.dataset.choice);
+          if (button.dataset.choice === "accepted") {
+            loadGoogleAnalytics();
+          }
           bannerLayer.style.display = "none";
         });
       });
