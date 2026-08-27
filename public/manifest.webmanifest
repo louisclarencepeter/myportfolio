@@ -1,13 +1,13 @@
 {
-  "name": "Louis Peter — Full Stack Portfolio",
+  "name": "Louis Peter — Life & Projects",
   "short_name": "Louis Peter",
-  "description": "Portfolio and projects by Louis Peter, full stack web developer based in Frankfurt am Main.",
+  "description": "The life, photography, software, and travel projects of Louis Peter — from Zanzibar to Frankfurt and home again.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#0e131b",
-  "theme_color": "#0e131b",
+  "background_color": "#f2eee7",
+  "theme_color": "#f2eee7",
   "lang": "en",
   "icons": [
     {

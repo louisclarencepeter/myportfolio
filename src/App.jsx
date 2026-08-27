@@ -19,12 +19,16 @@ const runWhenIdle = (callback) => {
 import './styles/App.scss';
 
 const revealSelectors = [
-    '.section-heading',
-    '.about-grid .info',
-    '.service-card',
-    '.project-card',
-    '.contact-intro',
-    '.contact .form',
+    '.story-section__copy',
+    '.story-section__hero-media',
+    '.story-timeline__item',
+    '.story-timeline__detail-media',
+    '.projects-section__heading',
+    '.project-chapter',
+    '.photography-section__heading',
+    '.photography-gallery__item',
+    '.contact-section__intro',
+    '.contact-form',
 ];
 
 const useScrollReveal = () => {
@@ -124,7 +128,7 @@ function App() {
 
     return (
         <LanguageProvider>
-            <div className="App" id='home'>
+            <div className="App">
                 <Navbar />
                 <Main />
                 <Footer />

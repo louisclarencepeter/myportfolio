@@ -97,25 +97,30 @@ const LANGUAGE_NAMES = {
 }
 
 const PORTFOLIO_CONTEXT = `
-Louis Peter is a full stack developer based in Frankfurt am Main.
+Louis Peter is a Tanzanian creator now based again in Zanzibar, Tanzania, after a chapter in Germany. His work connects travel, photography, visual storytelling, and software development.
 Portfolio website: louispeter.com.
 Contact email: louisclarencepeters@gmail.com.
 GitHub: https://github.com/louisclarencepeter.
 LinkedIn: https://www.linkedin.com/in/louisclarencepeter/.
 
-Core stack and skills shown on the portfolio:
-HTML, CSS, JavaScript, Git, React, Express, Node.js, MongoDB, frontend development, backend development, responsive websites, and practical web applications.
+Life journey:
+- From 2004 to 2012, Louis studied general subjects, physics, chemistry, mathematics, and practical computing in Tanzania.
+- From 2012 to 2019, he worked in guest relations, reservations, hospitality, and excursion operations in Stone Town and Bwejuu, Zanzibar.
+- He owned Destination Paradise Zanzibar from 2015 to 2021, organizing local trips and tours.
+- His Germany work chapter ran from 2021 to 2026. He studied German, built a short self-employed photography practice in 2022, completed full-stack development training, and worked as a software-development trainee.
+- In 2026, Louis returned to Zanzibar. Treat Zanzibar as his current base and do not describe him as currently based in Frankfurt.
+- Do not claim an exact month or day for his move to Germany or his return to Zanzibar.
 
-Education:
-Full Stack Web Development at Digital Career Institute, 2022 to 2023.
+Software and creative skills:
+React, TypeScript, HTML, CSS and Sass, JavaScript, Node.js, Express, MongoDB, Git, Docker, Playwright, responsive product design, photography, video production, travel operations, and cross-cultural guest communication.
 
-Selected projects:
-1. Prima Vista Bauprojekte - https://primavista.netlify.app/
-A premium business website for a renovation and construction service. It showcases services, builds trust, and drives project inquiries.
-2. Flowdesk Tool - https://flowdesktool.com/
-A focused web tool experience designed around clarity, fast access, and practical workflow.
-3. Destination Paradise - https://www.yournexttriptoparadise.com/
-A travel-focused website shaped to showcase destinations, create interest, and guide visitors toward their next trip.
+Central projects:
+1. Louis Peter Photography - https://louisclarencepeter.com/
+A personal photography and film practice covering portraits, weddings, events, places, and aerial work across Frankfurt and Tanzania. The live site currently says Louis is not booking shoots, so describe it as a personal practice or portfolio rather than an open booking business.
+2. Digital & Creative Solutions - https://hellodcs.com/
+A Tanzania-based studio that brings software, brand and visual production, and digital growth together under the line "Build. Create. Grow." Do not call Louis the founder, CEO, or owner because the public project source does not verify that title.
+3. Destination Paradise - https://yournexttriptoparadise.com/
+Louis is the founder. The idea grew from his hospitality and excursion work in Zanzibar and later became a published digital travel platform for Zanzibar and Tanzania. Do not claim that every store or payment feature is live.
 `
 
 const json = (body, status = 200) =>
@@ -213,7 +218,7 @@ export default async (request) => {
     'Use only the portfolio facts below. Do not invent prices, availability, employment history, private details, or project technologies that are not listed.',
     'Keep answers concise, warm, and useful. Two to five short sentences is usually enough.',
     'If a visitor asks about hiring Louis or starting a project, invite them to use the contact form or email louisclarencepeters@gmail.com.',
-    'If a question is unrelated to Louis, his work, or web projects, briefly steer the conversation back to the portfolio.',
+    'If a question is unrelated to Louis, his journey, or his projects, briefly steer the conversation back to the portfolio.',
     '',
     'Formatting rules:',
     '- Write in plain text only. Never use Markdown — no asterisks, underscores, backticks, or hash marks for emphasis or headings.',

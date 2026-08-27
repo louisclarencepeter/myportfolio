@@ -1,71 +1,86 @@
-import "./About.scss";
-import logo from "../../assets/images/me.webp";
-import dci from "../../assets/images/dci.svg";
-import skills from "../../assets/images/skills.webp";
-import Icon from "../Icon.jsx";
+import dhow from "../../assets/images/life-portfolio/zanzibar-dhow.webp";
+import stoneTown from "../../assets/images/life-portfolio/stone-town-waterfront.webp";
 import { useTranslation } from "../../i18n.jsx";
+import "./About.scss";
 
-const About = () => {
+const timelineItems = [
+  {
+    period: "story.timeline.learning.period",
+    title: "story.timeline.learning.title",
+    text: "story.timeline.learning.text",
+  },
+  {
+    period: "story.timeline.hospitality.period",
+    title: "story.timeline.hospitality.title",
+    text: "story.timeline.hospitality.text",
+  },
+  {
+    period: "story.timeline.paradise.period",
+    title: "story.timeline.paradise.title",
+    text: "story.timeline.paradise.text",
+  },
+  {
+    period: "story.timeline.germany.period",
+    title: "story.timeline.germany.title",
+    text: "story.timeline.germany.text",
+  },
+  {
+    period: "story.timeline.return.period",
+    title: "story.timeline.return.title",
+    text: "story.timeline.return.text",
+  },
+];
+
+function About() {
   const { t } = useTranslation();
 
   return (
-    <section className="about-section" id="aboutme">
-      <div className="section-heading">
-        <p className="section-kicker">{t("about.kicker")}</p>
-        <h2>{t("about.title")}</h2>
-        <p className="section-text">{t("about.text")}</p>
+    <section className="story-section" id="story" aria-labelledby="story-title">
+      <div className="story-section__opening">
+        <div className="story-section__copy">
+          <h2 id="story-title">{t("story.title")}</h2>
+          <span className="editorial-rule editorial-rule--coral" aria-hidden="true" />
+          <p>{t("story.intro")}</p>
+        </div>
+
+        <figure className="story-section__hero-media">
+          <img
+            src={dhow}
+            alt={t("story.dhowAlt")}
+            width="1200"
+            height="900"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
       </div>
 
-      <div className="about-grid">
-        <article className="info intro-card">
-          <img src={logo} alt={t("about.portraitAlt")} />
-          <h3>Louis Peter</h3>
-          <p>{t("about.bio")}</p>
-          <div className="social-links">
-            <a
-              href="https://github.com/louisclarencepeter"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
-            >
-              <Icon name="github" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/louisclarencepeter/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
-            >
-              <Icon name="linkedin" />
-            </a>
-          </div>
-        </article>
+      <div className="story-timeline" aria-label={t("story.timelineLabel")}>
+        <div className="story-timeline__list">
+          {timelineItems.map((item) => (
+            <article className="story-timeline__item" key={item.period} tabIndex="0">
+              <time>{t(item.period)}</time>
+              <span className="story-timeline__dot" aria-hidden="true" />
+              <h3>{t(item.title)}</h3>
+              <p>{t(item.text)}</p>
+            </article>
+          ))}
+        </div>
 
-        <article className="info">
-          <img src={dci} alt={t("about.dciAlt")} />
-          <h3>{t("about.education")}</h3>
-          <p>2022 - 2023</p>
-          <p>{t("about.program")}</p>
-          <p>{t("about.school")}</p>
-        </article>
-
-        <article className="info">
-          <img src={skills} alt={t("about.skillsAlt")} />
-          <h3>{t("about.coreStack")}</h3>
-          <div className="skill-list">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-            <span>Git</span>
-            <span>React</span>
-            <span>Express</span>
-            <span>Node.js</span>
-            <span>MongoDB</span>
-          </div>
-        </article>
+        <figure className="story-timeline__detail-media">
+          <img
+            src={stoneTown}
+            alt={t("story.stoneTownAlt")}
+            width="1195"
+            height="800"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>{t("story.detailCaption")}</figcaption>
+        </figure>
       </div>
     </section>
   );
-};
+}
 
 export default About;

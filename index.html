@@ -3,31 +3,30 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="description" content="Louis Peter — full stack developer portfolio showcasing projects in React, JavaScript, and Sass.">
-  <meta name="keywords" content="Louis Peter, portfolio, full stack, React, JavaScript, Sass, web developer">
+  <meta name="description" content="The life and projects of Louis Peter — a Tanzanian creator back in Zanzibar, working across photography, software, Digital & Creative Solutions, and Destination Paradise.">
+  <meta name="keywords" content="Louis Peter, Tanzania, Zanzibar, Frankfurt, Germany, photography, software developer, Digital Creative Solutions, Destination Paradise">
   <meta name="author" content="Louis Peter">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0e131b">
-  <meta property="og:title" content="Louis Peter — Full Stack Portfolio">
-  <meta property="og:description" content="Projects and work by Louis Peter, full stack web developer.">
+  <meta name="theme-color" content="#f2eee7">
+  <meta property="og:title" content="Louis Peter — Life, Photography & Digital Projects">
+  <meta property="og:description" content="A story from Zanzibar to Frankfurt and home again, told through photography, software, Digital & Creative Solutions, and Destination Paradise.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://louispeter.com/">
-  <meta property="og:image" content="https://louispeter.com/favicon.png">
+  <meta property="og:image" content="https://louispeter.com/louis-portrait.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Louis Peter — Full Stack Portfolio">
-  <meta name="twitter:description" content="Projects and work by Louis Peter, full stack web developer.">
-  <meta name="twitter:image" content="https://louispeter.com/favicon.png">
+  <meta name="twitter:title" content="Louis Peter — Life, Photography & Digital Projects">
+  <meta name="twitter:description" content="A story from Zanzibar to Frankfurt and home again, told through photography, software, and travel projects.">
+  <meta name="twitter:image" content="https://louispeter.com/louis-portrait.jpg">
   <link rel="canonical" href="https://louispeter.com/">
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/favicon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
-  <title>Louis Peter — Full Stack Portfolio</title>
+  <title>Louis Peter — Life, Photography & Digital Projects</title>
   <script>
     (function () {
       try {
         var savedTheme = localStorage.getItem('portfolio-theme');
-        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-        var theme = savedTheme || (prefersLight ? 'light' : 'dark');
+        var theme = savedTheme || 'light';
         var savedLanguage = localStorage.getItem('portfolio-language');
         var timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         var visitorLocales = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language])
@@ -51,9 +50,9 @@
         document.documentElement.dataset.theme = theme;
         document.documentElement.style.colorScheme = theme;
         document.documentElement.lang = language;
-        document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'light' ? '#f7f0e8' : '#0e131b');
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'light' ? '#f2eee7' : '#181818');
       } catch (error) {
-        document.documentElement.dataset.theme = 'dark';
+        document.documentElement.dataset.theme = 'light';
       }
     }());
   </script>
@@ -63,18 +62,19 @@
       "@type": "Person",
       "name": "Louis Peter",
       "url": "https://louispeter.com/",
-      "image": "https://louispeter.com/favicon.png",
-      "jobTitle": "Full Stack Developer",
+      "image": "https://louispeter.com/louis-portrait.jpg",
+      "description": "Tanzanian creator back in Zanzibar after a chapter in Germany, working across photography, software, visual storytelling, and travel.",
+      "jobTitle": ["Software Developer", "Photographer"],
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Frankfurt am Main",
-        "addressCountry": "DE"
+        "addressRegion": "Zanzibar",
+        "addressCountry": "TZ"
       },
       "sameAs": [
         "https://github.com/louisclarencepeter",
         "https://www.linkedin.com/in/louisclarencepeter/"
       ],
-      "knowsAbout": ["React", "JavaScript", "Node.js", "Full Stack Web Development"]
+      "knowsAbout": ["React", "JavaScript", "TypeScript", "Photography", "Visual Storytelling", "Zanzibar Travel", "Full Stack Web Development"]
     }
   </script>
 </head>

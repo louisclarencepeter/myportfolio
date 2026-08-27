@@ -1,85 +1,125 @@
-import "./Project.scss";
-import primavistaImage from "../../assets/images/Apple-iMac-24_-primavista.netlify.app.webp";
-import flowdeskImage from "../../assets/images/Macbook-Air-flowdesktool.com.webp";
-import paradiseImage from "../../assets/images/iPad-PRO-11-yournexttriptoparadise.com.webp";
+import photographyImage from "../../assets/images/life-portfolio/photography-editorial.webp";
+import dcsImage from "../../assets/images/life-portfolio/dcs-khole-villa.webp";
+import paradiseImage from "../../assets/images/life-portfolio/destination-paradise-platform.webp";
 import { useTranslation } from "../../i18n.jsx";
+import "./Project.scss";
 
 const projects = [
   {
-    title: "Prima Vista Bauprojekte",
-    href: "https://primavista.netlify.app/",
-    tagKey: "projects.primavistaTag",
-    image: primavistaImage,
-    altKey: "projects.primavistaAlt",
-    problemKey: "projects.primavistaProblem",
-    solutionKey: "projects.primavistaSolution",
-    outcomeKey: "projects.primavistaOutcome",
+    number: "01",
+    slug: "photography",
+    href: "https://louisclarencepeter.com/",
+    title: "Louis Peter Photography",
+    image: photographyImage,
+    width: 1600,
+    height: 1066,
+    statementKey: "projects.photography.statement",
+    linkKey: "projects.photography.link",
+    altKey: "projects.photography.alt",
   },
   {
-    title: "Flowdesk Tool",
-    href: "https://flowdesktool.com/",
-    tagKey: "projects.flowdeskTag",
-    image: flowdeskImage,
-    altKey: "projects.flowdeskAlt",
-    problemKey: "projects.flowdeskProblem",
-    solutionKey: "projects.flowdeskSolution",
-    outcomeKey: "projects.flowdeskOutcome",
+    number: "02",
+    slug: "dcs",
+    href: "https://hellodcs.com/",
+    title: "Digital & Creative Solutions",
+    image: dcsImage,
+    width: 1600,
+    height: 900,
+    statementKey: "projects.dcs.statement",
+    signatureKey: "projects.dcs.signature",
+    linkKey: "projects.dcs.link",
+    altKey: "projects.dcs.alt",
   },
   {
+    number: "03",
+    slug: "paradise",
+    href: "https://yournexttriptoparadise.com/",
     title: "Destination Paradise",
-    href: "https://www.yournexttriptoparadise.com/",
-    tagKey: "projects.paradiseTag",
     image: paradiseImage,
-    altKey: "projects.paradiseAlt",
-    problemKey: "projects.paradiseProblem",
-    solutionKey: "projects.paradiseSolution",
-    outcomeKey: "projects.paradiseOutcome",
+    width: 960,
+    height: 540,
+    statementKey: "projects.paradise.statement",
+    linkKey: "projects.paradise.link",
+    altKey: "projects.paradise.alt",
   },
 ];
 
-function Projects() {
+const ExternalArrow = () => (
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M5 12h13M13 6l6 6-6 6" />
+  </svg>
+);
+
+const ProjectCopy = ({ project }) => {
   const { t } = useTranslation();
 
   return (
-    <section className="projects-section" id="myprojects">
-      <div className="section-heading">
-        <p className="section-kicker">{t("projects.kicker")}</p>
-        <h2>{t("projects.title")}</h2>
-        <p className="section-text">{t("projects.text")}</p>
-      </div>
+    <div className="project-chapter__copy">
+      <span className="project-chapter__number">{project.number}</span>
+      <h3>{project.title}</h3>
+      <p>{t(project.statementKey)}</p>
+      {project.signatureKey && (
+        <strong className="project-chapter__signature">
+          {t(project.signatureKey)}
+        </strong>
+      )}
+      <a href={project.href} target="_blank" rel="noreferrer">
+        <span>{t(project.linkKey)}</span>
+        <ExternalArrow />
+      </a>
+    </div>
+  );
+};
 
-      <div className="project-grid">
-        {projects.map((project, index) => (
-          <article className="project-card" key={project.href}>
-            <span className="project-tag">{t(project.tagKey)}</span>
-            <a href={project.href} target="_blank" rel="noreferrer">
-              <img
-                src={project.image}
-                alt={t(project.altKey)}
-                width="800"
-                height="400"
-                loading={index === 0 ? "eager" : "lazy"}
-                fetchPriority={index === 0 ? "high" : undefined}
-                decoding="async"
-              />
-            </a>
-            <div className="project-copy">
-              <h3>{project.title}</h3>
-              <dl className="project-case">
-                <div>
-                  <dt>{t("projects.problemLabel")}</dt>
-                  <dd>{t(project.problemKey)}</dd>
-                </div>
-                <div>
-                  <dt>{t("projects.solutionLabel")}</dt>
-                  <dd>{t(project.solutionKey)}</dd>
-                </div>
-                <div>
-                  <dt>{t("projects.outcomeLabel")}</dt>
-                  <dd>{t(project.outcomeKey)}</dd>
-                </div>
-              </dl>
-            </div>
+const ProjectMedia = ({ project, eager = false }) => {
+  const { t } = useTranslation();
+
+  return (
+    <a
+      className="project-chapter__media"
+      href={project.href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`${t(project.linkKey)} — ${project.title}`}
+    >
+      <img
+        src={project.image}
+        alt={t(project.altKey)}
+        width={project.width}
+        height={project.height}
+        loading={eager ? "eager" : "lazy"}
+        decoding="async"
+      />
+    </a>
+  );
+};
+
+function Projects() {
+  const { t } = useTranslation();
+  const featuredProject = projects[0];
+
+  return (
+    <section className="projects-section" id="projects" aria-labelledby="projects-title">
+      <article className="project-feature project-chapter--photography">
+        <div className="project-feature__copy">
+          <header className="projects-section__heading">
+            <h2 id="projects-title">{t("projects.title")}</h2>
+            <span className="editorial-rule editorial-rule--coral" aria-hidden="true" />
+            <p>{t("projects.intro")}</p>
+          </header>
+          <ProjectCopy project={featuredProject} />
+        </div>
+        <ProjectMedia project={featuredProject} eager />
+      </article>
+
+      <div className="project-chapters">
+        {projects.slice(1).map((project) => (
+          <article
+            className={`project-chapter project-chapter--${project.slug}`}
+            key={project.href}
+          >
+            <ProjectCopy project={project} />
+            <ProjectMedia project={project} />
           </article>
         ))}
       </div>

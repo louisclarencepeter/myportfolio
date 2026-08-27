@@ -387,15 +387,14 @@
 }
 
 .chatbot-toggle {
-  min-height: 3.25rem;
-  border-radius: 999px;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
   background: var(--nav-bg-strong);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
-  gap: 0.55rem;
   font: inherit;
-  font-size: 0.85rem;
-  padding: 0.75rem 1rem;
+  padding: 0;
 }
 
 .chatbot-toggle svg {
@@ -421,6 +420,12 @@
     left: 1rem;
     bottom: 1rem;
     align-items: stretch;
+  }
+
+  .chatbot:not(.chatbot--open):not(.chatbot--visible) {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .chatbot-panel {

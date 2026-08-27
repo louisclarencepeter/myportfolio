@@ -1,76 +1,64 @@
-import portrait from "../../assets/images/me.webp";
-import Icon from "../Icon.jsx";
+import portrait from "../../assets/images/life-portfolio/louis-portrait.webp";
+import aerial from "../../assets/images/life-portfolio/photography-aerial.webp";
 import { useTranslation } from "../../i18n.jsx";
 import "./Home.scss";
+
+const Arrow = () => (
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M5 12h13M13 6l6 6-6 6" />
+  </svg>
+);
 
 const Home = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="hero-container">
-      <div className="hero-copy">
-        <p className="eyebrow">{t("home.eyebrow")}</p>
-        <a href="#aboutme">
-          <h1>Louis Peter</h1>
-        </a>
-        <p className="caption">{t("home.caption")}</p>
-        <h2 className="line">{t("home.headline")}</h2>
-        <p className="hero-summary">{t("home.summary")}</p>
-        <div className="hero-actions">
-          <a href="#myprojects" className="primary-action">
-            {t("home.viewProjects")}
+    <section className="life-hero" id="home" aria-labelledby="hero-title">
+      <div className="life-hero__copy">
+        <h1 id="hero-title">{t("home.headline")}</h1>
+        <span className="life-hero__rule" aria-hidden="true" />
+        <p className="life-hero__summary">{t("home.summary")}</p>
+
+        <div className="life-hero__actions">
+          <a href="#story" className="editorial-action editorial-action--primary">
+            <span>{t("home.followJourney")}</span>
+            <Arrow />
           </a>
-          <a href="#contact" className="secondary-action">
-            {t("home.contactMe")}
+          <a href="#projects" className="editorial-action editorial-action--secondary">
+            <span>{t("home.seeProjects")}</span>
+            <Arrow />
           </a>
         </div>
+
+        <p className="life-hero__places" aria-label={t("home.placesLabel")}>
+          <span>{t("home.zanzibar")}</span>
+          <span aria-hidden="true">←</span>
+          <span>{t("home.frankfurt")}</span>
+        </p>
       </div>
 
-      <div className="hero-visual">
-        <div className="portrait-card">
+      <div className="life-hero__media" aria-label={t("home.mediaLabel")}>
+        <figure className="life-hero__portrait">
           <img
             src={portrait}
             alt={t("home.portraitAlt")}
-            width="886"
-            height="886"
+            width="1024"
+            height="576"
             fetchPriority="high"
             decoding="async"
           />
-          <div className="portrait-copy">
-            <p>{t("home.stackLabel")}</p>
-            <strong>{t("home.stackTools")}</strong>
-          </div>
-        </div>
+        </figure>
 
-        <div className="icons">
-          <a
-            href="https://en.wikipedia.org/wiki/HTML"
-            target="_blank"
-            rel="noreferrer"
-            className="icon"
-          >
-            <Icon name="html5" />
-            <p>HTML</p>
-          </a>
-          <a
-            href="https://en.wikipedia.org/wiki/CSS"
-            target="_blank"
-            rel="noreferrer"
-            className="icon"
-          >
-            <Icon name="css3-alt" />
-            <p>CSS</p>
-          </a>
-          <a
-            href="https://en.wikipedia.org/wiki/JavaScript"
-            target="_blank"
-            rel="noreferrer"
-            className="icon"
-          >
-            <Icon name="js-square" />
-            <p>JavaScript</p>
-          </a>
-        </div>
+        <figure className="life-hero__aerial">
+          <img
+            src={aerial}
+            alt={t("home.aerialAlt")}
+            width="719"
+            height="1280"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </figure>
       </div>
     </section>
   );

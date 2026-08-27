@@ -1,47 +1,77 @@
-/* Footer */
-footer {
-    width: min(1160px, 100%);
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    border-top: 1px solid var(--line);
-    color: var(--muted);
-    padding: 1.5rem 0 0;
-    min-height: 4rem;
-    flex-wrap: wrap;
-    animation: fade-up 620ms var(--ease-out) 520ms both;
+.site-footer {
+  width: min(var(--page-width), 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto minmax(10rem, 1fr) auto auto;
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 3rem);
+  padding: 1.5rem var(--page-gutter) 2.2rem;
+  color: var(--muted);
+  font-size: 0.7rem;
 }
 
-.footer-copy {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    text-align: center;
+.site-footer strong {
+  color: var(--text);
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
 }
 
-.f-p,
-footer p,
-.footer-copy span {
-    font-size: 0.8rem;
-    font-weight: 500;
-    margin: 0;
+.site-footer__places {
+  position: relative;
+  width: fit-content;
+  padding-bottom: 0.45rem;
 }
 
-.f-p {
-    color: var(--text);
-    transition: color var(--motion-fast) ease;
+.site-footer__places::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--turquoise);
 }
 
-.f-p:hover {
-    color: var(--accent-soft);
+.site-footer nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 2vw, 2rem);
 }
 
-@media (max-width: 640px) {
-    .footer-copy {
-        gap: 0.75rem;
-    }
+.site-footer a {
+  color: var(--muted);
+  transition: color var(--motion-fast) ease;
+}
+
+.site-footer a:hover {
+  color: var(--text);
+}
+
+@media (max-width: 760px) {
+  .site-footer {
+    grid-template-columns: 1fr auto;
+  }
+
+  .site-footer__places {
+    justify-self: end;
+  }
+
+  .site-footer nav {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    padding-block: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .site-footer__places {
+    justify-self: start;
+  }
 }

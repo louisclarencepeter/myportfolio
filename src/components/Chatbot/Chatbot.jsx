@@ -73,17 +73,13 @@ const MessageBody = ({ text }) => {
   ))
 }
 
-const NUDGE_STORAGE_KEY = 'chatbot-nudge-dismissed'
-const NUDGE_DELAY_MS = 6000
-const NUDGE_VISIBLE_MS = 9000
-
 function Chatbot() {
   const { language, t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
   const [input, setInput] = useState('')
   const [isSending, setIsSending] = useState(false)
+  const [isPastHero, setIsPastHero] = useState(false)
   const [messages, setMessages] = useState(() => [makeMessage('assistant', t('chat.greeting'))])
-  const [showNudge, setShowNudge] = useState(false)
   const messagesRef = useRef(null)
   const startersRef = useRef(null)
   const startersTrackRef = useRef(null)
@@ -109,42 +105,19 @@ function Chatbot() {
   }, [isOpen, messages, isSending])
 
   useEffect(() => {
-    if (isOpen) {
-      setShowNudge(false)
-      return undefined
+    const updateVisibility = () => {
+      setIsPastHero(window.scrollY > window.innerHeight * 0.55)
     }
-    try {
-      if (window.sessionStorage.getItem(NUDGE_STORAGE_KEY) === '1') return undefined
-    } catch {
-      // sessionStorage may be blocked — still show the nudge
-    }
-    const timer = window.setTimeout(() => setShowNudge(true), NUDGE_DELAY_MS)
-    return () => window.clearTimeout(timer)
-  }, [isOpen])
 
-  const dismissNudge = () => {
-    setShowNudge(false)
-    try {
-      window.sessionStorage.setItem(NUDGE_STORAGE_KEY, '1')
-    } catch {
-      // ignore
-    }
-  }
+    updateVisibility()
+    window.addEventListener('scroll', updateVisibility, { passive: true })
+    window.addEventListener('resize', updateVisibility)
 
-  // Auto-dismiss the nudge after it has been visible briefly so it never lingers
-  // over interactive content (e.g. the contact form submit button).
-  useEffect(() => {
-    if (!showNudge) return undefined
-    const timer = window.setTimeout(() => {
-      setShowNudge(false)
-      try {
-        window.sessionStorage.setItem(NUDGE_STORAGE_KEY, '1')
-      } catch {
-        // ignore
-      }
-    }, NUDGE_VISIBLE_MS)
-    return () => window.clearTimeout(timer)
-  }, [showNudge])
+    return () => {
+      window.removeEventListener('scroll', updateVisibility)
+      window.removeEventListener('resize', updateVisibility)
+    }
+  }, [])
 
   useEffect(() => {
     if (!isOpen) return
@@ -255,7 +228,7 @@ function Chatbot() {
   }
 
   return (
-    <aside className={`chatbot ${isOpen ? 'chatbot--open' : ''}`} aria-label={t('chat.label')}>
+    <aside className={`chatbot ${isOpen ? 'chatbot--open' : ''} ${isPastHero ? 'chatbot--visible' : ''}`} aria-label={t('chat.label')}>
       {isOpen && (
         <div className="chatbot-panel" role="dialog" aria-modal="true" aria-labelledby="chatbot-title" ref={panelRef}>
           <div className="chatbot-header">
@@ -311,32 +284,8 @@ function Chatbot() {
         </div>
       )}
 
-      {!isOpen && showNudge && (
-        <div className="chatbot-nudge" role="status">
-          <button
-            type="button"
-            className="chatbot-nudge-bubble"
-            onClick={() => {
-              dismissNudge()
-              setIsOpen(true)
-            }}
-          >
-            {t('chat.nudge')}
-          </button>
-          <button
-            type="button"
-            className="chatbot-nudge-close"
-            onClick={dismissNudge}
-            aria-label={t('chat.nudgeDismiss')}
-          >
-            <CloseIcon />
-          </button>
-        </div>
-      )}
-
       <button ref={toggleRef} type="button" className="chatbot-toggle" onClick={() => setIsOpen((current) => !current)} aria-expanded={isOpen} aria-label={isOpen ? t('chat.close') : t('chat.open')}>
         <BotIcon />
-        <span>{t('chat.button')}</span>
       </button>
     </aside>
   )

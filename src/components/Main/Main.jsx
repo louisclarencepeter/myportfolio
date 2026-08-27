@@ -3,8 +3,8 @@ import Home from "./Home.jsx";
 import "./Main.scss";
 
 const About = lazy(() => import("./About.jsx"));
-const Services = lazy(() => import("./Services.jsx"));
 const Projects = lazy(() => import("./Project.jsx"));
+const Photography = lazy(() => import("./Photography.jsx"));
 const Contact = lazy(() => import("./Contact.jsx"));
 
 const SectionFallback = () => <div className="section-fallback" aria-hidden="true" />;
@@ -14,13 +14,13 @@ function Main() {
     <div className="main-container">
       <Home id="home" />
       <Suspense fallback={<SectionFallback />}>
-        <About id="about" />
+        <About id="story" />
       </Suspense>
       <Suspense fallback={<SectionFallback />}>
-        <Services id="services" />
+        <Projects id="projects" />
       </Suspense>
       <Suspense fallback={<SectionFallback />}>
-        <Projects id="myprojects" />
+        <Photography id="photography" />
       </Suspense>
       <Suspense fallback={<SectionFallback />}>
         <Contact id="contact" />

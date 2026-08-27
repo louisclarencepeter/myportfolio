@@ -1,11 +1,12 @@
-# Louis Peter — Full Stack Portfolio
+# Louis Peter — Life & Projects
 
-A responsive portfolio for [louispeter.com](https://louispeter.com/) built with React, Vite, Sass, and Netlify Functions. It showcases selected client and product work, includes a Resend-powered contact form, supports dark/light themes, and serves English, German, and Kiswahili UI copy.
+A responsive, editorial portfolio for [louispeter.com](https://louispeter.com/) built with React, Vite, Sass, and Netlify Functions. It tells Louis Peter's story from Tanzania and Zanzibar to Frankfurt and back home through photography, software, Digital & Creative Solutions, and Destination Paradise. It includes a Resend-powered contact form, supports dark/light themes, and serves English, German, and Kiswahili UI copy.
 
 ## Features
 
-- Responsive single-page portfolio with animated sections and project cards
-- Dark and light themes with system preference detection on first load
+- Responsive single-page portfolio with a verified life timeline and art-directed photography
+- Three central project chapters: Photography, Digital & Creative Solutions, and Destination Paradise
+- Dark and light editorial themes, with the accepted warm-paper design as the first-load default
 - Language switcher for English, German, and Kiswahili
 - Automatic language default: Tanzania gets Kiswahili, Germany gets German, everyone else gets English
 - Contact form handled by a Netlify Function so the Resend API key stays server-side
@@ -13,10 +14,10 @@ A responsive portfolio for [louispeter.com](https://louispeter.com/) built with 
 - Static `impressum.html` page
 - SEO metadata, sitemap, robots file, and favicon in `public/`
 
-## Projects
+## Central Projects
 
-- [Prima Vista Bauprojekte](https://primavista.netlify.app/)
-- [Flowdesk Tool](https://flowdesktool.com/)
+- [Louis Peter Photography](https://louisclarencepeter.com/)
+- [Digital & Creative Solutions](https://hellodcs.com/)
 - [Destination Paradise](https://www.yournexttriptoparadise.com/)
 
 ## Getting Started
@@ -138,7 +139,6 @@ myportfolio/
 - React 19
 - Vite 8
 - Sass
-- Font Awesome brand icons
 - Netlify Functions
 - Resend
 - ESLint

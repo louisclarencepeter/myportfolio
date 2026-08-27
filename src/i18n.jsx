@@ -1,441 +1,501 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
-const LANGUAGE_STORAGE_KEY = 'portfolio-language';
+const LANGUAGE_STORAGE_KEY = "portfolio-language";
 
 export const languages = [
-  { code: 'en', label: 'EN', name: 'English', htmlLang: 'en' },
-  { code: 'de', label: 'DE', name: 'Deutsch', htmlLang: 'de' },
-  { code: 'sw', label: 'SW', name: 'Kiswahili', htmlLang: 'sw' },
+  { code: "en", label: "EN", name: "English", htmlLang: "en" },
+  { code: "de", label: "DE", name: "Deutsch", htmlLang: "de" },
+  { code: "sw", label: "SW", name: "Kiswahili", htmlLang: "sw" },
 ];
 
 const translations = {
   en: {
     nav: {
-      primary: 'Primary',
-      home: 'Home',
-      about: 'About',
-      services: 'Services',
-      projects: 'Projects',
-      contact: 'Contact',
-      toggleMenu: 'Toggle menu',
-      switchTheme: 'Switch to {theme} theme',
-      light: 'light',
-      dark: 'dark',
-      language: 'Language',
+      primary: "Primary navigation",
+      story: "Story",
+      projects: "Projects",
+      photography: "Photography",
+      contact: "Contact",
+      menu: "Menu",
+      close: "Close",
+      switchTheme: "Switch to {theme} theme",
+      light: "light",
+      dark: "dark",
+      language: "Language",
     },
     home: {
-      eyebrow: 'Portfolio 2026',
-      caption: 'Full Stack Developer in Frankfurt am Main',
-      headline: 'Building thoughtful web experiences',
+      headline: "A life built across places, pictures and products.",
       summary:
-        'I build responsive websites and applications with React, JavaScript, Node.js, and modern tools across frontend and backend development.',
-      viewProjects: 'View Projects',
-      contactMe: 'Contact Me',
-      portraitAlt: 'Portrait of Louis Peter',
-      stackLabel: 'Full stack',
-      stackTools: 'React, Node.js',
+        "I’m Louis Peter — a Tanzanian creator back in Zanzibar, building travel experiences, digital products and visual stories.",
+      followJourney: "Follow the journey",
+      seeProjects: "See my projects",
+      zanzibar: "Zanzibar",
+      frankfurt: "Frankfurt",
+      placesLabel: "Returned from Frankfurt to Zanzibar",
+      mediaLabel: "Portrait and photography by Louis Peter",
+      portraitAlt: "Louis Peter smiling on the shoreline",
+      aerialAlt: "Aerial photograph of boats in turquoise water",
     },
-    about: {
-      kicker: 'About',
-      title: 'Full stack developer focused on polished digital experiences',
-      text:
-        'I work across the full stack, combining frontend design sense with backend problem-solving to build responsive and reliable web experiences.',
-      portraitAlt: 'Portrait of Louis Peter',
-      bio:
-        "I build websites the way I'd want one built for me: fast, clear, and carefully thought through. Based in Frankfurt, working across frontend and backend.",
-      education: 'Education',
-      program: 'Full Stack Web Development',
-      school: 'Digital Career Institute',
-      dciAlt: 'Digital Career Institute logo',
-      skillsAlt: 'Skills overview',
-      coreStack: 'Core Stack',
+    story: {
+      title: "Before the code, there was Zanzibar.",
+      intro:
+        "Years in hospitality and excursions taught me how people experience a place. Science and practical computing gave me the tools. Germany added language, photography and software. Now I’m back in Zanzibar, bringing those chapters together.",
+      dhowAlt: "A wooden dhow approaching a turquoise Zanzibar sandbank",
+      stoneTownAlt: "Stone Town waterfront in Zanzibar",
+      detailCaption: "From the coastlines of Zanzibar to the streets of Frankfurt — and home again.",
+      timelineLabel: "Louis Peter’s life journey",
+      timeline: {
+        learning: {
+          period: "2004–2012",
+          title: "Learning in Tanzania",
+          text: "Science, mathematics and practical computing shaped how I solve problems.",
+        },
+        hospitality: {
+          period: "2012–2019",
+          title: "Hospitality & excursions",
+          text: "From Stone Town to Bwejuu, I worked with guests, reservations and island experiences.",
+        },
+        paradise: {
+          period: "2015–2021",
+          title: "Destination Paradise begins",
+          text: "I turned years of local knowledge into a travel company rooted in Zanzibar.",
+        },
+        germany: {
+          period: "2021–2026",
+          title: "A chapter in Germany",
+          text: "Language study, photography and full-stack development gave the idea new tools.",
+        },
+        return: {
+          period: "2026–today",
+          title: "Back in Zanzibar",
+          text: "I returned home with new tools for travel, visual storytelling and digital products.",
+        },
+      },
     },
     projects: {
-      kicker: 'Projects',
-      title: 'Selected projects I built from concept to launch',
-      text:
-        'These projects show how I approach layout, branding, responsiveness, and useful web experiences across different industries.',
-      problemLabel: 'Problem',
-      solutionLabel: 'Solution',
-      outcomeLabel: 'Outcome',
-      primavistaTag: 'Business Website',
-      primavistaAlt: 'Prima Vista Bauprojekte website preview',
-      primavistaProblem:
-        'A premium construction business needed a digital presence that matched their craftsmanship.',
-      primavistaSolution:
-        'Clean layout, immersive portfolio gallery, and highly visible contact routes.',
-      primavistaOutcome:
-        'A high-end website that builds immediate trust and captures quality inquiries.',
-      flowdeskTag: 'Web Tool',
-      flowdeskAlt: 'Flowdesk Tool website preview',
-      flowdeskProblem:
-        'Users wanted a focused tool without the bloat of a full SaaS platform.',
-      flowdeskSolution:
-        'Minimal UI, fast sign-in, and a workflow designed around a single job done well.',
-      flowdeskOutcome:
-        "A web app that feels quick and purposeful, and stays out of the user's way.",
-      paradiseTag: 'Travel Website',
-      paradiseAlt: 'Destination Paradise website preview',
-      paradiseProblem:
-        'A destination brand competing against generic travel listings.',
-      paradiseSolution:
-        'Photography-led layouts, a distinct voice, and clear entry points into trip planning.',
-      paradiseOutcome:
-        'A memorable experience that turns browsing into booking intent.',
+      title: "Three projects. One thread.",
+      intro: "Helping people see, build and go.",
+      photography: {
+        statement: "Life, people and places through my lens.",
+        link: "View photography",
+        alt: "Editorial portrait photographed by Louis Peter",
+      },
+      dcs: {
+        statement: "A Tanzania-based studio for software, brands and visual content.",
+        signature: "Build. Create. Grow.",
+        link: "Visit DCS",
+        alt: "Zanzibar villa photographed by Digital & Creative Solutions",
+      },
+      paradise: {
+        statement: "The Zanzibar travel idea I carried into a digital platform.",
+        link: "Explore Paradise",
+        alt: "Destination Paradise travel platform homepage",
+      },
     },
-    services: {
-      kicker: 'Services',
-      title: 'What I can help with',
-      text:
-        "Whether you're launching a new site, modernising an older one, or building an internal tool, I can take it from first sketch to live.",
-      landingTitle: 'Landing pages that convert',
-      landingText: 'One clear goal, sharp copy, and a layout that earns the click.',
-      businessTitle: 'Business websites',
-      businessText: 'Multi-page sites with a CMS, forms, and SEO set up from the start.',
-      appsTitle: 'Full-stack web apps',
-      appsText: 'React on the front, Node and a database on the back, connected cleanly.',
+    photography: {
+      title: "The camera taught me to notice.",
+      intro:
+        "Portraits, weddings, events, places and aerial work — a personal practice across Frankfurt and Tanzania.",
+      link: "Visit the photography site",
+      gallery: {
+        wedding: {
+          caption: "Wedding · Frankfurt",
+          alt: "Wedding party photographed outside a stone building",
+        },
+        aerial: {
+          caption: "Aerial · Zanzibar",
+          alt: "Boats floating above a clear turquoise reef",
+        },
+        architecture: {
+          caption: "Architecture · Frankfurt",
+          alt: "Frankfurt high-rise buildings seen from below",
+        },
+        couple: {
+          caption: "Couple · Golden hour",
+          alt: "A smiling couple walking through trees at golden hour",
+        },
+        editorial: {
+          caption: "Editorial portrait",
+          alt: "Editorial beauty portrait holding a makeup pencil",
+        },
+      },
     },
     contact: {
-      kicker: 'Contact',
-      title: "Let's build something thoughtful",
-      text:
-        "If you want to collaborate, talk about full stack web development, or just say hello, send me a message and I'll get back to you by email.",
-      directTitle: 'Prefer a direct message?',
-      directText: 'You can reach me by email or connect with me on GitHub and LinkedIn.',
-      formIntro: 'Please fill in the form below to send me a message',
-      name: 'Name:',
-      email: 'Email:',
-      message: 'Message:',
-      send: 'Send',
-      sending: 'Sending...',
-      fillAll: 'Please fill in all fields.',
-      openingEmail: 'Opening your email client...',
-      success: 'Thanks! Your message has been sent.',
-      fallback: 'Something went wrong. Opening your email client instead...',
-      subject: 'Portfolio contact from {name}',
-      mailBody: 'Name: {name}\nEmail: {email}\n\n{message}',
+      title: "Let’s make the next chapter useful.",
+      text: "Open to thoughtful collaborations in software, storytelling and travel.",
+      name: "Your name",
+      email: "Email",
+      message: "Tell me what you’re thinking",
+      send: "Send a message",
+      sending: "Sending...",
+      fillAll: "Please fill in all fields.",
+      success: "Thanks — your message has been sent.",
+      fallback: "Something went wrong. Opening your email client instead...",
+      subject: "Portfolio contact from {name}",
+      mailBody: "Name: {name}\nEmail: {email}\n\n{message}",
     },
     footer: {
-      tagline: 'Full stack portfolio',
-      impressum: 'Impressum',
-      contact: 'Contact',
+      places: "Frankfurt → Zanzibar",
+      linksLabel: "Other places to find Louis Peter",
+      photography: "Photography",
+      impressum: "Impressum",
     },
     chat: {
-      label: 'Chat with Lou',
-      kicker: 'Meet Lou',
-      title: 'Ask about my work',
-      button: 'Ask Lou',
-      open: 'Open Lou',
-      close: 'Close Lou',
+      label: "Chat with Lou",
+      kicker: "Meet Lou",
+      title: "Ask about my journey",
+      button: "Ask Lou",
+      open: "Open Lou",
+      close: "Close Lou",
       greeting:
-        "Hi, I'm Lou. Ask me what Louis built, what he uses, or how to hire him.",
-      starterProjects: 'Show me the projects',
-      starterStack: 'What does Louis build with?',
-      starterContact: 'How can I contact him?',
-      startersLabel: 'Suggested questions',
-      inputLabel: 'Message',
-      placeholder: 'Ask about skills, projects, contact...',
-      send: 'Send message',
-      thinking: 'Thinking...',
+        "Hi, I’m Lou. Ask me about Louis’s Zanzibar story, photography, software work or projects.",
+      starterProjects: "Show me the projects",
+      starterStack: "What does Louis build with?",
+      starterContact: "How can I contact him?",
+      startersLabel: "Suggested questions",
+      inputLabel: "Message",
+      placeholder: "Ask about the story, projects, or contact...",
+      send: "Send message",
+      thinking: "Thinking...",
       error:
-        "I couldn't answer right now. You can still reach Louis through the contact form or by email.",
-      nudge: 'Need help? Ask me anything about Louis.',
-      nudgeDismiss: 'Dismiss',
+        "I couldn’t answer right now. You can still reach Louis through the contact form or by email.",
+      nudge: "Curious about the story? Ask Lou.",
+      nudgeDismiss: "Dismiss",
     },
     cookies: {
-      label: 'Cookie banner',
-      eyebrow: 'Privacy',
-      title: 'Cookies and local storage',
+      label: "Cookie banner",
+      eyebrow: "Privacy",
+      title: "Cookies and local storage",
       text:
-        'This portfolio uses local storage to remember your cookie choice. If you accept, Google Analytics helps me understand aggregate site usage.',
-      onlyNecessary: 'Only Necessary',
-      accept: 'Accept',
+        "This portfolio uses local storage to remember your cookie choice. If you accept, Google Analytics helps me understand aggregate site usage.",
+      onlyNecessary: "Only necessary",
+      accept: "Accept",
     },
   },
   de: {
     nav: {
-      primary: 'Hauptnavigation',
-      home: 'Start',
-      about: 'Über mich',
-      services: 'Leistungen',
-      projects: 'Projekte',
-      contact: 'Kontakt',
-      toggleMenu: 'Menü öffnen',
-      switchTheme: 'Zum {theme} Design wechseln',
-      light: 'hellen',
-      dark: 'dunklen',
-      language: 'Sprache',
+      primary: "Hauptnavigation",
+      story: "Geschichte",
+      projects: "Projekte",
+      photography: "Fotografie",
+      contact: "Kontakt",
+      menu: "Menü",
+      close: "Schließen",
+      switchTheme: "Zum {theme} Design wechseln",
+      light: "hellen",
+      dark: "dunklen",
+      language: "Sprache",
     },
     home: {
-      eyebrow: 'Portfolio 2026',
-      caption: 'Full-Stack-Entwickler in Frankfurt am Main',
-      headline: 'Ich entwickle Web-Erlebnisse, die klar funktionieren',
+      headline: "Ein Leben zwischen Orten, Bildern und digitalen Produkten.",
       summary:
-        'Ich entwickle Websites und Web-Apps, die auf allen Geräten gut aussehen und zuverlässig funktionieren: mit React, JavaScript, Node.js und modernen Tools.',
-      viewProjects: 'Projekte ansehen',
-      contactMe: 'Kontakt aufnehmen',
-      portraitAlt: 'Porträt von Louis Peter',
-      stackLabel: 'Full Stack',
-      stackTools: 'React, Node.js',
+        "Ich bin Louis Peter — ein tansanischer Kreativer, zurück auf Sansibar. Ich entwickle Reiseerlebnisse, digitale Produkte und visuelle Geschichten.",
+      followJourney: "Meiner Reise folgen",
+      seeProjects: "Meine Projekte ansehen",
+      zanzibar: "Sansibar",
+      frankfurt: "Frankfurt",
+      placesLabel: "Von Frankfurt zurück nach Sansibar",
+      mediaLabel: "Porträt und Fotografie von Louis Peter",
+      portraitAlt: "Louis Peter lächelnd am Meeresufer",
+      aerialAlt: "Luftaufnahme von Booten in türkisfarbenem Wasser",
     },
-    about: {
-      kicker: 'Über mich',
-      title: 'Full-Stack-Entwickler mit Blick für saubere digitale Erlebnisse',
-      text:
-        'Ich verbinde Frontend-Design mit Backend-Logik und baue Websites, die verständlich, schnell und verlässlich funktionieren.',
-      portraitAlt: 'Porträt von Louis Peter',
-      bio:
-        'Ich baue Websites so, wie ich sie selbst gern hätte: schnell, klar und sorgfältig durchdacht. Ansässig in Frankfurt, arbeite ich durchgehend an Frontend und Backend.',
-      education: 'Ausbildung',
-      program: 'Full Stack Web Development',
-      school: 'Digital Career Institute',
-      dciAlt: 'Logo des Digital Career Institute',
-      skillsAlt: 'Übersicht der Fähigkeiten',
-      coreStack: 'Core Stack',
+    story: {
+      title: "Vor dem Code war Sansibar.",
+      intro:
+        "Jahre in Hotellerie und Ausflugsorganisation haben mir gezeigt, wie Menschen einen Ort erleben. Naturwissenschaften und praktische Informatik gaben mir die Werkzeuge. Deutschland brachte Sprache, Fotografie und Software hinzu. Jetzt bin ich zurück auf Sansibar und verbinde diese Kapitel.",
+      dhowAlt: "Eine hölzerne Dhau vor einer türkisfarbenen Sandbank auf Sansibar",
+      stoneTownAlt: "Die Uferpromenade von Stone Town auf Sansibar",
+      detailCaption: "Von den Küsten Sansibars zu den Straßen Frankfurts — und wieder nach Hause.",
+      timelineLabel: "Der Lebensweg von Louis Peter",
+      timeline: {
+        learning: {
+          period: "2004–2012",
+          title: "Lernen in Tansania",
+          text: "Naturwissenschaften, Mathematik und praktische Informatik prägten meine Art, Probleme zu lösen.",
+        },
+        hospitality: {
+          period: "2012–2019",
+          title: "Hotellerie & Ausflüge",
+          text: "Von Stone Town bis Bwejuu arbeitete ich mit Gästen, Reservierungen und Inselerlebnissen.",
+        },
+        paradise: {
+          period: "2015–2021",
+          title: "Destination Paradise beginnt",
+          text: "Aus jahrelanger Ortskenntnis entstand ein Reiseunternehmen mit Wurzeln auf Sansibar.",
+        },
+        germany: {
+          period: "2021–2026",
+          title: "Ein Kapitel in Deutschland",
+          text: "Sprachkurse, Fotografie und Full-Stack-Entwicklung gaben der Idee neue Werkzeuge.",
+        },
+        return: {
+          period: "2026–heute",
+          title: "Zurück auf Sansibar",
+          text: "Ich bin mit neuen Werkzeugen für Reisen, visuelles Storytelling und digitale Produkte zurückgekehrt.",
+        },
+      },
     },
     projects: {
-      kicker: 'Projekte',
-      title: 'Ausgewählte Projekte von der Idee bis zum Launch',
-      text:
-        'Hier siehst du, wie ich Layout, Markenauftritt, mobile Darstellung und klare Nutzerführung in unterschiedlichen Bereichen umsetze.',
-      problemLabel: 'Problem',
-      solutionLabel: 'Lösung',
-      outcomeLabel: 'Ergebnis',
-      primavistaTag: 'Business-Website',
-      primavistaAlt: 'Vorschau der Prima Vista Bauprojekte Website',
-      primavistaProblem:
-        'Ein exklusives Bauunternehmen benötigte einen digitalen Auftritt, der seine Handwerkskunst widerspiegelt.',
-      primavistaSolution:
-        'Klares Layout, immersive Projektgalerie und gut sichtbare Kontaktwege.',
-      primavistaOutcome:
-        'Eine hochwertige Website, die sofortiges Vertrauen aufbaut und qualifizierte Anfragen generiert.',
-      flowdeskTag: 'Web-Tool',
-      flowdeskAlt: 'Vorschau der Flowdesk Tool Website',
-      flowdeskProblem:
-        'Nutzer wollten ein fokussiertes Tool ohne den Ballast einer großen SaaS-Plattform.',
-      flowdeskSolution:
-        'Minimalistisches UI, schneller Login und ein Ablauf, der auf einen konkreten Zweck optimiert ist.',
-      flowdeskOutcome:
-        'Eine Web-App, die sich schnell und zielgerichtet anfühlt und dem Nutzer nicht im Weg steht.',
-      paradiseTag: 'Reise-Website',
-      paradiseAlt: 'Vorschau der Destination Paradise Website',
-      paradiseProblem:
-        'Eine Reisemarke, die sich gegen austauschbare Reiseangebote behaupten muss.',
-      paradiseSolution:
-        'Bildstarke Layouts, eine eigene Stimme und klare Einstiegspunkte in die Reiseplanung.',
-      paradiseOutcome:
-        'Ein Auftritt, der in Erinnerung bleibt und Interesse in konkrete Anfragen verwandelt.',
+      title: "Drei Projekte. Ein roter Faden.",
+      intro: "Menschen helfen zu sehen, zu bauen und aufzubrechen.",
+      photography: {
+        statement: "Leben, Menschen und Orte durch meine Linse.",
+        link: "Fotografie ansehen",
+        alt: "Editorial-Porträt, fotografiert von Louis Peter",
+      },
+      dcs: {
+        statement: "Ein Studio aus Tansania für Software, Marken und visuelle Inhalte.",
+        signature: "Build. Create. Grow.",
+        link: "DCS besuchen",
+        alt: "Villa auf Sansibar, fotografiert von Digital & Creative Solutions",
+      },
+      paradise: {
+        statement: "Die Reiseidee aus Sansibar, die ich in eine digitale Plattform überführt habe.",
+        link: "Paradise entdecken",
+        alt: "Startseite der Reiseplattform Destination Paradise",
+      },
     },
-    services: {
-      kicker: 'Leistungen',
-      title: 'Womit ich dir helfen kann',
-      text:
-        'Ob neuer Webauftritt, Modernisierung einer alten Seite oder ein internes Tool – ich begleite den Prozess vom ersten Entwurf bis zum Launch.',
-      landingTitle: 'Landingpages, die konvertieren',
-      landingText: 'Ein klares Ziel, überzeugender Text und ein Layout, das den Klick verdient.',
-      businessTitle: 'Business-Websites',
-      businessText: 'Mehrseitige Websites mit CMS, Formularen und SEO – von Anfang an sauber aufgesetzt.',
-      appsTitle: 'Full-Stack-Web-Apps',
-      appsText: 'React im Frontend, Node und Datenbank im Backend – sauber verbunden.',
+    photography: {
+      title: "Die Kamera lehrte mich, genauer hinzusehen.",
+      intro:
+        "Porträts, Hochzeiten, Veranstaltungen, Orte und Luftaufnahmen — eine persönliche Praxis zwischen Frankfurt und Tansania.",
+      link: "Zur Fotografie-Website",
+      gallery: {
+        wedding: {
+          caption: "Hochzeit · Frankfurt",
+          alt: "Hochzeitsgesellschaft vor einem Steingebäude",
+        },
+        aerial: {
+          caption: "Luftaufnahme · Sansibar",
+          alt: "Boote über einem klaren türkisfarbenen Riff",
+        },
+        architecture: {
+          caption: "Architektur · Frankfurt",
+          alt: "Frankfurter Hochhäuser aus der Untersicht",
+        },
+        couple: {
+          caption: "Paar · Goldene Stunde",
+          alt: "Ein lächelndes Paar zwischen Bäumen in der goldenen Stunde",
+        },
+        editorial: {
+          caption: "Editorial-Porträt",
+          alt: "Editorial-Beauty-Porträt mit einem Schminkstift",
+        },
+      },
     },
     contact: {
-      kicker: 'Kontakt',
-      title: 'Lass uns gemeinsam etwas Sinnvolles bauen',
-      text:
-        'Wenn du ein Projekt starten möchtest, Unterstützung bei einer Website brauchst oder einfach eine Idee besprechen willst, schreib mir gern.',
-      directTitle: 'Lieber direkt schreiben?',
-      directText: 'Du erreichst mich per E-Mail oder findest mich auf GitHub und LinkedIn.',
-      formIntro: 'Schreib mir kurz, worum es geht',
-      name: 'Name:',
-      email: 'E-Mail:',
-      message: 'Nachricht:',
-      send: 'Senden',
-      sending: 'Wird gesendet...',
-      fillAll: 'Bitte fülle alle Felder aus.',
-      openingEmail: 'Dein E-Mail-Programm wird geöffnet...',
-      success: 'Danke! Deine Nachricht wurde gesendet.',
-      fallback: 'Das hat gerade nicht geklappt. Ich öffne stattdessen dein E-Mail-Programm...',
-      subject: 'Anfrage über das Portfolio von {name}',
-      mailBody: 'Name: {name}\nE-Mail: {email}\n\n{message}',
+      title: "Machen wir das nächste Kapitel nützlich.",
+      text: "Offen für durchdachte Zusammenarbeit in Software, Storytelling und Reisen.",
+      name: "Dein Name",
+      email: "E-Mail",
+      message: "Erzähl mir, woran du denkst",
+      send: "Nachricht senden",
+      sending: "Wird gesendet...",
+      fillAll: "Bitte fülle alle Felder aus.",
+      success: "Danke — deine Nachricht wurde gesendet.",
+      fallback: "Das hat gerade nicht geklappt. Ich öffne stattdessen dein E-Mail-Programm...",
+      subject: "Portfolio-Anfrage von {name}",
+      mailBody: "Name: {name}\nE-Mail: {email}\n\n{message}",
     },
     footer: {
-      tagline: 'Full-Stack-Portfolio',
-      impressum: 'Impressum',
-      contact: 'Kontakt',
+      places: "Frankfurt → Sansibar",
+      linksLabel: "Weitere Seiten von Louis Peter",
+      photography: "Fotografie",
+      impressum: "Impressum",
     },
     chat: {
-      label: 'Chat mit Lou',
-      kicker: 'Lou kennenlernen',
-      title: 'Frag etwas über meine Arbeit',
-      button: 'Lou fragen',
-      open: 'Lou öffnen',
-      close: 'Lou schließen',
+      label: "Chat mit Lou",
+      kicker: "Lou kennenlernen",
+      title: "Frag nach meinem Weg",
+      button: "Lou fragen",
+      open: "Lou öffnen",
+      close: "Lou schließen",
       greeting:
-        'Hi, ich bin Lou. Frag mich, was Louis gebaut hat, womit er arbeitet oder wie du ihn beauftragst.',
-      starterProjects: 'Zeig mir die Projekte',
-      starterStack: 'Womit entwickelt Louis?',
-      starterContact: 'Wie kann ich ihn kontaktieren?',
-      startersLabel: 'Vorgeschlagene Fragen',
-      inputLabel: 'Nachricht',
-      placeholder: 'Frag nach Skills, Projekten, Kontakt...',
-      send: 'Nachricht senden',
-      thinking: 'Ich denke nach...',
+        "Hi, ich bin Lou. Frag mich nach Louis’ Geschichte aus Sansibar, seiner Fotografie, Softwarearbeit oder seinen Projekten.",
+      starterProjects: "Zeig mir die Projekte",
+      starterStack: "Womit entwickelt Louis?",
+      starterContact: "Wie kann ich ihn kontaktieren?",
+      startersLabel: "Vorgeschlagene Fragen",
+      inputLabel: "Nachricht",
+      placeholder: "Frag nach Geschichte, Projekten oder Kontakt...",
+      send: "Nachricht senden",
+      thinking: "Ich denke nach...",
       error:
-        'Ich kann gerade nicht antworten. Du kannst Louis weiterhin über das Kontaktformular oder per E-Mail erreichen.',
-      nudge: 'Brauchst du Hilfe? Frag mich zu Louis.',
-      nudgeDismiss: 'Schließen',
+        "Ich kann gerade nicht antworten. Du kannst Louis weiterhin über das Kontaktformular oder per E-Mail erreichen.",
+      nudge: "Neugierig auf die Geschichte? Frag Lou.",
+      nudgeDismiss: "Schließen",
     },
     cookies: {
-      label: 'Cookie-Hinweis',
-      eyebrow: 'Datenschutz',
-      title: 'Cookies und lokaler Speicher',
+      label: "Cookie-Hinweis",
+      eyebrow: "Datenschutz",
+      title: "Cookies und lokaler Speicher",
       text:
-        'Dieses Portfolio speichert deine Cookie-Auswahl lokal im Browser. Wenn du zustimmst, hilft Google Analytics mir, die Nutzung der Website zusammengefasst zu verstehen.',
-      onlyNecessary: 'Nur notwendige',
-      accept: 'Akzeptieren',
+        "Dieses Portfolio speichert deine Cookie-Auswahl lokal im Browser. Wenn du zustimmst, hilft Google Analytics mir, die Nutzung der Website zusammengefasst zu verstehen.",
+      onlyNecessary: "Nur notwendige",
+      accept: "Akzeptieren",
     },
   },
   sw: {
     nav: {
-      primary: 'Urambazaji mkuu',
-      home: 'Mwanzo',
-      about: 'Kuhusu',
-      services: 'Huduma',
-      projects: 'Miradi',
-      contact: 'Mawasiliano',
-      toggleMenu: 'Fungua menyu',
-      switchTheme: 'Badili kwenda mandhari ya {theme}',
-      light: 'mwanga',
-      dark: 'giza',
-      language: 'Lugha',
+      primary: "Urambazaji mkuu",
+      story: "Safari yangu",
+      projects: "Miradi",
+      photography: "Upigaji picha",
+      contact: "Mawasiliano",
+      menu: "Menyu",
+      close: "Funga",
+      switchTheme: "Badili kwenda mandhari ya {theme}",
+      light: "mwanga",
+      dark: "giza",
+      language: "Lugha",
     },
     home: {
-      eyebrow: 'Portfolio 2026',
-      caption: 'Msanidi wa Full-Stack huko Frankfurt am Main',
-      headline: 'Ninatengeneza tovuti zilizo wazi, nzuri na rahisi kutumia',
+      headline: "Maisha yaliyojengwa kati ya maeneo, picha na bidhaa za kidijitali.",
       summary:
-        'Ninatengeneza tovuti na programu za wavuti zinazofanya kazi vizuri kwenye simu na kompyuta, kwa kutumia React, JavaScript, Node.js na zana za kisasa.',
-      viewProjects: 'Tazama kazi zangu',
-      contactMe: 'Wasiliana nami',
-      portraitAlt: 'Picha ya Louis Peter',
-      stackLabel: 'Full stack',
-      stackTools: 'React, Node.js',
+        "Mimi ni Louis Peter — mbunifu Mtanzania niliyerudi Zanzibar, nikitengeneza uzoefu wa safari, bidhaa za kidijitali na hadithi za picha.",
+      followJourney: "Fuata safari yangu",
+      seeProjects: "Tazama miradi yangu",
+      zanzibar: "Zanzibar",
+      frankfurt: "Frankfurt",
+      placesLabel: "Nimerudi kutoka Frankfurt hadi Zanzibar",
+      mediaLabel: "Picha ya Louis Peter na kazi zake za upigaji picha",
+      portraitAlt: "Louis Peter akitabasamu ufukweni",
+      aerialAlt: "Picha ya angani ya boti kwenye maji ya samawati",
     },
-    about: {
-      kicker: 'Kuhusu',
-      title: 'Msanidi wa full-stack anayejali ubora na matumizi rahisi',
-      text:
-        'Ninachanganya ubunifu wa frontend na mantiki ya backend ili kujenga tovuti zinazoeleweka haraka, zinaonekana vizuri na zinafanya kazi kwa uhakika.',
-      portraitAlt: 'Picha ya Louis Peter',
-      bio:
-        'Ninajenga tovuti jinsi ningependa kujengewa mwenyewe: haraka, wazi, na iliyofikiriwa kwa makini. Ninaishi Frankfurt na nafanya kazi ya frontend na backend.',
-      education: 'Elimu',
-      program: 'Full Stack Web Development',
-      school: 'Digital Career Institute',
-      dciAlt: 'Nembo ya Digital Career Institute',
-      skillsAlt: 'Muhtasari wa teknolojia ninazotumia',
-      coreStack: 'Teknolojia ninazotumia',
+    story: {
+      title: "Kabla ya kuandika programu, kulikuwa na Zanzibar.",
+      intro:
+        "Miaka katika ukarimu na safari ilinifunza jinsi watu wanavyohisi eneo. Sayansi na mafunzo ya kompyuta yalinipa zana. Ujerumani iliongeza lugha, upigaji picha na programu. Sasa nimerudi Zanzibar nikileta sura hizo pamoja.",
+      dhowAlt: "Dau la mbao likikaribia fungu la mchanga lenye maji ya samawati Zanzibar",
+      stoneTownAlt: "Ufukwe wa Stone Town, Zanzibar",
+      detailCaption: "Kutoka fukwe za Zanzibar hadi mitaa ya Frankfurt — na kurudi nyumbani.",
+      timelineLabel: "Safari ya maisha ya Louis Peter",
+      timeline: {
+        learning: {
+          period: "2004–2012",
+          title: "Kujifunza Tanzania",
+          text: "Sayansi, hisabati na mafunzo ya kompyuta yalijenga namna ninavyotatua matatizo.",
+        },
+        hospitality: {
+          period: "2012–2019",
+          title: "Ukarimu na safari",
+          text: "Kutoka Stone Town hadi Bwejuu, nilifanya kazi na wageni, nafasi za malazi na uzoefu wa visiwani.",
+        },
+        paradise: {
+          period: "2015–2021",
+          title: "Destination Paradise inaanza",
+          text: "Niligeuza uzoefu wa miaka mingi wa eneo kuwa kampuni ya safari yenye mizizi Zanzibar.",
+        },
+        germany: {
+          period: "2021–2026",
+          title: "Sura ya Ujerumani",
+          text: "Masomo ya lugha, upigaji picha na uundaji wa full-stack vililipa wazo zana mpya.",
+        },
+        return: {
+          period: "2026–leo",
+          title: "Nimerudi Zanzibar",
+          text: "Nimerudi nyumbani nikiwa na zana mpya za safari, usimulizi wa picha na bidhaa za kidijitali.",
+        },
+      },
     },
     projects: {
-      kicker: 'Miradi',
-      title: 'Baadhi ya miradi niliyoijenga kutoka wazo hadi uzinduzi',
-      text:
-        'Miradi hii inaonyesha jinsi ninavyopanga muonekano, utambulisho wa chapa, matumizi kwenye vifaa tofauti na safari rahisi kwa mtumiaji.',
-      problemLabel: 'Tatizo',
-      solutionLabel: 'Suluhisho',
-      outcomeLabel: 'Matokeo',
-      primavistaTag: 'Tovuti ya kampuni',
-      primavistaAlt: 'Muonekano wa tovuti ya Prima Vista Bauprojekte',
-      primavistaProblem:
-        'Kampuni ya ujenzi ya kiwango cha juu ilihitaji tovuti inayoonyesha ustadi wa kazi zao.',
-      primavistaSolution:
-        'Muundo safi, galeri ya kuvutia ya miradi, na njia wazi za mawasiliano.',
-      primavistaOutcome:
-        'Tovuti ya hali ya juu inayojenga uaminifu wa haraka na kuvutia wateja.',
-      flowdeskTag: 'Zana ya wavuti',
-      flowdeskAlt: 'Muonekano wa tovuti ya Flowdesk Tool',
-      flowdeskProblem:
-        'Watumiaji walitaka zana iliyolenga bila mizigo ya jukwaa kubwa la SaaS.',
-      flowdeskSolution:
-        'Muonekano rahisi, kuingia haraka, na mtiririko uliolengwa kwa kazi moja maalum.',
-      flowdeskOutcome:
-        'Programu ya wavuti yenye kasi na lengo, isiyomsumbua mtumiaji.',
-      paradiseTag: 'Tovuti ya safari',
-      paradiseAlt: 'Muonekano wa tovuti ya Destination Paradise',
-      paradiseProblem:
-        'Chapa ya kitalii inayoshindana na matangazo ya kawaida ya safari.',
-      paradiseSolution:
-        'Muundo unaoongozwa na picha, sauti ya kipekee, na njia wazi za kupanga safari.',
-      paradiseOutcome:
-        'Uzoefu wa kukumbukwa unaobadilisha kuvinjari kuwa nia ya kuweka buku.',
+      title: "Miradi mitatu. Uzi mmoja.",
+      intro: "Kuwasaidia watu kuona, kujenga na kusafiri.",
+      photography: {
+        statement: "Maisha, watu na maeneo kupitia lenzi yangu.",
+        link: "Tazama upigaji picha",
+        alt: "Picha ya urembo iliyopigwa na Louis Peter",
+      },
+      dcs: {
+        statement: "Studio ya Tanzania ya programu, chapa na maudhui ya picha.",
+        signature: "Build. Create. Grow.",
+        link: "Tembelea DCS",
+        alt: "Villa ya Zanzibar iliyopigwa picha na Digital & Creative Solutions",
+      },
+      paradise: {
+        statement: "Wazo la safari la Zanzibar nililolibeba hadi kuwa jukwaa la kidijitali.",
+        link: "Gundua Paradise",
+        alt: "Ukurasa wa mwanzo wa jukwaa la safari la Destination Paradise",
+      },
     },
-    services: {
-      kicker: 'Huduma',
-      title: 'Ninaweza kukusaidia vipi',
-      text:
-        'Iwe unaanzisha tovuti mpya, unaboresha ya zamani, au unahitaji zana ya ndani – ninashughulikia toka wazo la kwanza hadi uzinduzi.',
-      landingTitle: 'Landing pages zinazofanya kazi',
-      landingText: 'Lengo moja wazi, maneno makali, na muundo unaostahili kubonyezwa.',
-      businessTitle: 'Tovuti za biashara',
-      businessText: 'Tovuti za kurasa nyingi zenye CMS, fomu na SEO iliyowekwa vyema toka mwanzo.',
-      appsTitle: 'Programu kamili za wavuti',
-      appsText: 'React upande wa mbele, Node na hifadhidata nyuma – zikiunganishwa kwa usafi.',
+    photography: {
+      title: "Kamera ilinifundisha kutazama kwa makini.",
+      intro:
+        "Picha za watu, harusi, matukio, maeneo na picha za angani — kazi binafsi kati ya Frankfurt na Tanzania.",
+      link: "Tembelea tovuti ya picha",
+      gallery: {
+        wedding: {
+          caption: "Harusi · Frankfurt",
+          alt: "Watu wa harusi wakiwa mbele ya jengo la mawe",
+        },
+        aerial: {
+          caption: "Picha ya angani · Zanzibar",
+          alt: "Boti zikielea juu ya mwamba wenye maji ya samawati",
+        },
+        architecture: {
+          caption: "Usanifu · Frankfurt",
+          alt: "Majengo marefu ya Frankfurt yakitazamwa kutoka chini",
+        },
+        couple: {
+          caption: "Wapenzi · Mwanga wa jioni",
+          alt: "Wapenzi wanaotabasamu wakitembea kati ya miti wakati wa jioni",
+        },
+        editorial: {
+          caption: "Picha ya urembo",
+          alt: "Picha ya urembo ya mwanamke akiwa na penseli ya vipodozi",
+        },
+      },
     },
     contact: {
-      kicker: 'Mawasiliano',
-      title: 'Tufanye kazi pamoja kwenye wazo lako',
-      text:
-        'Kama unahitaji tovuti, una wazo la mradi, au unataka tu kuzungumza kuhusu kazi ya wavuti, nitumie ujumbe nami nitakujibu kwa barua pepe.',
-      directTitle: 'Unapendelea kuandika moja kwa moja?',
-      directText: 'Unaweza kunifikia kwa barua pepe au kuungana nami kupitia GitHub na LinkedIn.',
-      formIntro: 'Niandikie ujumbe mfupi kuhusu unachohitaji',
-      name: 'Jina:',
-      email: 'Barua pepe:',
-      message: 'Ujumbe:',
-      send: 'Tuma',
-      sending: 'Inatuma...',
-      fillAll: 'Tafadhali jaza sehemu zote muhimu.',
-      openingEmail: 'Ninafungua programu yako ya barua pepe...',
-      success: 'Asante! Ujumbe wako umetumwa.',
-      fallback: 'Kuna tatizo kidogo. Ninafungua programu yako ya barua pepe badala yake...',
-      subject: 'Ujumbe kutoka kwenye portfolio ya {name}',
-      mailBody: 'Jina: {name}\nBarua pepe: {email}\n\n{message}',
+      title: "Tufanye sura inayofuata iwe na maana.",
+      text: "Niko tayari kwa ushirikiano wa makini katika programu, usimulizi na safari.",
+      name: "Jina lako",
+      email: "Barua pepe",
+      message: "Niambie unachofikiria",
+      send: "Tuma ujumbe",
+      sending: "Inatuma...",
+      fillAll: "Tafadhali jaza sehemu zote.",
+      success: "Asante — ujumbe wako umetumwa.",
+      fallback: "Kuna tatizo kidogo. Ninafungua programu yako ya barua pepe badala yake...",
+      subject: "Ujumbe wa portfolio kutoka kwa {name}",
+      mailBody: "Jina: {name}\nBarua pepe: {email}\n\n{message}",
     },
     footer: {
-      tagline: 'Portfolio ya full stack',
-      impressum: 'Impressum',
-      contact: 'Mawasiliano',
+      places: "Frankfurt → Zanzibar",
+      linksLabel: "Sehemu nyingine za kumpata Louis Peter",
+      photography: "Upigaji picha",
+      impressum: "Impressum",
     },
     chat: {
-      label: 'Ongea na Lou',
-      kicker: 'Kutana na Lou',
-      title: 'Uliza kuhusu kazi zangu',
-      button: 'Uliza Lou',
-      open: 'Fungua Lou',
-      close: 'Funga Lou',
+      label: "Ongea na Lou",
+      kicker: "Kutana na Lou",
+      title: "Uliza kuhusu safari yangu",
+      button: "Uliza Lou",
+      open: "Fungua Lou",
+      close: "Funga Lou",
       greeting:
-        'Habari, mimi ni Lou. Niulize Louis amejenga nini, anatumia nini, au jinsi ya kumwajiri.',
-      starterProjects: 'Nionyeshe miradi',
-      starterStack: 'Louis anatumia teknolojia gani?',
-      starterContact: 'Ninawezaje kuwasiliana naye?',
-      startersLabel: 'Maswali ya kuanzia',
-      inputLabel: 'Ujumbe',
-      placeholder: 'Uliza kuhusu ujuzi, miradi, mawasiliano...',
-      send: 'Tuma ujumbe',
-      thinking: 'Nafikiria...',
+        "Habari, mimi ni Lou. Niulize kuhusu safari ya Louis ya Zanzibar, upigaji picha, programu au miradi yake.",
+      starterProjects: "Nionyeshe miradi",
+      starterStack: "Louis anatumia teknolojia gani?",
+      starterContact: "Ninawezaje kuwasiliana naye?",
+      startersLabel: "Maswali ya kuanzia",
+      inputLabel: "Ujumbe",
+      placeholder: "Uliza kuhusu safari, miradi au mawasiliano...",
+      send: "Tuma ujumbe",
+      thinking: "Nafikiria...",
       error:
-        'Siwezi kujibu kwa sasa. Bado unaweza kuwasiliana na Louis kupitia fomu ya mawasiliano au barua pepe.',
-      nudge: 'Unahitaji msaada? Niulize kuhusu Louis.',
-      nudgeDismiss: 'Funga',
+        "Siwezi kujibu kwa sasa. Bado unaweza kuwasiliana na Louis kupitia fomu ya mawasiliano au barua pepe.",
+      nudge: "Unataka kujua safari yangu? Muulize Lou.",
+      nudgeDismiss: "Funga",
     },
     cookies: {
-      label: 'Taarifa ya cookies',
-      eyebrow: 'Faragha',
-      title: 'Cookies na hifadhi ya kivinjari',
+      label: "Taarifa ya cookies",
+      eyebrow: "Faragha",
+      title: "Cookies na hifadhi ya kivinjari",
       text:
-        'Portfolio hii huhifadhi chaguo lako la cookies kwenye kivinjari chako. Ukikubali, Google Analytics hunisaidia kuelewa matumizi ya tovuti kwa muhtasari.',
-      onlyNecessary: 'Muhimu tu',
-      accept: 'Kubali',
+        "Portfolio hii huhifadhi chaguo lako la cookies kwenye kivinjari chako. Ukikubali, Google Analytics hunisaidia kuelewa matumizi ya tovuti kwa muhtasari.",
+      onlyNecessary: "Muhimu tu",
+      accept: "Kubali",
     },
   },
 };
@@ -445,39 +505,42 @@ const LanguageContext = createContext(null);
 const getSavedLanguage = () => {
   try {
     const savedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
-    return languages.some((language) => language.code === savedLanguage) ? savedLanguage : null;
+    return languages.some((language) => language.code === savedLanguage)
+      ? savedLanguage
+      : null;
   } catch {
     return null;
   }
 };
 
 const getVisitorLanguage = () => {
-  if (typeof navigator === 'undefined') return 'en';
+  if (typeof navigator === "undefined") return "en";
 
   try {
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    if (timeZone === 'Africa/Dar_es_Salaam') return 'sw';
-    if (timeZone === 'Europe/Berlin') return 'de';
+    if (timeZone === "Africa/Dar_es_Salaam") return "sw";
+    if (timeZone === "Europe/Berlin") return "de";
   } catch {
     // Fall back to browser locale below.
   }
 
-  const visitorLocales = (navigator.languages?.length ? navigator.languages : [navigator.language])
+  const visitorLocales = (
+    navigator.languages?.length ? navigator.languages : [navigator.language]
+  )
     .filter(Boolean)
     .map((locale) => locale.toLowerCase());
 
-  if (visitorLocales.some((locale) => locale === 'sw-tz' || locale.endsWith('-tz'))) return 'sw';
-  if (visitorLocales.some((locale) => locale === 'de-de' || locale.endsWith('-de'))) return 'de';
+  if (visitorLocales.some((locale) => locale === "sw-tz" || locale.endsWith("-tz"))) {
+    return "sw";
+  }
+  if (visitorLocales.some((locale) => locale === "de-de" || locale.endsWith("-de"))) {
+    return "de";
+  }
 
-  return 'en';
+  return "en";
 };
 
-const getInitialLanguage = () => {
-  const savedLanguage = getSavedLanguage();
-  if (savedLanguage) return savedLanguage;
-
-  return getVisitorLanguage();
-};
+const getInitialLanguage = () => getSavedLanguage() || getVisitorLanguage();
 
 const formatTranslation = (value, replacements) => {
   if (!replacements) return value;
@@ -488,13 +551,15 @@ const formatTranslation = (value, replacements) => {
   );
 };
 
-const getNestedValue = (source, key) => key.split('.').reduce((current, part) => current?.[part], source);
+const getNestedValue = (source, key) =>
+  key.split(".").reduce((current, part) => current?.[part], source);
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguageState] = useState(getInitialLanguage);
 
   useEffect(() => {
-    const languageConfig = languages.find((item) => item.code === language) || languages[0];
+    const languageConfig =
+      languages.find((item) => item.code === language) || languages[0];
     document.documentElement.lang = languageConfig.htmlLang;
   }, [language]);
 
@@ -506,7 +571,10 @@ export const LanguageProvider = ({ children }) => {
 
   const value = useMemo(() => {
     const t = (key, replacements) => {
-      const translatedValue = getNestedValue(translations[language], key) ?? getNestedValue(translations.en, key) ?? key;
+      const translatedValue =
+        getNestedValue(translations[language], key) ??
+        getNestedValue(translations.en, key) ??
+        key;
       return formatTranslation(translatedValue, replacements);
     };
 
@@ -518,8 +586,6 @@ export const LanguageProvider = ({ children }) => {
 
 export const useTranslation = () => {
   const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error('useTranslation must be used within LanguageProvider');
-  }
+  if (!context) throw new Error("useTranslation must be used within LanguageProvider");
   return context;
 };

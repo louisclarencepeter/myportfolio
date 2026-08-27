@@ -1,20 +1,15 @@
 .main-container {
+  width: min(var(--page-width), 100%);
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 4.5rem;
-  padding: 6rem 1.25rem 3rem;
+  gap: clamp(4.5rem, 5vw, 5.5rem);
+  padding: clamp(1.25rem, 1.8vw, 1.75rem) var(--page-gutter) clamp(5rem, 9vw, 8rem);
 }
 
-@media (min-width: 768px) {
+@media (max-width: 640px) {
   .main-container {
-    gap: 5rem;
-    padding: 6.75rem 2rem 4rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .main-container {
-    gap: 7rem;
-    padding-inline: 3rem;
+    gap: 6rem;
+    padding-top: 1.25rem;
   }
 }

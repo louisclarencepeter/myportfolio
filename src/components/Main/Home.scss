@@ -1,352 +1,225 @@
-.hero-container {
-  width: min(1160px, 100%);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: stretch;
-  min-height: min(calc(100svh - 7.5rem), 44rem);
+.life-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(24rem, 1fr);
+  align-items: start;
+  gap: clamp(2.5rem, 3.2vw, 3rem);
+  min-height: min(49rem, calc(100svh - 8rem));
 }
 
-.hero-copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.85rem;
+.life-hero__copy {
+  min-width: 0;
+  padding-block: clamp(1.5rem, 4vw, 3.75rem) 1.5rem;
 }
 
-.hero-copy > * {
-  animation: fade-up 720ms var(--ease-out) both;
+.life-hero__copy > * {
+  animation: fade-up 760ms var(--ease-out) both;
 }
 
-.hero-copy > *:nth-child(1) {
-  animation-delay: 80ms;
+.life-hero__copy > *:nth-child(2) {
+  animation-delay: 90ms;
 }
 
-.hero-copy > *:nth-child(2) {
-  animation-delay: 150ms;
+.life-hero__copy > *:nth-child(3) {
+  animation-delay: 160ms;
 }
 
-.hero-copy > *:nth-child(3) {
-  animation-delay: 220ms;
+.life-hero__copy > *:nth-child(4) {
+  animation-delay: 230ms;
 }
 
-.hero-copy > *:nth-child(4) {
-  animation-delay: 290ms;
+.life-hero__copy > *:nth-child(5) {
+  animation-delay: 300ms;
 }
 
-.hero-copy > *:nth-child(5) {
-  animation-delay: 360ms;
+.life-hero h1 {
+  max-width: 9.3ch;
+  font-size: clamp(4rem, 6.6vw, 7.3rem);
+  line-height: 0.89;
 }
 
-.hero-copy > *:nth-child(6) {
-  animation-delay: 430ms;
+.life-hero__rule {
+  display: block;
+  width: min(25rem, 86%);
+  height: 3px;
+  margin: 1.65rem 0 1.75rem;
+  background: var(--accent);
 }
 
-.eyebrow {
-  color: var(--accent-soft);
-  font-size: 0.78rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-.hero-copy h1 {
-  font-size: clamp(3rem, 8vw, 5.3rem);
-  line-height: 0.95;
-  max-width: 9ch;
-  overflow-wrap: break-word;
-}
-
-.hero-copy .caption {
-  color: var(--accent-soft);
-  font-size: 0.98rem;
-  line-height: 1.5;
-}
-
-.hero-copy .line {
-  display: inline-flex;
-  align-self: flex-start;
-  color: var(--text);
-  font-size: clamp(1.05rem, 3vw, 1.55rem);
-  line-height: 1.2;
-  margin-top: 0.2rem;
-  max-width: 18ch;
-  overflow-wrap: break-word;
-}
-
-.hero-summary {
-  color: var(--muted);
-  font-size: 0.98rem;
-  line-height: 1.75;
+.life-hero__summary {
   max-width: 46ch;
-  overflow-wrap: break-word;
+  color: var(--muted);
+  font-size: clamp(0.92rem, 1.1vw, 1.05rem);
+  line-height: 1.75;
 }
 
-.hero-actions {
+.life-hero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 0.5rem;
+  gap: 0.9rem;
+  margin-top: 2.25rem;
 }
 
-.primary-action,
-.secondary-action {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 10rem;
-  padding: 0.95rem 1.35rem;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  transition:
-    transform var(--motion-fast) ease,
-    border-color var(--motion-fast) ease,
-    background var(--motion-fast) ease,
-    box-shadow var(--motion-fast) ease,
-    filter var(--motion-fast) ease;
-}
-
-.primary-action {
-  background: var(--accent);
-  color: var(--button-text);
-  box-shadow: 0 16px 36px var(--glow);
-}
-
-.primary-action:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.04);
-}
-
-.secondary-action {
-  border: 1px solid var(--line);
-  background: var(--interactive-bg);
-  color: var(--text);
-}
-
-.secondary-action:hover {
-  border-color: color-mix(in srgb, var(--accent) 28%, transparent);
-  background: var(--interactive-bg-hover);
-}
-
-.hero-visual {
-  display: grid;
-  gap: 1.25rem;
-  width: 100%;
-  animation: scale-in 820ms var(--ease-out) 260ms both;
-}
-
-.portrait-card {
+.life-hero__places {
   position: relative;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 2rem;
-  background:
-    linear-gradient(160deg, var(--card-warm-strong), transparent 35%),
-    var(--panel);
-  box-shadow: var(--shadow);
-  transition:
-    border-color var(--motion-fast) ease,
-    box-shadow var(--motion-fast) ease,
-    transform var(--motion-fast) ease;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 2.25rem;
+  padding-bottom: 0.65rem;
+  color: var(--text);
+  font-size: 0.84rem;
 }
 
-.portrait-card::after {
+.life-hero__places::after {
   content: "";
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(115deg, transparent 20%, var(--shine), transparent 42%);
-  opacity: 0;
-  transform: translateX(-35%);
-  transition: opacity var(--motion-fast) ease, transform 700ms var(--ease-out);
+  left: 0;
+  bottom: 0;
+  width: 76%;
+  height: 2px;
+  background: var(--turquoise);
 }
 
-.portrait-card:hover {
-  border-color: color-mix(in srgb, var(--accent) 28%, transparent);
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-4px);
+.life-hero__media {
+  position: relative;
+  min-width: 0;
+  padding: 0;
+  animation: scale-in 820ms var(--ease-out) 180ms both;
 }
 
-.portrait-card:hover::after {
-  opacity: 1;
-  transform: translateX(35%);
+.life-hero__portrait {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1.03;
+  background: var(--bg-soft);
 }
 
-.portrait-card img {
+.life-hero__portrait img {
   width: 100%;
-  max-height: clamp(290px, 46vh, 480px);
-  aspect-ratio: 4 / 4.15;
+  height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center center;
+  filter: grayscale(1) contrast(1.04);
+  transition: transform 900ms var(--ease-out);
 }
 
-.portrait-copy {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 1.2rem 1.2rem;
+.life-hero__portrait:hover img {
+  transform: scale(1.018);
 }
 
-.portrait-copy p {
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.3;
+.life-hero__aerial {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: clamp(9rem, 23vw, 18rem);
+  aspect-ratio: 0.82;
+  overflow: hidden;
+  border: 5px solid var(--bg);
+  background: var(--turquoise);
+  transition: transform var(--motion-medium) var(--ease-out);
 }
 
-.portrait-copy strong {
-  color: var(--text);
-  font-size: 0.92rem;
-  line-height: 1.35;
-  text-align: right;
-  overflow-wrap: anywhere;
+.life-hero__aerial:hover {
+  transform: translate(-0.35rem, -0.35rem);
 }
 
-.icons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.6rem;
+.life-hero__aerial img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 45%;
+}
 
-  .icon {
-    display: flex;
-    flex: 0 0 auto;
-    align-items: center;
-    gap: 0.55rem;
-    min-width: max-content;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: var(--interactive-bg);
-    padding: 0.55rem 0.95rem;
-    animation: fade-up 620ms var(--ease-out) both;
-    transition:
-      transform var(--motion-fast) ease,
-      border-color var(--motion-fast) ease,
-      background var(--motion-fast) ease,
-      box-shadow var(--motion-fast) ease;
+@media (max-width: 1080px) {
+  .life-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(22rem, 1fr);
+    gap: 2.5rem;
+  }
 
-    &:nth-child(1) {
-      animation-delay: 520ms;
-    }
-
-    &:nth-child(2) {
-      animation-delay: 590ms;
-    }
-
-    &:nth-child(3) {
-      animation-delay: 660ms;
-    }
-
-    i {
-      color: var(--accent);
-      font-size: 1.05rem;
-      flex-shrink: 0;
-      transition: transform var(--motion-fast) ease, color var(--motion-fast) ease;
-    }
-
-    p {
-      color: var(--text);
-      font-size: 0.82rem;
-      line-height: 1.2;
-      white-space: nowrap;
-    }
-
-    &:hover {
-      transform: translateY(-2px);
-      border-color: color-mix(in srgb, var(--accent) 26%, transparent);
-      background: var(--interactive-bg-hover);
-    }
-
-    &:hover i {
-      color: var(--accent-soft);
-      transform: scale(1.08) rotate(-2deg);
-    }
+  .life-hero h1 {
+    font-size: clamp(3.7rem, 7.2vw, 5.8rem);
   }
 }
 
-@media (max-width: 480px) {
-  .hero-container {
-    min-height: auto;
-  }
-
-  .hero-copy h1 {
-    font-size: clamp(2.8rem, 18vw, 4.2rem);
-  }
-
-  .hero-copy .line {
-    max-width: 100%;
-  }
-
-  .hero-actions {
-    gap: 0.75rem;
-  }
-
-  .primary-action,
-  .secondary-action {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .portrait-copy {
+@media (max-width: 820px) {
+  .life-hero {
     grid-template-columns: 1fr;
-    gap: 0.35rem;
+    min-height: auto;
+    gap: 1.5rem;
   }
 
-  .portrait-copy strong {
-    text-align: left;
+  .life-hero h1 {
+    max-width: none;
+    font-size: clamp(3rem, 12vw, 3.4rem);
+    text-wrap: wrap;
   }
 
-  .icons .icon {
-    flex-basis: 100%;
-    justify-content: center;
+  .life-hero__summary {
+    max-width: 46ch;
+  }
+
+  .life-hero__media {
+    width: min(44rem, 100%);
+    justify-self: center;
   }
 }
 
-@media (min-width: 900px) {
-  .hero-container {
-    grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.82fr);
+@media (max-width: 540px) {
+  .life-hero {
+    gap: 1rem;
+  }
+
+  .life-hero__copy {
+    padding-top: 0.25rem;
+    padding-bottom: 0;
+  }
+
+  .life-hero h1 {
+    font-size: clamp(3rem, 12vw, 3.4rem);
+    line-height: 0.94;
+  }
+
+  .life-hero__rule {
+    width: 62%;
+    margin-block: 1rem 1.1rem;
+  }
+
+  .life-hero__summary {
+    font-size: 0.94rem;
+    line-height: 1.72;
+  }
+
+  .life-hero__actions {
     display: grid;
-    gap: 2rem;
-    align-items: center;
-    min-height: min(calc(100svh - 8.5rem), 46rem);
+    gap: 0.65rem;
+    margin-top: 1.35rem;
   }
 
-  .hero-visual {
-    max-width: 30rem;
-    justify-self: end;
+  .life-hero__actions .editorial-action {
+    min-height: 3rem;
+    padding: 0.7rem 1rem;
   }
 
-  .icons {
-    justify-content: center;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-copy {
-    padding-right: 1rem;
+  .life-hero__places {
+    margin-top: 1.2rem;
   }
 
-  .hero-container {
-    min-height: min(calc(100svh - 9rem), 48rem);
+  .life-hero__media {
+    padding-left: 0;
+    padding-bottom: 2.5rem;
   }
 
-  .hero-visual {
-    max-width: 34rem;
+  .life-hero__portrait {
+    aspect-ratio: 0.86;
   }
 
-  .portrait-card {
-    border-radius: 2.2rem;
+  .life-hero__portrait img {
+    object-position: 50% center;
   }
 
-  .icons {
-    .icon {
-      i {
-        font-size: 1.1rem;
-      }
-
-      p {
-        font-size: 0.85rem;
-      }
-    }
+  .life-hero__aerial {
+    width: 37%;
+    border-width: 4px;
   }
 }

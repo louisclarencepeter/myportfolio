@@ -1,6 +1,6 @@
 // Minimal service worker: cache-first for hashed assets, network-first for navigations.
 // Bump CACHE_VERSION when you want to invalidate the cache.
-const CACHE_VERSION = "v1";
+const CACHE_VERSION = "v3-zanzibar-return";
 const RUNTIME_CACHE = `runtime-${CACHE_VERSION}`;
 const OFFLINE_URL = "/offline.html";
 const PRECACHE_URLS = ["/", "/favicon.png", "/manifest.webmanifest", OFFLINE_URL];
