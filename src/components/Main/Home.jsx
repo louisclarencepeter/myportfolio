@@ -1,5 +1,4 @@
 import portrait from "../../assets/images/life-portfolio/louis-portrait.webp";
-import aerial from "../../assets/images/life-portfolio/photography-aerial.webp";
 import { useTranslation } from "../../i18n.jsx";
 import "./Home.scss";
 
@@ -10,10 +9,15 @@ const Arrow = () => (
 );
 
 const Home = () => {
-  const { t } = useTranslation();
+  const { language, t } = useTranslation();
 
   return (
-    <section className="life-hero" id="home" aria-labelledby="hero-title">
+    <section
+      className="life-hero"
+      id="home"
+      data-language={language}
+      aria-labelledby="hero-title"
+    >
       <div className="life-hero__copy">
         <h1 id="hero-title">{t("home.headline")}</h1>
         <span className="life-hero__rule" aria-hidden="true" />
@@ -44,17 +48,6 @@ const Home = () => {
             alt={t("home.portraitAlt")}
             width="1024"
             height="576"
-            fetchPriority="high"
-            decoding="async"
-          />
-        </figure>
-
-        <figure className="life-hero__aerial">
-          <img
-            src={aerial}
-            alt={t("home.aerialAlt")}
-            width="719"
-            height="1280"
             fetchPriority="high"
             decoding="async"
           />

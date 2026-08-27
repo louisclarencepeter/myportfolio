@@ -32,9 +32,8 @@ const translations = {
       zanzibar: "Zanzibar",
       frankfurt: "Frankfurt",
       placesLabel: "Returned from Frankfurt to Zanzibar",
-      mediaLabel: "Portrait and photography by Louis Peter",
+      mediaLabel: "Portrait of Louis Peter",
       portraitAlt: "Louis Peter smiling on the shoreline",
-      aerialAlt: "Aerial photograph of boats in turquoise water",
     },
     story: {
       title: "Before the code, there was Zanzibar.",
@@ -195,9 +194,8 @@ const translations = {
       zanzibar: "Sansibar",
       frankfurt: "Frankfurt",
       placesLabel: "Von Frankfurt zurück nach Sansibar",
-      mediaLabel: "Porträt und Fotografie von Louis Peter",
+      mediaLabel: "Porträt von Louis Peter",
       portraitAlt: "Louis Peter lächelnd am Meeresufer",
-      aerialAlt: "Luftaufnahme von Booten in türkisfarbenem Wasser",
     },
     story: {
       title: "Vor dem Code war Sansibar.",
@@ -358,9 +356,8 @@ const translations = {
       zanzibar: "Zanzibar",
       frankfurt: "Frankfurt",
       placesLabel: "Nimerudi kutoka Frankfurt hadi Zanzibar",
-      mediaLabel: "Picha ya Louis Peter na kazi zake za upigaji picha",
+      mediaLabel: "Picha ya Louis Peter",
       portraitAlt: "Louis Peter akitabasamu ufukweni",
-      aerialAlt: "Picha ya angani ya boti kwenye maji ya samawati",
     },
     story: {
       title: "Kabla ya kuandika programu, kulikuwa na Zanzibar.",
