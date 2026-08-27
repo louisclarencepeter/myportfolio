@@ -1,5 +1,5 @@
 import photographyImage from "../../assets/images/life-portfolio/photography-editorial.webp";
-import dcsImage from "../../assets/images/life-portfolio/dcs-khole-villa.webp";
+import dcsImage from "../../assets/images/Macbook-Air-flowdesktool.com.webp";
 import paradiseImage from "../../assets/images/life-portfolio/destination-paradise-platform.webp";
 import { useTranslation } from "../../i18n.jsx";
 import "./Project.scss";
@@ -23,8 +23,8 @@ const projects = [
     href: "https://hellodcs.com/",
     title: "Digital & Creative Solutions",
     image: dcsImage,
-    width: 1600,
-    height: 900,
+    width: 800,
+    height: 460,
     statementKey: "projects.dcs.statement",
     signatureKey: "projects.dcs.signature",
     linkKey: "projects.dcs.link",

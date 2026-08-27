@@ -184,13 +184,16 @@
 }
 
 .project-chapter--dcs .project-chapter__media img {
+  object-fit: contain;
   object-position: center;
+  padding: clamp(0.65rem, 1.2vw, 1rem);
 }
 
 .project-chapter--dcs .project-chapter__media {
   align-self: center;
   width: 100%;
-  aspect-ratio: 3.45;
+  aspect-ratio: 2.3;
+  background: #dfe9e6;
 }
 
 .project-chapter--dcs .project-chapter__media img,

@@ -83,7 +83,7 @@ const translations = {
         statement: "A Tanzania-based studio for software, brands and visual content.",
         signature: "Build. Create. Grow.",
         link: "Visit DCS",
-        alt: "Zanzibar villa photographed by Digital & Creative Solutions",
+        alt: "FlowDesk software displayed on a laptop, created by Digital & Creative Solutions",
       },
       paradise: {
         statement: "The Zanzibar travel idea I carried into a digital platform.",
@@ -245,7 +245,7 @@ const translations = {
         statement: "Ein Studio aus Tansania für Software, Marken und visuelle Inhalte.",
         signature: "Build. Create. Grow.",
         link: "DCS besuchen",
-        alt: "Villa auf Sansibar, fotografiert von Digital & Creative Solutions",
+        alt: "FlowDesk-Software auf einem Laptop, entwickelt von Digital & Creative Solutions",
       },
       paradise: {
         statement: "Die Reiseidee aus Sansibar, die ich in eine digitale Plattform überführt habe.",
@@ -407,7 +407,7 @@ const translations = {
         statement: "Studio ya Tanzania ya programu, chapa na maudhui ya picha.",
         signature: "Build. Create. Grow.",
         link: "Tembelea DCS",
-        alt: "Villa ya Zanzibar iliyopigwa picha na Digital & Creative Solutions",
+        alt: "Programu ya FlowDesk kwenye kompyuta mpakato, iliyoundwa na Digital & Creative Solutions",
       },
       paradise: {
         statement: "Wazo la safari la Zanzibar nililolibeba hadi kuwa jukwaa la kidijitali.",
