@@ -204,13 +204,14 @@
 .project-chapter--paradise .project-chapter__media {
   align-self: center;
   width: 100%;
-  aspect-ratio: 4.05;
+  aspect-ratio: 2.3;
   background: #15283a;
 }
 
 .project-chapter--paradise .project-chapter__media img {
-  object-fit: cover;
-  object-position: top center;
+  object-fit: contain;
+  object-position: center;
+  padding: clamp(0.65rem, 1.2vw, 1rem);
 }
 
 @media (max-width: 900px) {
