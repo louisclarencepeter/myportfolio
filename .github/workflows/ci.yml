@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, development]
   pull_request:
-    branches: [main]
+    branches: [main, development]
 
 jobs:
   build:
@@ -23,6 +23,12 @@ jobs:
 
       - name: Lint
         run: npm run lint
+
+      - name: Function compatibility tests
+        run: npm test
+
+      - name: Dependency audit
+        run: npm audit --audit-level=high
 
       - name: Build
         run: npm run build
