@@ -88,7 +88,7 @@ const translations = {
       paradise: {
         statement: "The Zanzibar travel idea I carried into a digital platform.",
         link: "Explore Paradise",
-        alt: "Destination Paradise travel platform homepage",
+        alt: "Destination Paradise travel platform displayed on an iPad",
       },
     },
     photography: {
@@ -250,7 +250,7 @@ const translations = {
       paradise: {
         statement: "Die Reiseidee aus Sansibar, die ich in eine digitale Plattform überführt habe.",
         link: "Paradise entdecken",
-        alt: "Startseite der Reiseplattform Destination Paradise",
+        alt: "Die Reiseplattform Destination Paradise auf einem iPad",
       },
     },
     photography: {
@@ -412,7 +412,7 @@ const translations = {
       paradise: {
         statement: "Wazo la safari la Zanzibar nililolibeba hadi kuwa jukwaa la kidijitali.",
         link: "Gundua Paradise",
-        alt: "Ukurasa wa mwanzo wa jukwaa la safari la Destination Paradise",
+        alt: "Jukwaa la safari la Destination Paradise kwenye iPad",
       },
     },
     photography: {

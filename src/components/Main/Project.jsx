@@ -1,6 +1,6 @@
 import photographyImage from "../../assets/images/life-portfolio/photography-editorial.webp";
 import dcsImage from "../../assets/images/Macbook-Air-flowdesktool.com.webp";
-import paradiseImage from "../../assets/images/life-portfolio/destination-paradise-platform.webp";
+import paradiseImage from "../../assets/images/iPad-PRO-11-yournexttriptoparadise.com.webp";
 import { useTranslation } from "../../i18n.jsx";
 import "./Project.scss";
 
@@ -36,8 +36,8 @@ const projects = [
     href: "https://yournexttriptoparadise.com/",
     title: "Destination Paradise",
     image: paradiseImage,
-    width: 960,
-    height: 540,
+    width: 800,
+    height: 577,
     statementKey: "projects.paradise.statement",
     linkKey: "projects.paradise.link",
     altKey: "projects.paradise.alt",
